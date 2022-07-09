@@ -5,6 +5,7 @@ import { AlumnoComponent } from "./alumno/alumno.component";
 import {CicloComponent} from "./ciclo/ciclo.component";
 import {GrupoComponent} from "./grupo/grupo.component";
 import {MateriaComponent} from "./materia/materia.component";
+import { AlumnosComponent } from "./alumnos/alumnos.component";
 
 const routes: Routes = [
     {
@@ -15,7 +16,11 @@ const routes: Routes = [
     {
       path: "alumno",
       loadChildren: () =>
-      import("./alumno/alumnos-routing.module").then((m) => m.AlumnoRoutingModule),
+      import("./alumno/alumno-routing.module").then((m) => m.AlumnoRoutingModule),
+    },
+    {
+      path: "filtrobusqueda",
+      component: AlumnosComponent,
     },
     {
      path: "ciclo",

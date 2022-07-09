@@ -21,26 +21,15 @@ import { MatTableExporterModule } from "mat-table-exporter";
 import { ComponentsModule } from "src/app/shared/components/components.module";
 import { SharedModule } from "src/app/shared/shared.module";
 import { AlumnoService } from "src/app/_services/alumno.service";
-import { AgregarAlumnoComponent } from './agregar-alumno/agregar-alumno.component';
-import { EditarAlumnoComponent } from './editar-alumno/editar-alumno.component';
-import { FormularioMensajeComponent } from './todo-alumno/mensaje/formulario-mensaje/formulario-mensaje.component';
-import { TodoAlumnoComponent } from "./todo-alumno/todo-alumno.component";
-import { EliminarComponent } from "./todo-alumno/mensaje/eliminar-alumno/eliminar-alumno.component";
+import { AlumnosComponent } from "./alumnos.component";
+
 
 
 
 @NgModule({
     declarations:[
         //Componentes
-        
-        TodoAlumnoComponent,
-        AgregarAlumnoComponent,
-        EditarAlumnoComponent,
-        EliminarComponent,
-        FormularioMensajeComponent
-        
-        
-        
+        AlumnosComponent
     ],
     imports:[
         CommonModule,
@@ -69,4 +58,4 @@ import { EliminarComponent } from "./todo-alumno/mensaje/eliminar-alumno/elimina
     providers:[AlumnoService]
 })
 
-export class AlumnoModule{}
+export class AlumnosModule{}

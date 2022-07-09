@@ -5,5 +5,5 @@ export class AlumnoFiltroRequest {
     nombre:string;
     curp:string;
     correo:string;
-    idCiclo: string;
+    cicloClave: string;
 }

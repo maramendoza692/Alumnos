@@ -40,10 +40,10 @@ const routes: Routes = [
           import("./employee/employee.module").then((m) => m.EmployeeModule),
       },
       {
-        path: "client",
+        path: "alumno",
         canActivate: [AuthGuard],
         data: {
-          role: Role.Client,
+          role: Role.Alumno,
         },
         loadChildren: () =>
           import("./alumnos/alumnos.module").then((m) => m.AlumnoModule),

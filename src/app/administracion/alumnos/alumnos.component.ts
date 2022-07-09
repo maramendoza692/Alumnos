@@ -5,17 +5,19 @@ import { AlumnoService } from 'src/app/_services/alumno.service';
 import { AlumnoRequest } from 'src/app/_model/alumnoRequest';
 import { Alumno } from 'src/app/_model/alumno';
 import { MatTableDataSource } from '@angular/material/table';
-import { AlumnoFiltroRequest } from '../../../../../_model/alumnoFiltroRequest';
+import { AlumnoFiltroRequest } from 'src/app/_model/alumnoFiltroRequest';
+import { FiltroBusquedaComponent } from '../ciclo/todo-ciclo/mensaje/filtro-busqueda/filtro-busqueda.component';
+
 
 
 @Component({
-  selector: 'app-filtro-busqueda',
-  templateUrl: './filtro-busqueda.component.html',
-  styleUrls: ['./filtro-busqueda.component.sass']
+  selector: 'app-alumnos',
+  templateUrl: './alumnos.component.html',
+  styleUrls: ['./alumnos.component.sass']
 })
+export class AlumnosComponent implements OnInit {
 
-export class FiltroBusquedaComponent {
-    action: string;
+  action: string;
     dialogTitle: string;
     alumnoForm: FormGroup;
     alumno: AlumnoRequest;
@@ -26,13 +28,13 @@ export class FiltroBusquedaComponent {
     sort: any;
 
     constructor(
-      public dialogRef: MatDialogRef<FiltroBusquedaComponent>,
-      @Inject(MAT_DIALOG_DATA) public data: any,
+      
+      
       public alumnoService: AlumnoService,
       private fb: FormBuilder
     ) {
       
-      this.action = data.action;
+      
       this.dialogTitle = "Buscar Alumno";
       this.alumno = new AlumnoRequest();
       this.alumnoForm = this.createContactForm();
@@ -61,9 +63,7 @@ export class FiltroBusquedaComponent {
     submit() {
       // emppty stuff
     }
-    onNoClick(): void {
-      this.dialogRef.close()
-    }
+    
     ngOnInit(){
       this.filtrarCiclo();
     }
@@ -93,8 +93,7 @@ export class FiltroBusquedaComponent {
       this.alumnoService.buscarAlumno(this.alumnoForm.value).subscribe(data=>{
         let datos = data.list
         //console.log(data)
-        this.dialogRef.close({datos: data.list})
+        
       }); 
     }
-
 }

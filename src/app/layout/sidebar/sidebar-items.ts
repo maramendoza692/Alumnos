@@ -40,6 +40,19 @@ export const ROUTES: RouteInfo[] = [
         submenu: [],
       },
       {
+        path: "/administracion/filtrobusqueda",
+        title: "prueba",
+        moduleName: "prueba",
+        iconType: "",
+        icon: "",
+        class: "ml-menu",
+        groupTitle: false,
+        badge: "",
+        badgeClass: "",
+        role: [""],
+        submenu: [],
+      },
+      {
         path: "/administracion/materia",
         title: "Materias",
         moduleName: "administracion",
@@ -75,7 +88,7 @@ export const ROUTES: RouteInfo[] = [
             badge: "",
             badgeClass: "",
             role: [""],
-            submenu: []
+            submenu: [] 
           },
           {
             path: "/administracion/alumno/editar-alumno",

@@ -5,19 +5,15 @@ import { SharedModule } from "./../shared/shared.module";
 
 import { AdministracionRoutingModule } from './administacion-routing.module';
 import { CiclosModule } from "./ciclo/ciclos.module";
-import { TodoAlumnosComponent } from './alumno/todo-alumnos/todo-alumnos.component';
-import { AgregarAlumnoComponent } from './alumno/agregar-alumno/agregar-alumno.component';
-import { EditarAlumnoComponent } from './alumno/editar-alumno/editar-alumno.component';
-import { EliminarComponent } from './alumno/todo-alumnos/mensaje/eliminar/eliminar.component';
-import { FiltroBusquedaComponent } from './alumno/todo-alumnos/mensaje/filtro-busqueda/filtro-busqueda.component';
-import { FormularioMensajeComponent } from './alumno/todo-alumnos/mensaje/formulario-mensaje/formulario-mensaje.component';
 import { AlumnoModule } from "./alumno/alumno.module";
-
+import { AlumnosModule } from "./alumnos/alumnos.module";
+import { AlumnosComponent } from './alumnos/alumnos.component';
 
 
 @NgModule({
   declarations: [
-    
+  
+
   ],
   imports: [
     CommonModule,
@@ -25,7 +21,9 @@ import { AlumnoModule } from "./alumno/alumno.module";
     SharedModule,
     AdministracionRoutingModule,
     CiclosModule,
-    AlumnoModule
+    AlumnoModule,
+    AlumnosModule
+    
   ],
 })
 export class AdministracionModule {}

@@ -1,14 +1,14 @@
 import { NgModule } from "@angular/core";
 import { Routes, RouterModule } from "@angular/router";
 import { Page404Component } from '../../authentication/page404/page404.component';
-import { TodoAlumnosComponent } from "./todo-alumnos/todo-alumnos.component";
+import { TodoAlumnoComponent } from "./todo-alumno/todo-alumno.component";
 import { AgregarAlumnoComponent } from './agregar-alumno/agregar-alumno.component';
 import { EditarAlumnoComponent } from './editar-alumno/editar-alumno.component';
 
 const routes:Routes = [
     {
         path: "todos-alumnos",
-        component: TodoAlumnosComponent
+        component: TodoAlumnoComponent
     },
     {
         path: "agregar-alumno",

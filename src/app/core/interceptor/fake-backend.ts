@@ -40,7 +40,7 @@ const users: User[] = [
     password: "client@123",
     firstName: "Cara",
     lastName: "Stevens",
-    role: Role.Client,
+    role: Role.Alumno,
     token: "client-token",
   },
 ];

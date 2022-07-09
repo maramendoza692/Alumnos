@@ -67,8 +67,8 @@ export class SigninComponent
                   this.router.navigate(["/admin/dashboard/main"]);
                 } else if (role === Role.Employee) {
                   this.router.navigate(["/employee/dashboard"]);
-                } else if (role === Role.Client) {
-                  this.router.navigate(["/client/dashboard"]);
+                } else if (role === Role.Alumno) {
+                  this.router.navigate(["/alumno/perfil"]);
                 } else {
                   this.router.navigate(["/authentication/signin"]);
                 }

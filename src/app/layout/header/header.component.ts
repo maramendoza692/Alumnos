@@ -106,7 +106,7 @@ export class HeaderComponent
 
     if (userRole === "Admin") {
       this.homePage = "admin/dashboard/main";
-    } else if (userRole === "Client") {
+    } else if (userRole === "Alumno") {
       this.homePage = "client/dashboard";
     } else if (userRole === "Employee") {
       this.homePage = "employee/dashboard";
