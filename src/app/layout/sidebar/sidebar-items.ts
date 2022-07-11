@@ -247,7 +247,7 @@ export const ROUTES: RouteInfo[] = [
 
   // Client Modules
   {
-    path: "/client/dashboard",
+    path: "/alumno/perfil",
     title: "MENUITEMS.CLIENT.DASHBOARD",
     moduleName: "dashboard",
     iconType: "feather",
@@ -256,7 +256,7 @@ export const ROUTES: RouteInfo[] = [
     groupTitle: false,
     badge: "",
     badgeClass: "",
-    role: ["Client"],
+    role: ["Alumno"],
     submenu: [],
   },
 

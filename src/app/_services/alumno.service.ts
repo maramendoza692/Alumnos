@@ -5,7 +5,7 @@ import { BehaviorSubject, Observable, of, throwError } from 'rxjs';
 import { catchError, retry, tap } from 'rxjs/operators';
 import { UnsubscribeOnDestroyAdapter } from '../shared/UnsubscribeOnDestroyAdapter';
 import { Alumno } from '../_model/alumno';
-import {Response} from "../_model/response";
+import { Response } from "../_model/response";
 import { AlumnoFiltroRequest } from '../_model/alumnoFiltroRequest';
 import { AlumnoRequest } from '../_model/alumnoRequest';
 
@@ -36,6 +36,12 @@ export class AlumnoService extends UnsubscribeOnDestroyAdapter{
       {headers: new HttpHeaders().append("Content-Type","application/json")});
   }
 
+  consultarAlumnoPorId(idAlumno: number): Observable<Alumno> {
+    const url = "http://localhost:8081/alumno/consultarAlumnoPorId/" +  idAlumno
+
+    return this.http.get<Alumno>(url);
+  }
+  
   guardarAlumno(alumno: AlumnoRequest): Observable<Response<Alumno>> {
     const url = "http://localhost:8081/alumno/guardarAlumno"; 
                                   //Url y body: objeto que contiene de lo que queremos crear

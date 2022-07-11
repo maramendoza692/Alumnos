@@ -40,6 +40,7 @@ export class CicloService extends UnsubscribeOnDestroyAdapter{
     return this.http.get<Response<Ciclo>>(url,
       {headers: new HttpHeaders().append("Content-Type","application/json")});
   }
+
   guardarCiclo(ciclo: Ciclo): Observable<Response<Ciclo>> {
     const url = "http://localhost:8081/ciclo/guardarCiclo"; 
                                   //Url y body: objeto que contiene de lo que queremos crear
