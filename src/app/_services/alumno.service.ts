@@ -61,8 +61,8 @@ export class AlumnoService extends UnsubscribeOnDestroyAdapter{
     return this.http.delete<number>(url);
   }
 
-  buscarAlumno(filtro: AlumnoFiltroRequest): Observable<Response<Alumno>> {
-    const url = "http://localhost:8081/alumno/buscarAlumno"; 
+  buscarAlumnoFiltro(filtro: AlumnoFiltroRequest): Observable<Response<Alumno>> {
+    const url = "http://localhost:8081/alumno/buscarAlumnoFiltro"; 
                                   //Url y body: objeto que contiene de lo que queremos crear
     return this.http.post<Response<Alumno>>(url,filtro)
   }

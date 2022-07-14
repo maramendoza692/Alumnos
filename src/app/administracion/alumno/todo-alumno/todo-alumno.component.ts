@@ -28,14 +28,16 @@ export class TodoAlumnoComponent
   implements OnInit
 {
   displayedColumns = [
-    "id",
-    "expediente",
-    "nombre",
-    "curp",
-    "genero",
-    "correo",
-    "estatus",
-    "idCiclo",
+    "pk_alumno",
+    "txt_expediente",
+    "txt_nombre",
+    "txt_ape_paterno",
+    "txt_ape_materno",
+    "txt_curp",
+    "txt_sexo",
+    "txt_correo",
+    "fk_status",
+    "fk_grupo",
     "actions",
   ];
 
@@ -46,7 +48,7 @@ export class TodoAlumnoComponent
   id: number;
   alumno: Alumno | null;
   datos: MatTableDataSource<Alumno>;
-  ciclo = []
+  grupo = []
   //Traer los datos desde el modelo 
   dataArray: Alumno[];
   public form: FormGroup;
@@ -70,22 +72,22 @@ export class TodoAlumnoComponent
     this.consultarTodos();
     
     this.form = this.formBuilder.group({
-      curp: ["", Validators.required],
-      nombre: ["", Validators.required],
-      estatus: ["", Validators.required],
-      idCiclo: ["", Validators.required],
-      genero: ["", Validators.required],
-      correo: ["", Validators.required],
-      expediente: ["", Validators.required],
+      txt_curp: ["", Validators.required],
+      txt_nombre: ["", Validators.required],
+      fk_estatus: ["", Validators.required],
+      fk_grupo: ["", Validators.required],
+      txt_sexo: ["", Validators.required],
+      txt_correo: ["", Validators.required],
+      txt_expediente: ["", Validators.required],
     });
     this.formBusqueda = this.formBuilder.group({
-      curp: ["", Validators.required],
-      nombre: ["", Validators.required],
-      idCiclo: ["", Validators.required],
-      correo: ["", Validators.required],
-      expediente: ["", Validators.required],
+      txt_curp: ["", Validators.required],
+      txt_nombre: ["", Validators.required],
+      fk_status: ["", Validators.required],
+      txt_correo: ["", Validators.required],
+      txt_expediente: ["", Validators.required],
     });
-    this.filtrarCiclo();
+    this.filtrarGrupo();
   }
   refresh() {
     this.consultarTodos();
@@ -98,7 +100,9 @@ export class TodoAlumnoComponent
      
     });
   }
-
+  buscarAlumnoPorID(){
+    
+  }
   guardarAlumno(){
 
     const dialogRef = this.dialog.open(FormularioMensajeComponent, {
@@ -124,23 +128,23 @@ export class TodoAlumnoComponent
     });
   }
 
-  buscarAlumno() {
+  buscarAlumnoFiltro() {
     this.alumnoFiltroRequest = this.formBusqueda.value; //pasa los datos
     if (this.formBusqueda != null) {
-      this.alumnoService.buscarAlumno(this.alumnoFiltroRequest).subscribe((data) => {
+      this.alumnoService.buscarAlumnoFiltro(this.alumnoFiltroRequest).subscribe((data) => {
 
           this.dataArray = data.list;
-         
-          console.log(this.alumnoFiltroRequest.cicloClave);
+          console.log(this.formBusqueda.value);
+          console.log(this.alumnoFiltroRequest.txt_nombre);
         });
       this.formBusqueda.reset(); //resetea elformulario
     }
 
   }
 
-  editarAlumno(alumno?: Alumno, idCiclo?: string ) {
+  editarAlumno(alumno?: Alumno, fk_grupo?: string ) {
     let alu = alumno != null ? alumno: new Alumno();
-    alu.idCiclo = idCiclo;
+    alu.fk_grupo =fk_grupo;
 
     const dialogRef = this.dialog.open(FormularioMensajeComponent, {
       data: {
@@ -191,46 +195,46 @@ export class TodoAlumnoComponent
     });
   }
 
-  filtrarCiclo(){
+  filtrarGrupo(){
     this.alumnoService.consultarTodos().subscribe(data => {
       this.datos = new MatTableDataSource(data.list); 
       this.datos.sort = this.sort
       
         data.list.forEach((element) => {
-          let ciclo:string = (element.idCiclo)
-          this.ciclo.push(ciclo);
+          let grupo:string = (element.fk_grupo)
+          this.grupo.push(grupo);
           
         }); 
         //item actual del array eindice del item actual del array
-        let ciclos = this.ciclo.filter((value, index) => {
-          return this.ciclo.indexOf(value) === index;
+        let grupos = this.grupo.filter((value, index) => {
+          return this.grupo.indexOf(value) === index;
           
         })
         
-        ciclos.sort();
-        this.ciclo = ciclos;
+        grupos.sort();
+        this.grupo = grupos;
     });
   }
 
-  seleccionarCiclo(){
+  seleccionarGrupo(){
     this.alumnoService.consultarTodos().subscribe(data => {
       this.datos = new MatTableDataSource(data.list); 
       this.datos.sort = this.sort
       
         data.list.forEach((element) => {
-          let ciclo:string = (element.idCiclo)
-          this.ciclo.push(ciclo);
+          let grupo:string = (element.fk_grupo)
+          this.grupo.push(grupo);
           
         }); console.log("filtroooo")  
         //item actual del array eindice del item actual del array
-        let ciclos = this.ciclo.filter((value, index) => {
-          return this.ciclo.indexOf(value) === index;
+        let grupos = this.grupo.filter((value, index) => {
+          return this.grupo.indexOf(value) === index;
           
         })
         console.log("filtroooox2")
-        ciclos.sort();
-        this.ciclo = ciclos;
-        console.log(ciclos)
+        grupos.sort();
+        this.grupo = grupos;
+        console.log(grupos)
        
       
     });

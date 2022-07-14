@@ -1,5 +1,5 @@
 export class CicloFiltroRequest{
-    clave:string;
-    nombre:string;
+    txt_clave:string;
+    txt_desc_ciclo:string;
     year:string;
 }

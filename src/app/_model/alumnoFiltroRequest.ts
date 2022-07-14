@@ -1,9 +1,9 @@
 import { Ciclo } from "./ciclo";
 
 export class AlumnoFiltroRequest {
-    expediente: string;
-    nombre:string;
-    curp:string;
-    correo:string;
-    cicloClave: string;
+    txt_expediente: string;
+    txt_nombre:string;
+    txt_curp:string;
+    txt_correo:string;
+    fk_grupo: string;
 }

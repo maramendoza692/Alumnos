@@ -28,11 +28,12 @@ export class FormularioMensajeComponent {
   alumnoForm: FormGroup;
   alumno: Alumno;
   alumnoE: AlumnoRequest;
-  ciclo = []
+  grupo = []
   dataArray: Alumno[];
   alumnoFiltroRequest!: AlumnoFiltroRequest;
   datos: MatTableDataSource<Ciclo>;
   sort: any;
+  grupoService: any;
    
   constructor(
     public dialogRef: MatDialogRef<FormularioMensajeComponent>,
@@ -44,7 +45,7 @@ export class FormularioMensajeComponent {
     // Set the defaults
     this.action = data.action;
     if (this.action === "edit") {
-      this.dialogTitle = data.alumno.expediente;
+      this.dialogTitle = data.alumno.txt_expediente;
       this.alumno = data.alumno;
     } else {
       this.dialogTitle = "add";
@@ -66,14 +67,16 @@ export class FormularioMensajeComponent {
 
   createContactForm(): FormGroup {
       return this.alumnoForm = this.fb.group({
-      id:[this.alumno.id],
-      expediente: [this.alumno.expediente,[Validators.minLength(4), Validators.maxLength(6),Validators.required]],//
-      nombre: [this.alumno.nombre],
-      curp: [this.alumno.curp,[Validators.minLength(18),Validators.required]],//
-      genero: [this.alumno.genero],
-      correo: [this.alumno.correo,[Validators.email]],//
-      estatus: [this.alumno.estatus],
-      idCiclo: [this.alumno.idCiclo]
+      pk_alumno:[this.alumno.pk_alumno],
+      txt_expediente: [this.alumno.txt_expediente,[Validators.minLength(4), Validators.maxLength(6),Validators.required]],//
+      txt_nombre: [this.alumno.txt_nombre],
+      txt_ape_paterno: [this.alumno.txt_ape_paterno],
+      txt_ape_materno: [this.alumno.txt_ape_materno],
+      txt_curp: [this.alumno.txt_curp,[Validators.minLength(18),Validators.required]],//
+      txt_sexo: [this.alumno.txt_sexo],
+      txtx_correo: [this.alumno.txt_correo,[Validators.email]],//
+      fk_status: [this.alumno.fk_status],
+      fk_grupo: [this.alumno.fk_grupo]
        
     });
   }
@@ -84,27 +87,27 @@ export class FormularioMensajeComponent {
     this.dialogRef.close();
   }
   ngOnInit(){
-    this.seleccionarCiclo();
+    this.seleccionarGrupo();
   }
 
-  seleccionarCiclo(){
-    this.cicloService.consultarTodos().subscribe(data => {
+  seleccionarGrupo(){
+    this.grupoService.consultarTodos().subscribe(data => {
       this.datos = new MatTableDataSource(data.list); 
       this.datos.sort = this.sort
       
         data.list.forEach((element) => {
-          let ciclo = (element.id)
-          this.ciclo.push(ciclo);
+          let grupo = (element.fk_grupo)
+          this.grupo.push(grupo);
           
         });  
         //item actual del array e indice del item actual del array
-        let ciclos = this.ciclo.filter((value, index) => {
-          return this.ciclo.indexOf(value) === index;
+        let grupos = this.grupo.filter((value, index) => {
+          return this.grupo.indexOf(value) === index;
           
         })
-        ciclos.sort();
-        this.ciclo = ciclos;
-        console.log(ciclos)
+        grupos.sort();
+        this.grupo = grupos;
+        console.log(grupos)
        
       
     });

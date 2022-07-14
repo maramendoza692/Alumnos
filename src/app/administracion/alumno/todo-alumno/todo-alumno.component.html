@@ -15,44 +15,44 @@
                 </div>
                 <div class="row formBusqueda">
                   <div class="col-auto">
-                    <label  for="expediente"  class="col-form-label">Expediente</label>
+                    <label  for="txt_expediente"  class="col-form-label">Expediente</label>
                   </div>
                   <div class="col">
-                    <input  maxlength="12" id="expediente"  formControlName="expediente" class="form-control" type="text">
+                    <input  maxlength="12" id="txt_expediente"  formControlName="txt_expediente" class="form-control" type="text">
                   </div>
                   <div class="col-auto">
-                    <label for="nombre" class="col-form-label">Nombre</label>
+                    <label for="txt_nombre" class="col-form-label">Nombre</label>
                   </div>
                   <div class="col">
-                    <input id="nombre" maxlength ="30" formControlName="nombre" class="form-control" type="text">
+                    <input id="txt_nombre" maxlength ="30" formControlName="txt_nombre" class="form-control" type="text">
                   </div>
                   <div class="col-auto">
-                    <label  for="curp"  class="col-form-label">CURP</label>
+                    <label  for="txt_curp"  class="col-form-label">CURP</label>
                   </div>
                   <div class="col">
-                    <input  maxlength="12" id="curp"  formControlName="curp" class="form-control" type="text">
+                    <input  maxlength="12" id="txt_curp"  formControlName="txt_curp" class="form-control" type="text">
                   </div>
                   <div class="row">
                     <p></p>
                   </div>
                   <div class="row">
                     <div class="col-auto">
-                      <label for="correo" class="col-form-label">Correo</label>
+                      <label for="txt_correo" class="col-form-label">Correo</label>
                     </div>
                     <div class="col">
-                      <input id="correo" maxlength ="30" formControlName="correo" class="form-control" type="text">
+                      <input id="txt_correo" maxlength ="30" formControlName="txt_correo" class="form-control" type="text">
                     </div>
                   <div class="col-auto">
-                    <label for="year" class="col-form-label">Ciclo</label>
+                    <label for="year" class="col-form-label">grupo</label>
                   </div>
                   <div class="col">
-                    <select formControlName="idCiclo" class="custom-select mr-sm-2" id="idCiclo">
+                    <select formControlName="fk_grupo" class="custom-select mr-sm-2" id="fk_grupo">
                       <option></option>
-                      <option *ngFor="let ciclos of ciclo">{{ciclos}}</option>
+                      <option *ngFor="let grupos of grupo">{{grupos.txt_desc_grupo}}</option>
                        </select>
                   </div>
                   <div class="col-auto">
-                    <button  (click)="buscarAlumno()" type="submit" c
+                    <button  (click)="buscarAlumnoFiltro()" type="submit" c
                         mat-mini-fab color="primary">
                         <mat-icon class="col-white">search</mat-icon>
                       </button>
@@ -113,50 +113,62 @@
                     </mat-cell>
                   </ng-container>
                   <!-- ID Column -->
-                  <ng-container matColumnDef="id">
+                  <ng-container matColumnDef="pk_alumno">
                     <mat-header-cell *matHeaderCellDef mat-sort-header >ID</mat-header-cell>
-                    <mat-cell *matCellDef="let row">{{row.id}} </mat-cell>
+                    <mat-cell *matCellDef="let row">{{row.pk_alumno}} </mat-cell>
                   </ng-container>
-                  <ng-container matColumnDef="curp">
+                  <ng-container matColumnDef="txt_curp">
                     <mat-header-cell *matHeaderCellDef mat-sort-header >CURP</mat-header-cell>
-                    <mat-cell *matCellDef="let row">{{row.curp}} </mat-cell>
+                    <mat-cell *matCellDef="let row">{{row.txt_curp}} </mat-cell>
                   </ng-container>
-                  <ng-container matColumnDef="nombre">
+                  <ng-container matColumnDef="txt_nombre">
                     <mat-header-cell *matHeaderCellDef mat-sort-header>Nombre</mat-header-cell>
-                    <mat-cell *matCellDef="let row"> {{row.nombre}}</mat-cell>
+                    <mat-cell *matCellDef="let row"> {{row.txt_nombre}}</mat-cell>
                   </ng-container>
-                  <ng-container matColumnDef="genero">
+                  <ng-container matColumnDef="txt_ape_paterno">
+                    <mat-header-cell *matHeaderCellDef mat-sort-header>Apellido Paterno</mat-header-cell>
+                    <mat-cell *matCellDef="let row"> {{row.txt_ape_paterno}}</mat-cell>
+                  </ng-container>
+                  <ng-container matColumnDef="txt_ape_materno">
+                    <mat-header-cell *matHeaderCellDef mat-sort-header>Apellido Materno</mat-header-cell>
+                    <mat-cell *matCellDef="let row"> {{row.txt_ape_materno}}</mat-cell>
+                  </ng-container>
+                  <ng-container matColumnDef="txt_sexo">
                     <mat-header-cell *matHeaderCellDef mat-sort-header>Genero</mat-header-cell>
-                    <mat-cell *matCellDef="let row"> {{row.genero}}</mat-cell>
+                    <mat-cell *matCellDef="let row"> {{row.txt_sexo}}</mat-cell>
                   </ng-container>
-                  <ng-container matColumnDef="correo">
+                  <ng-container matColumnDef="txt_correo">
                     <mat-header-cell *matHeaderCellDef mat-sort-header>Correo</mat-header-cell>
-                    <mat-cell *matCellDef="let row"> {{row.correo}}</mat-cell>
+                    <mat-cell *matCellDef="let row"> {{row.txt_correo}}</mat-cell>
                   </ng-container>
-                  <ng-container matColumnDef="estatus">
+                  <ng-container matColumnDef="fk_status">
                     <mat-header-cell *matHeaderCellDef mat-sort-header>Estatus</mat-header-cell>
-                    <mat-cell *matCellDef="let row"> {{row.estatus}}</mat-cell>
+                    <mat-cell *matCellDef="let row"> {{row.fk_status.txt_status}}</mat-cell>
                   </ng-container>
-                  <ng-container matColumnDef="expediente">
+                  <ng-container matColumnDef="txt_expediente">
                     <mat-header-cell *matHeaderCellDef mat-sort-header>Expediente</mat-header-cell>
-                    <mat-cell *matCellDef="let row"> {{row.expediente}}</mat-cell>
+                    <mat-cell *matCellDef="let row"> {{row.txt_expediente}}</mat-cell>
                   </ng-container>
-                  <ng-container matColumnDef="idCiclo">
-                    <mat-header-cell *matHeaderCellDef mat-sort-header>Ciclo</mat-header-cell>
-                    <mat-cell *matCellDef="let row"> {{row.idCiclo}}</mat-cell>
+                  <ng-container matColumnDef="fk_grupo">
+                    <mat-header-cell *matHeaderCellDef mat-sort-header>Grupo</mat-header-cell>
+                    <mat-cell *matCellDef="let row"> {{row.fk_grupo.txt_desc_grupo}}</mat-cell>
                   </ng-container>
                 
                   <!-- actions -->
                   <ng-container matColumnDef="actions">
                     <mat-header-cell *matHeaderCellDef class="pr-0">Acciones</mat-header-cell>
                     <mat-cell *matCellDef="let row" class="pr-0">
-                      <button mat-icon-button color="accent" (click)="$event.stopPropagation()" (click)="editarAlumno(row, row.idCiclo)"
+                      <button mat-icon-button color="accent" (click)="$event.stopPropagation()" (click)="editarAlumno(row, row.pk_alumno)"
                         class="tbl-action-btn">
                         <app-feather-icons [icon]="'edit'" [class]="'tbl-fav-edit'"></app-feather-icons>
                       </button>
                       <button mat-icon-button color="accent" (click)="$event.stopPropagation()" (click)="eliminarAlumno(i, row)"
                         class="tbl-action-btn">
                         <app-feather-icons [icon]="'trash-2'" [class]="'tbl-fav-delete'"></app-feather-icons> 
+                      </button>
+                      <button mat-icon-button color="accent" (click)="$event.stopPropagation()" (click)="buscarAlumnoPorID(row, row.pk_alumno)"
+                        class="tbl-action-btn">
+                        <app-feather-icons [icon]="'edit'" [class]="'tbl-fav-edit'"></app-feather-icons>
                       </button>
                     </mat-cell>
                   </ng-container>
@@ -165,6 +177,7 @@
                   <mat-row *matRowDef="let row; columns: displayedColumns;" (click)="editarAlumno(row)"
                     [style.cursor]="'pointer'" matRipple>
                   </mat-row>
+                  
                 </mat-table>
                 <!-- Loading spinner --> 
                 <!-- <div *ngIf="cicloService.isTblLoading" class="tbl-spinner">

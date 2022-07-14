@@ -11,13 +11,15 @@ export class EditarAlumnoComponent {
 
   alumnoForm: FormGroup;
   formdata = {
-    expediente: "Expendiente",
-    nombre: "Nombre Alumno",
-    curp: "CURP",
-    genero: "Genero",
-    correo:"Correo",
-    estatus: "Estatus",
-    ciclo: "Ciclo id"
+    txt_expediente: "Expendiente",
+    txt_nombre: "Nombre Alumno",
+    txt_ape_paterno: "Apellido Paterno",
+    txt_apematerno_: "Apellido Mateno",
+    txt_curp: "CURP",
+    txt_sexo: "Sexo",
+    txt_correo:"Correo",
+    fk_status: "Estatus",
+    fk_grupo: "Grupo id"
   };
 
   constructor(private fb:FormBuilder,
@@ -26,13 +28,13 @@ export class EditarAlumnoComponent {
 
   createContactForm():FormGroup{
     return this.fb.group({
-      expediente: [this.formdata.expediente, [Validators.required]],
-      nombre: [this.formdata.nombre,[Validators.required]],
-      curp: [this.formdata.curp,[Validators.required]],
-      genero: [this.formdata.genero,[Validators.required]],
-      correo: [this.formdata.correo,[Validators.required]],
-      estatus: [this.formdata.estatus,[Validators.required]],
-      ciclo: [this.formdata.ciclo,[Validators.required]]
+      txt_expediente: [this.formdata.txt_expediente, [Validators.required]],
+      txt_nombre: [this.formdata.txt_nombre,[Validators.required]],
+      txt_curp: [this.formdata.txt_curp,[Validators.required]],
+      txt_sexo: [this.formdata.txt_sexo,[Validators.required]],
+      txt_correo: [this.formdata.txt_correo,[Validators.required]],
+      fk_status: [this.formdata.fk_status,[Validators.required]],
+      fk_grupo: [this.formdata.fk_grupo,[Validators.required]]
     });
   }    
    
