@@ -71,8 +71,8 @@
                     <option value = "Masculino">Masculino</option>
                     <option value = "Femenino">Femenino</option>
                     <option value = "Otro">Otro</option>
-                    <mat-error *ngIf="alumnoForm.get('estatus').hasError('required')">
-                      Seleccione un estatus.
+                    <mat-error *ngIf="alumnoForm.get('txt_sexo').hasError('required')">
+                      Seleccione una opción.
                     </mat-error>
                   </select>
                 </mat-form-field>
@@ -91,13 +91,18 @@
               <div class="col-xl-6 col-lg-6 col-md-12 col-sm-12 mb-2">
                 <mat-form-field class="example-full-width" appearance="outline">
                   <mat-label>Estatus</mat-label>
-                  <select matNativeControl formControlName="fk_status">
+                  <input matInput formControlName="fk_status" required>
+                  <mat-error *ngIf="alumnoForm.get('fk_status').hasError('required')">
+                    El status debe ser numérico.
+                  </mat-error>
+                
+                  <!--<select matNativeControl formControlName="fk_status">
                     <option value = "1">Activo</option>
                     <option value = "0">Inactivo</option>
                     <mat-error *ngIf="alumnoForm.get('fk_estatus').hasError('required')">
                       Seleccione un estatus.
                     </mat-error>
-                  </select>
+                  </select>-->
                 </mat-form-field>
               </div>
         </div>
@@ -105,13 +110,18 @@
             <div class="col-xl-6 col-lg-6 col-md-12 col-sm-12 mb-2">
                 <mat-form-field class="example-full-width" appearance="outline">
                   <mat-label>grupo</mat-label>
+                  <!--<ng-template [ngTemplateOutlet]="outlet" [ngOutletContext]="context"></ng-template><input matInput formControlName="fk_grupo" required>
+                  <mat-error *ngIf="alumnoForm.get('fk_grupo').hasError('required')">
+                    El correo es requerido.
+                  </mat-error>-->
+                
                   <select matNativeControl formControlName="fk_grupo">
                       <option></option>
-                      <option *ngFor="let fk_grupo of grupo" >{{fk_grupo}}</option>
+                      <option *ngFor="let fkgrupo of grupo" >{{fkgrupo}}</option>
              
                   <mat-error
                 *ngIf="alumnoForm.get('fk_grupo').hasError('required')">
-                Ingresa el ciclo.
+                Ingresa el grupo.
               </mat-error>
             </select>
                 </mat-form-field> 

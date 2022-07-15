@@ -14,5 +14,4 @@ export class Alumno{
     txt_correo: string;
 	fk_status: string;
 	fk_grupo: string;
-	
 }

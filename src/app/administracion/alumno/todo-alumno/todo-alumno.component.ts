@@ -69,7 +69,7 @@ export class TodoAlumnoComponent
   @ViewChild(MatSort, { static: true }) sort: MatSort;
   @ViewChild("filter", { static: true }) filter: ElementRef;
   ngOnInit() {
-    this.consultarTodos();
+    
     
     this.form = this.formBuilder.group({
       txt_curp: ["", Validators.required],
@@ -78,7 +78,7 @@ export class TodoAlumnoComponent
       fk_grupo: ["", Validators.required],
       txt_sexo: ["", Validators.required],
       txt_correo: ["", Validators.required],
-      txt_expediente: ["", Validators.required],
+      txt_expediente: ["", Validators.required]
     });
     this.formBusqueda = this.formBuilder.group({
       txt_curp: ["", Validators.required],
@@ -86,6 +86,7 @@ export class TodoAlumnoComponent
       fk_status: ["", Validators.required],
       txt_correo: ["", Validators.required],
       txt_expediente: ["", Validators.required],
+      fk_grupo: ["", Validators.required]
     });
     this.filtrarGrupo();
   }
@@ -154,7 +155,7 @@ export class TodoAlumnoComponent
     });
     
     this.subs.sink = dialogRef.afterClosed().subscribe((result) => {
-      console.log("Editaaaaar")
+
       if (result === 1) {
         //this.alumnoService.editarAlumno(result).subscribe(resp =>{    
           
@@ -213,30 +214,6 @@ export class TodoAlumnoComponent
         
         grupos.sort();
         this.grupo = grupos;
-    });
-  }
-
-  seleccionarGrupo(){
-    this.alumnoService.consultarTodos().subscribe(data => {
-      this.datos = new MatTableDataSource(data.list); 
-      this.datos.sort = this.sort
-      
-        data.list.forEach((element) => {
-          let grupo:string = (element.fk_grupo)
-          this.grupo.push(grupo);
-          
-        }); console.log("filtroooo")  
-        //item actual del array eindice del item actual del array
-        let grupos = this.grupo.filter((value, index) => {
-          return this.grupo.indexOf(value) === index;
-          
-        })
-        console.log("filtroooox2")
-        grupos.sort();
-        this.grupo = grupos;
-        console.log(grupos)
-       
-      
     });
   }
 

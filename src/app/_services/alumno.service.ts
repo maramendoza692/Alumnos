@@ -21,8 +21,6 @@ export class AlumnoService extends UnsubscribeOnDestroyAdapter{
     headers: new HttpHeaders({ 'Content-Type': 'application/json' })
   };
 
-  alumno = new Alumno();
-
   constructor(private http:HttpClient) {super(); }
     
   getDialogData() {
@@ -62,7 +60,7 @@ export class AlumnoService extends UnsubscribeOnDestroyAdapter{
   }
 
   buscarAlumnoFiltro(filtro: AlumnoFiltroRequest): Observable<Response<Alumno>> {
-    const url = "http://localhost:8081/alumno/buscarAlumnoFiltro"; 
+    const url = "http://localhost:8081/alumno/buscarAlumno"; 
                                   //Url y body: objeto que contiene de lo que queremos crear
     return this.http.post<Response<Alumno>>(url,filtro)
   }

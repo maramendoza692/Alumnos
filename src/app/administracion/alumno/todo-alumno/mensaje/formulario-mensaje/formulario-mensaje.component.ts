@@ -9,12 +9,12 @@ import {
 } from "@angular/forms";
 import { MAT_DIALOG_DATA, MatDialogRef } from "@angular/material/dialog";
 import { AlumnoService } from 'src/app/_services/alumno.service';
-import { CicloService } from 'src/app/_services/ciclo.service';
+import { GrupoService } from 'src/app/_services/grupo.service';
 import { Alumno } from 'src/app/_model/alumno';
 import { AlumnoRequest } from 'src/app/_model/alumnoRequest';
 import { AlumnoFiltroRequest } from 'src/app/_model/alumnoFiltroRequest';
 import { MatTableDataSource } from '@angular/material/table';
-import { Ciclo } from '../../../../../_model/ciclo';
+import { Grupo } from '../../../../../_model/grupo';
 
 @Component({
   selector: 'app-formulario-mensaje',
@@ -31,15 +31,15 @@ export class FormularioMensajeComponent {
   grupo = []
   dataArray: Alumno[];
   alumnoFiltroRequest!: AlumnoFiltroRequest;
-  datos: MatTableDataSource<Ciclo>;
+  datos: MatTableDataSource<Grupo>;
   sort: any;
-  grupoService: any;
+  
    
   constructor(
     public dialogRef: MatDialogRef<FormularioMensajeComponent>,
     @Inject(MAT_DIALOG_DATA) public data: any,
     public alumnoService: AlumnoService,
-    public cicloService: CicloService,
+    public grupoService: GrupoService,
     private fb: FormBuilder
   ) {
     // Set the defaults
@@ -74,7 +74,7 @@ export class FormularioMensajeComponent {
       txt_ape_materno: [this.alumno.txt_ape_materno],
       txt_curp: [this.alumno.txt_curp,[Validators.minLength(18),Validators.required]],//
       txt_sexo: [this.alumno.txt_sexo],
-      txtx_correo: [this.alumno.txt_correo,[Validators.email]],//
+      txt_correo: [this.alumno.txt_correo,[Validators.email]],//
       fk_status: [this.alumno.fk_status],
       fk_grupo: [this.alumno.fk_grupo]
        
@@ -96,7 +96,7 @@ export class FormularioMensajeComponent {
       this.datos.sort = this.sort
       
         data.list.forEach((element) => {
-          let grupo = (element.fk_grupo)
+          let grupo = (element.pk_grupo)
           this.grupo.push(grupo);
           
         });  
@@ -107,20 +107,12 @@ export class FormularioMensajeComponent {
         })
         grupos.sort();
         this.grupo = grupos;
-        console.log(grupos)
-       
-      
     });
   }
 
   public confirmAdd(): void {
-    console.log("Ya entré")
+
     this.alumnoService.guardarAlumno(this.alumnoForm.value).subscribe(result =>{
-      /*if(this.alumno != null && this.alumno.id <0){
-        this.alumnoService.editarAlumno(this.alumnoE).subscribe();
-      } else {
-        this.alumnoService.guardarAlumno(this.alumnoE).subscribe();
-      }*/
       
     });
   }
