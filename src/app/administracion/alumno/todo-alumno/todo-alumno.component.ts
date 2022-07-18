@@ -17,6 +17,8 @@ import { AlumnoFiltroRequest } from "src/app/_model/alumnoFiltroRequest";
 import { FormularioMensajeComponent } from "./mensaje/formulario-mensaje/formulario-mensaje.component";
 import { MatTableDataSource } from "@angular/material/table";
 import { EliminarComponent } from "./mensaje/eliminar-alumno/eliminar-alumno.component";
+import { AlumnoRequest } from '../../../_model/alumnoRequest';
+import { Grupo } from '../../../_model/grupo';
 
 @Component({
   selector: "app-todo-alumno",
@@ -74,7 +76,7 @@ export class TodoAlumnoComponent
     this.form = this.formBuilder.group({
       txt_curp: ["", Validators.required],
       txt_nombre: ["", Validators.required],
-      fk_estatus: ["", Validators.required],
+      fk_status: ["", Validators.required],
       fk_grupo: ["", Validators.required],
       txt_sexo: ["", Validators.required],
       txt_correo: ["", Validators.required],
@@ -136,16 +138,16 @@ export class TodoAlumnoComponent
 
           this.dataArray = data.list;
           console.log(this.formBusqueda.value);
-          console.log(this.alumnoFiltroRequest.txt_nombre);
+          console.log(this.alumnoFiltroRequest.txt_desc_grupo);
         });
       this.formBusqueda.reset(); //resetea elformulario
     }
 
   }
 
-  editarAlumno(alumno?: Alumno, fk_grupo?: string ) {
+  editarAlumno(alumno?: Alumno, fk_grupo?: number ) {
     let alu = alumno != null ? alumno: new Alumno();
-    alu.fk_grupo =fk_grupo;
+    alu.fk_grupo.pk_grupo =fk_grupo;
 
     const dialogRef = this.dialog.open(FormularioMensajeComponent, {
       data: {
@@ -202,7 +204,7 @@ export class TodoAlumnoComponent
       this.datos.sort = this.sort
       
         data.list.forEach((element) => {
-          let grupo:string = (element.fk_grupo)
+          let grupo: string = (element.fk_grupo.txt_desc_grupo)
           this.grupo.push(grupo);
           
         }); 

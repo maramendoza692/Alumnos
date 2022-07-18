@@ -43,12 +43,12 @@
                       <input id="txt_correo" maxlength ="30" formControlName="txt_correo" class="form-control" type="text">
                     </div>
                     <div class="col-auto">
-                    <label for="year" class="col-form-label">grupo</label>
+                    <label for="year" class="col-form-label">Grupo</label>
                     </div>
                     <div class="col">
                       <select formControlName="fk_grupo" class="custom-select mr-sm-2" id="fk_grupo">
                       <option></option>
-                      <option *ngFor="let grupos of grupo">{{grupos}}</option>
+                      <option *ngFor="let grupos of grupo" >{{grupos}}</option>
                        </select>
                   </div>
                   <div class="col-auto">
@@ -121,7 +121,7 @@
                     <mat-cell *matCellDef="let row"> {{row.txt_ape_materno}}</mat-cell>
                   </ng-container>
                   <ng-container matColumnDef="txt_sexo">
-                    <mat-header-cell *matHeaderCellDef mat-sort-header>Genero</mat-header-cell>
+                    <mat-header-cell *matHeaderCellDef mat-sort-header>Sexo</mat-header-cell>
                     <mat-cell *matCellDef="let row"> {{row.txt_sexo}}</mat-cell>
                   </ng-container>
                   <ng-container matColumnDef="txt_correo">
@@ -130,7 +130,12 @@
                   </ng-container>
                   <ng-container matColumnDef="fk_status">
                     <mat-header-cell *matHeaderCellDef mat-sort-header>Estatus</mat-header-cell>
-                    <mat-cell *matCellDef="let row"> {{row.fk_status.txt_status}}</mat-cell>
+                    <mat-cell *matCellDef="let row">
+                      <p *ngIf= "row.fk_status == 2; else estatus2">Activo</p>
+                      <ng-template #estatus2>
+                        <p>Inactivo</p>
+                      </ng-template>
+                    </mat-cell>
                   </ng-container>
                   <ng-container matColumnDef="txt_expediente">
                     <mat-header-cell *matHeaderCellDef mat-sort-header>Expediente</mat-header-cell>
@@ -138,7 +143,7 @@
                   </ng-container>
                   <ng-container matColumnDef="fk_grupo">
                     <mat-header-cell *matHeaderCellDef mat-sort-header>Grupo</mat-header-cell>
-                    <mat-cell *matCellDef="let row"> {{row.fk_grupo}}</mat-cell>
+                    <mat-cell *matCellDef="let row"> {{row.fk_grupo.txt_desc_grupo}}</mat-cell>
                   </ng-container>
                 
                   <!-- actions -->

@@ -6,6 +6,7 @@ import { AlumnoRequest } from 'src/app/_model/alumnoRequest';
 import { Alumno } from 'src/app/_model/alumno';
 import { MatTableDataSource } from '@angular/material/table';
 import { AlumnoFiltroRequest } from 'src/app/_model/alumnoFiltroRequest';
+import { Grupo } from '../../_model/grupo';
 
 
 
@@ -74,7 +75,7 @@ export class AlumnosComponent implements OnInit {
         this.datos.sort = this.sort
         
           data.list.forEach((element) => {
-            let grupo:string = (element.fk_grupo)
+            let grupo:Grupo = (element.fk_grupo)
             this.grupo.push(grupo);
             
           }); 

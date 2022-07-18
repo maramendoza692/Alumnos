@@ -1,3 +1,4 @@
+import { Grupo } from './grupo';
 
 export class AlumnoRequest{
 
@@ -10,5 +11,6 @@ export class AlumnoRequest{
 	txt_sexo: string;
     txt_correo: string;
 	fk_status: string;
-	fk_grupo: string;
+	fk_grupo: Grupo;
+
 }

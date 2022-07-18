@@ -13,5 +13,5 @@ export class Alumno{
 	pho_foto: Blob;
     txt_correo: string;
 	fk_status: string;
-	fk_grupo: string;
+	fk_grupo: Grupo;
 }

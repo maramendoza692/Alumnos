@@ -93,12 +93,12 @@
                   <mat-label>Estatus</mat-label>
                   <input matInput formControlName="fk_status" required>
                   <mat-error *ngIf="alumnoForm.get('fk_status').hasError('required')">
-                    El status debe ser numérico.
+                    Estatus requerido.
                   </mat-error>
                 
                   <!--<select matNativeControl formControlName="fk_status">
-                    <option value = "1">Activo</option>
-                    <option value = "0">Inactivo</option>
+                    <option value = "2">Activo</option>
+                    <option value = "1">Inactivo</option>
                     <mat-error *ngIf="alumnoForm.get('fk_estatus').hasError('required')">
                       Seleccione un estatus.
                     </mat-error>
@@ -117,7 +117,7 @@
                 
                   <select matNativeControl formControlName="fk_grupo">
                       <option></option>
-                      <option *ngFor="let fkgrupo of grupo" >{{fkgrupo}}</option>
+                      <option *ngFor="let fkgrupo of grupo">{{fkgrupo}}</option>
              
                   <mat-error
                 *ngIf="alumnoForm.get('fk_grupo').hasError('required')">

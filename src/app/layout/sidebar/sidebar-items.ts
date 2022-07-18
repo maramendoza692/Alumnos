@@ -26,7 +26,7 @@ export const ROUTES: RouteInfo[] = [
     badgeClass: "",
     role: ["Admin"],
     submenu: [
-      {
+      /*{
         path: "/administracion/grupo",
         title: "Grupos",
         moduleName: "administracion",
@@ -64,7 +64,7 @@ export const ROUTES: RouteInfo[] = [
         badgeClass: "",
         role: [""],
         submenu: [],
-      },
+      },*/
       {
         path: "/administracion/alumno",
         title: "Alumnos",
@@ -77,7 +77,7 @@ export const ROUTES: RouteInfo[] = [
         badgeClass: "",
         role: [""],
         submenu: [
-          {
+          /*{
             path: "/administracion/alumno/agregar-alumno",
             title: "Agregar",
             moduleName: "Administracion",
@@ -102,7 +102,7 @@ export const ROUTES: RouteInfo[] = [
             badgeClass: "",
             role: [""],
             submenu: []
-          },
+          },*/
           {
             path: "/administracion/alumno/todos-alumnos",
             title: "Todos los Alumnos",
@@ -118,7 +118,7 @@ export const ROUTES: RouteInfo[] = [
           }
         ]
       },
-      {
+      /*{
         path: "/administracion/ciclo",
         title: "Ciclos",
         moduleName: "Administracion",
@@ -170,13 +170,13 @@ export const ROUTES: RouteInfo[] = [
           submenu: []
         }
         ]
-      },
+      },*/
 
     ]
   },
   
   // Admin Modules
-  {
+  /*{
     path: "",
     title: "MENUITEMS.DASHBOARD.TEXT",
     moduleName: "dashboard",
@@ -228,10 +228,10 @@ export const ROUTES: RouteInfo[] = [
         submenu: [],
       }
     ],
-  },
+  },*/
 
   // Employee Modules
-  {
+  /*{
     path: "/employee/dashboard",
     title: "MENUITEMS.EMPLOYEE.DASHBOARD",
     moduleName: "dashboard",
@@ -243,7 +243,7 @@ export const ROUTES: RouteInfo[] = [
     badgeClass: "",
     role: ["Employee"],
     submenu: [],
-  },
+  },*/
 
   // Client Modules
   {
@@ -261,7 +261,7 @@ export const ROUTES: RouteInfo[] = [
   },
 
   // Common Modules
-  {
+  /*{
     path: "",
     title: "Authentication",
     moduleName: "authentication",
@@ -353,7 +353,7 @@ export const ROUTES: RouteInfo[] = [
       },
     ],
   },
-  {
+  /*{
     path: "",
     title: "Extra Pages",
     moduleName: "extra-pages",
@@ -379,8 +379,8 @@ export const ROUTES: RouteInfo[] = [
         submenu: [],
       },
     ],
-  },
-  {
+  },*/
+  /*{
     path: "",
     title: "Multi level Menu",
     moduleName: "multilevel",
@@ -459,5 +459,5 @@ export const ROUTES: RouteInfo[] = [
         submenu: [],
       },
     ],
-  },
+  },*/
 ];

@@ -96,7 +96,7 @@ export class FormularioMensajeComponent {
       this.datos.sort = this.sort
       
         data.list.forEach((element) => {
-          let grupo = (element.pk_grupo)
+          let grupo = (element.txt_desc_grupo)
           this.grupo.push(grupo);
           
         });  

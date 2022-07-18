@@ -1,9 +1,10 @@
-import { Ciclo } from "./ciclo";
+import { Grupo } from './grupo';
 
 export class AlumnoFiltroRequest {
     txt_expediente: string;
     txt_nombre:string;
     txt_curp:string;
     txt_correo: string;
-    fk_grupo: string;
+    txt_desc_grupo: string;
+    //fk_grupo: Grupo;
 }
