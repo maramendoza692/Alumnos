@@ -26,7 +26,7 @@ export class FormularioMensajeComponent {
   action: string;
   dialogTitle: string;
   alumnoForm: FormGroup;
-  alumno: Alumno;
+  alumno: AlumnoRequest;
   alumnoE: AlumnoRequest;
   grupo = []
   dataArray: Alumno[];
@@ -49,7 +49,7 @@ export class FormularioMensajeComponent {
       this.alumno = data.alumno;
     } else {
       this.dialogTitle = "add";
-      this.alumno = new Alumno();
+      this.alumno = new AlumnoRequest();
     }
     this.alumnoForm = this.createContactForm();
   }
@@ -76,7 +76,7 @@ export class FormularioMensajeComponent {
       txt_sexo: [this.alumno.txt_sexo],
       txt_correo: [this.alumno.txt_correo,[Validators.email]],//
       fk_status: [this.alumno.fk_status],
-      fk_grupo: [this.alumno.fk_grupo]
+      txt_desc_grupo: [this.alumno.txt_desc_grupo],
        
     });
   }
@@ -113,7 +113,7 @@ export class FormularioMensajeComponent {
   public confirmAdd(): void {
 
     this.alumnoService.guardarAlumno(this.alumnoForm.value).subscribe(result =>{
-      
+    console.log(this.alumnoForm.value)
     });
   }
 }

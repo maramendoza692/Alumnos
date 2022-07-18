@@ -39,7 +39,7 @@ export class TodoAlumnoComponent
     "txt_sexo",
     "txt_correo",
     "fk_status",
-    "fk_grupo",
+    "pk_grupo",
     "actions",
   ];
 
@@ -77,7 +77,7 @@ export class TodoAlumnoComponent
       txt_curp: ["", Validators.required],
       txt_nombre: ["", Validators.required],
       fk_status: ["", Validators.required],
-      fk_grupo: ["", Validators.required],
+      pk_grupo: ["", Validators.required],
       txt_sexo: ["", Validators.required],
       txt_correo: ["", Validators.required],
       txt_expediente: ["", Validators.required]
@@ -88,7 +88,8 @@ export class TodoAlumnoComponent
       fk_status: ["", Validators.required],
       txt_correo: ["", Validators.required],
       txt_expediente: ["", Validators.required],
-      fk_grupo: ["", Validators.required]
+      txt_desc_grupo: ["", Validators.required]
+
     });
     this.filtrarGrupo();
   }
@@ -147,7 +148,7 @@ export class TodoAlumnoComponent
 
   editarAlumno(alumno?: Alumno, fk_grupo?: number ) {
     let alu = alumno != null ? alumno: new Alumno();
-    alu.fk_grupo.pk_grupo =fk_grupo;
+    alu.pk_grupo.pk_grupo =fk_grupo;
 
     const dialogRef = this.dialog.open(FormularioMensajeComponent, {
       data: {
@@ -177,7 +178,7 @@ export class TodoAlumnoComponent
 
   eliminarAlumno(i: number, alumno) {
     this.index = i
-    this.id = alumno.ciclo
+    this.id = alumno.pk_alumno
 
     const dialogRef = this.dialog.open(EliminarComponent, {
       height: "270px",
@@ -204,7 +205,7 @@ export class TodoAlumnoComponent
       this.datos.sort = this.sort
       
         data.list.forEach((element) => {
-          let grupo: string = (element.fk_grupo.txt_desc_grupo)
+          let grupo: string = (element.pk_grupo.txt_desc_grupo)
           this.grupo.push(grupo);
           
         }); 

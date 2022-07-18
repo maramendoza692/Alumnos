@@ -46,15 +46,15 @@ export class AlumnoService extends UnsubscribeOnDestroyAdapter{
     return this.http.post<Response<Alumno>>(url,alumno)
   }
 
-  editarAlumno(alumno: Alumno):Observable<Response<Alumno>>{
+  editarAlumno(alumno: AlumnoRequest):Observable<Response<Alumno>>{
     const url = 'http://localhost:8081/alumno/actualizarAlumno';
 
 
     return this.http.put<Response<Alumno>>(url,alumno)
   }
   
-  eliminarAlumno(idAlumno: number): Observable<number> {
-    const url = "http://localhost:8081/alumno/borrarAlumnoPorId/" +  idAlumno
+  eliminarAlumno(pk_alumno: number): Observable<number> {
+    const url = "http://localhost:8081/alumno/borrarAlumnoPorId/" +  pk_alumno
 
     return this.http.delete<number>(url);
   }

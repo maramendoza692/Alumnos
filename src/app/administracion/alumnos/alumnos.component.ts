@@ -58,7 +58,7 @@ export class AlumnosComponent implements OnInit {
         txt_nombre: [this.alumno.txt_nombre],
         txt_curp: [this.alumno.txt_curp],
         txt_correo: [this.alumno.txt_correo],
-        fk_grupo: [this.alumno.fk_grupo]
+        //pk_grupo: [this.alumno.pk_grupo]
       });
     }
     submit() {
@@ -75,7 +75,7 @@ export class AlumnosComponent implements OnInit {
         this.datos.sort = this.sort
         
           data.list.forEach((element) => {
-            let grupo:Grupo = (element.fk_grupo)
+            let grupo:Grupo = (element.pk_grupo)
             this.grupo.push(grupo);
             
           }); 
