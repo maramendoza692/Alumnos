@@ -27,6 +27,7 @@ export class FormularioMensajeComponent {
   dialogTitle: string;
   alumnoForm: FormGroup;
   alumno: AlumnoRequest;
+  isClicked: boolean;
   alumnoE: AlumnoRequest;
   grupo = []
   dataArray: Alumno[];
@@ -88,6 +89,27 @@ export class FormularioMensajeComponent {
   }
   ngOnInit(){
     this.seleccionarGrupo();
+  }
+
+  aceptar(){
+    console.log(this.alumnoForm)
+    if(this.alumno!=null && this.alumno.pk_alumno! >0){
+      this.alumnoService.editarAlumno(this.alumnoForm.value).subscribe(data=>{
+          console.log(data); 
+          /*Swal.fire({
+            icon: 'success',
+            title: data.message,
+            showConfirmButton: false,
+            timer: 2500
+          })*/
+          this.dialogRef.close({estatus:true,data:data.data});
+      })
+    }else{
+      this.alumnoService.guardarAlumno(this.alumnoForm.value).subscribe(result =>{
+        console.log(this.alumnoForm.value)
+        });
+    }
+    this.isClicked = true;
   }
 
   seleccionarGrupo(){
