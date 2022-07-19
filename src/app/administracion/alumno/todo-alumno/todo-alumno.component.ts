@@ -52,7 +52,7 @@ export class TodoAlumnoComponent
   datos: MatTableDataSource<Alumno>;
   grupo = []
   //Traer los datos desde el modelo 
-  dataArray: Alumno[];
+  dataArray= new MatTableDataSource<Alumno>();
   public form: FormGroup;
   formBusqueda: FormGroup;
 
@@ -67,9 +67,17 @@ export class TodoAlumnoComponent
   ) {
     super();
   }
-  @ViewChild(MatPaginator, { static: true }) paginator: MatPaginator;
-  @ViewChild(MatSort, { static: true }) sort: MatSort;
+  @ViewChild(MatPaginator) paginator: MatPaginator;
+  @ViewChild(MatSort)sort: MatSort;
+  // @ViewChild(MatPaginator, { static: true }) paginator: MatPaginator;
+  // @ViewChild(MatSort, { static: true }) sort: MatSort;
   @ViewChild("filter", { static: true }) filter: ElementRef;
+  ngAfterViewInit() {
+
+    this.dataArray.paginator = this.paginator;
+
+
+  }
   ngOnInit() {
     
     
@@ -100,10 +108,13 @@ export class TodoAlumnoComponent
   public consultarTodos(){
     this.alumnoService.consultarTodos().subscribe(({list})=>{
 
-    this.dataArray = list
-     
+    //this.dataArray = list
+    this.dataArray = new MatTableDataSource<Alumno>(list)
+      this.dataArray.paginator = this.paginator
     });
+    
   }
+
   buscarAlumnoPorID(){
     
   }
@@ -137,7 +148,7 @@ export class TodoAlumnoComponent
     if (this.formBusqueda != null) {
       this.alumnoService.buscarAlumnoFiltro(this.alumnoFiltroRequest).subscribe((data) => {
 
-          this.dataArray = data.list;
+          this.dataArray.data = data.list;
           console.log(this.formBusqueda.value);
           console.log(this.alumnoFiltroRequest.txt_desc_grupo);
         });
