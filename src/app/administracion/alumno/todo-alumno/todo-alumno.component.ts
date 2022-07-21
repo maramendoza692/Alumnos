@@ -106,7 +106,10 @@ export class TodoAlumnoComponent
   refresh() {
     this.consultarTodos();
   }
-
+  limpiar(){
+    this.dataArray = null;
+    this.dataArray.paginator = null;
+  }
   public consultarTodos(){
     this.alumnoService.consultarTodos().subscribe(({list})=>{
 

@@ -40,6 +40,13 @@ export class AlumnoService extends UnsubscribeOnDestroyAdapter{
 
     return this.http.get<Response<Alumno>>(url);
   }
+
+  consultarMateriasAlumno(pk_alumno): Observable<Response<Object[]>> {
+    const url = "http://localhost:8081/alumno/consultarMateriasAlumno/" +  pk_alumno
+
+    return this.http.get<Response<Object[]>>(url);
+  }
+
   
   guardarAlumno(alumno: AlumnoRequest): Observable<Response<Alumno>> {
     const url = "http://localhost:8081/alumno/guardarAlumno"; 

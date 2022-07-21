@@ -1,195 +1,203 @@
 <section class="content">
-    <div class="content-block">
-      <div class="block-header">
-        <!-- breadcrumb -->
-        <app-breadcrumb [title]="'Alumnos'" [items]="['Alumno']" >
-        </app-breadcrumb>
+  <div class="content-block">
+    <div class="block-header">
+      <!-- breadcrumb -->
+      <app-breadcrumb [title]="'Alumnos'" [items]="['Alumno']" >
+      </app-breadcrumb>
+      <div class="card">
+        <div class="body">
+          <div class="form-row"> 
+            <form [formGroup]="formBusqueda">
+              <div class="row admiAlumno">
+                <div class="col">
+                  <h4>Filtro de búsqueda</h4>
+                </div>
+              </div>
+              <div class="row formBusqueda">
+                <div class="col-auto">
+                  <mat-form-field class="example-full-width" appearance="fill">
+                    <mat-label>Expediente</mat-label>
+                    <input matInput maxlength="12" id="txt_expediente"  formControlName="txt_expediente" class="form-control" type="text">
+                  </mat-form-field>
+                </div>
+
+                <div class="col-auto">
+                  <mat-form-field class="example-full-width" appearance="fill">
+                    <mat-label>Nombre</mat-label>
+                    <input matInput id="txt_nombre" maxlength ="30" formControlName="txt_nombre" class="form-control" type="text">
+                  </mat-form-field>
+                </div>
+                <div class="col-auto">
+                  <mat-form-field class="example-full-width" appearance="fill">
+                    <mat-label>CURP</mat-label>
+                    <input matInput maxlength="12" id="txt_curp"  formControlName="txt_curp" class="form-control" type="text">
+                  </mat-form-field>
+                </div>
+                <div class="col-auto">
+                  <mat-form-field class="example-full-width" appearance="fill">
+                    <mat-label>Correo</mat-label>
+                    <input matInput id="txt_correo" maxlength ="30" formControlName="txt_correo" class="form-control" type="text">
+                  </mat-form-field>
+                </div>
+                
+                <div class="row">
+                  <div class="col-auto">
+                    <mat-form-field class="example-full-width" appearance="fill">
+                      <mat-label>Grupo</mat-label>
+                      <mat-select formControlName="txt_desc_grupo" class="custom-select mr-sm-2" id="txt_desc_grupo">
+                        <mat-option></mat-option>
+                        <mat-option *ngFor="let grupos of grupo" [value]="grupos">{{grupos}}</mat-option>
+                         </mat-select>
+                    </mat-form-field>
+                  </div>
+                  
+                <div class="col-auto">
+                  <button type="button" class="btn btn-primary" (click)="buscarAlumnoFiltro()" type="submit">
+                      <mat-icon class="col-white">search</mat-icon>
+                    </button>
+                </div>
+                <div class="col-auto">
+                  <button type="button" class="btn btn-primary" (click)="guardarAlumno()">
+                    <mat-icon class="col-white">add</mat-icon>
+                  </button>
+                </div>
+                <div class="col-auto">
+                  <button type="button" class="btn btn-outline-primary" (click)="consultarTodos()">
+                    Consultar todos
+                  </button>
+                </div>
+                <div class="col-auto">
+                  <button type="button" class="btn btn-outline-primary" (click)="limpiar()">
+                    Limpiar
+                  </button>
+                </div>
+                
+                </div>
+          
+                <div class="row">
+                  
+                </div>
+
+              </div>
+            </form> 
+        </div>
+        </div>
+    </div>
+
+    </div>
+    <div class="row">
+      <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
         <div class="card">
           <div class="body">
-            <div class="form-row"> 
-              <form [formGroup]="formBusqueda">
-                <div class="row admiAlumno">
-                  <div class="col">
-                    <h4>Filtro de búsqueda</h4>
+            <div class="table-responsive">
+              <!--<div class="materialTableHeader">
+                <div class="row">
+                  <div class="col-8">
+                    <ul class="header-buttons-left ms-0">
+                      <li class="dropdown" >
+                        <h4>Alumnos</h4> 
+                    </ul>
                   </div>
                 </div>
-                <div class="row formBusqueda">
-                  <div class="col-auto">
-                    <label  for="txt_expediente"  class="col-form-label">Expediente</label>
-                  </div>
-                  <div class="col">
-                    <input  maxlength="12" id="txt_expediente"  formControlName="txt_expediente" class="form-control" type="text">
-                  </div>
-                  <div class="col-auto">
-                    <label for="txt_nombre" class="col-form-label">Nombre</label>
-                  </div>
-                  <div class="col">
-                    <input id="txt_nombre" maxlength ="30" formControlName="txt_nombre" class="form-control" type="text">
-                  </div>
-                  <div class="col-auto">
-                    <label  for="txt_curp"  class="col-form-label">CURP</label>
-                  </div>
-                  <div class="col">
-                    <input  maxlength="12" id="txt_curp"  formControlName="txt_curp" class="form-control" type="text">
-                  </div>
-                  <div class="row">
-                    <p></p>
-                  </div>
-                  <div class="row">
-                    <div class="col-auto">
-                      <label for="txt_correo" class="col-form-label">Correo</label>
-                    </div>
-                    <div class="col">
-                      <input id="txt_correo" maxlength ="30" formControlName="txt_correo" class="form-control" type="text">
-                    </div>
-                    <div class="col-auto">
-                    <label for="year" class="col-form-label">Grupo</label>
-                    </div>
-                    <div class="col">
-                      <select formControlName="txt_desc_grupo" class="custom-select mr-sm-2" id="txt_desc_grupo">
-                      <option></option>
-                      <option *ngFor="let grupos of grupo" >{{grupos}}</option>
-                       </select>
-                  </div>
-                  <div class="col-auto">
-                    <button  (click)="buscarAlumnoFiltro()" type="submit" 
-                        mat-mini-fab color="primary">
-                        <mat-icon class="col-white">search</mat-icon>
-                      </button>
-                  </div>
-                  <div class="col-auto">
-                    <button mat-mini-fab color="primary" (click)="guardarAlumno()">
-                      <mat-icon class="col-white">add</mat-icon>
-                    </button>
-                  </div>
-                  <div class="col-auto">
-                    <button  mat-raised-button color="primary" (click)="consultarTodos()">
-                      Consultar Todos
-                    </button>
-                  </div>
-                  
-                  </div>
-            
-                  <div class="row">
-                    
-                  </div>
-
-                </div>
-              </form> 
-          </div>
-          </div>
-      </div>
-
-      </div>
-      <div class="row">
-        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-          <div class="card">
-            <div class="body">
-              <div class="table-responsive">
-                <div class="materialTableHeader">
-                  <div class="row">
-                    <div class="col-8">
-                      <ul class="header-buttons-left ms-0">
-                        <li class="dropdown" >
-                          <h4>Alumnos</h4> 
-                      </ul>
-                    </div>
-                  </div>
-                </div>
-                <mat-table #table matTableExporter [dataSource]="dataArray" matSort class="mat-cell"
-                  #exporter="matTableExporter">
-                  
-                  <!-- ID Column -->
-                  <ng-container matColumnDef="pk_alumno">
-                    <mat-header-cell *matHeaderCellDef mat-sort-header >ID</mat-header-cell>
-                    <mat-cell *matCellDef="let row">{{row.pk_alumno}} </mat-cell>
-                  </ng-container>
-                  <ng-container matColumnDef="txt_curp">
-                    <mat-header-cell *matHeaderCellDef mat-sort-header >CURP</mat-header-cell>
-                    <mat-cell *matCellDef="let row">{{row.txt_curp}} </mat-cell>
-                  </ng-container>
-                  <ng-container matColumnDef="txt_nombre">
-                    <mat-header-cell *matHeaderCellDef mat-sort-header>Nombre</mat-header-cell>
-                    <mat-cell *matCellDef="let row"> {{row.txt_nombre}}</mat-cell>
-                  </ng-container>
-                  <ng-container matColumnDef="txt_ape_paterno">
-                    <mat-header-cell *matHeaderCellDef mat-sort-header>Apellido Paterno</mat-header-cell>
-                    <mat-cell *matCellDef="let row"> {{row.txt_ape_paterno}}</mat-cell>
-                  </ng-container>
-                  <ng-container matColumnDef="txt_ape_materno">
-                    <mat-header-cell *matHeaderCellDef mat-sort-header>Apellido Materno</mat-header-cell>
-                    <mat-cell *matCellDef="let row"> {{row.txt_ape_materno}}</mat-cell>
-                  </ng-container>
-                  <ng-container matColumnDef="txt_sexo">
-                    <mat-header-cell *matHeaderCellDef mat-sort-header>Sexo</mat-header-cell>
-                    <mat-cell *matCellDef="let row"> {{row.txt_sexo}}</mat-cell>
-                  </ng-container>
-                  <ng-container matColumnDef="txt_correo">
-                    <mat-header-cell *matHeaderCellDef mat-sort-header>Correo</mat-header-cell>
-                    <mat-cell *matCellDef="let row"> {{row.txt_correo}}</mat-cell>
-                  </ng-container>
-                  <ng-container matColumnDef="fk_status">
-                    <mat-header-cell *matHeaderCellDef mat-sort-header>Estatus</mat-header-cell>
-                    <mat-cell *matCellDef="let row">
-                      <p *ngIf= "row.fk_status == 2; else estatus2">Activo</p>
-                      <ng-template #estatus2>
-                        <p>Inactivo</p>
-                      </ng-template>
-                    </mat-cell>
-                  </ng-container>
-                  <ng-container matColumnDef="txt_expediente">
-                    <mat-header-cell *matHeaderCellDef mat-sort-header>Expediente</mat-header-cell>
-                    <mat-cell *matCellDef="let row"> {{row.txt_expediente}}</mat-cell>
-                  </ng-container>
-                  <ng-container matColumnDef="pk_grupo">
-                    <mat-header-cell *matHeaderCellDef mat-sort-header>Grupo</mat-header-cell>
-                    <mat-cell *matCellDef="let row"> {{row.pk_grupo.txt_desc_grupo}}</mat-cell>
-                  </ng-container>
+              </div>-->
+              <mat-table #table matTableExporter [dataSource]="dataArray" matSort class="mat-cell"
+                #exporter="matTableExporter">
                 
-                  <!-- actions -->
-                  <ng-container matColumnDef="actions">
-                    <mat-header-cell *matHeaderCellDef class="pr-0">Acciones</mat-header-cell>
-                    <mat-cell *matCellDef="let row" class="pr-0">
-                      <button mat-icon-button color="accent" (click)="$event.stopPropagation()" (click)="editarAlumno(row, row.pk_alumno)"
+                <!-- ID Column -->
+                <ng-container matColumnDef="pk_alumno">
+                  <mat-header-cell *matHeaderCellDef mat-sort-header >ID</mat-header-cell>
+                  <mat-cell *matCellDef="let row">{{row.pk_alumno}} </mat-cell>
+                </ng-container>
+                <ng-container matColumnDef="txt_curp">
+                  <mat-header-cell *matHeaderCellDef mat-sort-header >CURP</mat-header-cell>
+                  <mat-cell *matCellDef="let row">{{row.txt_curp}} </mat-cell>
+                </ng-container>
+                <ng-container matColumnDef="txt_nombre">
+                  <mat-header-cell *matHeaderCellDef mat-sort-header>Nombre</mat-header-cell>
+                  <mat-cell *matCellDef="let row"> {{row.txt_nombre}}</mat-cell>
+                </ng-container>
+                <ng-container matColumnDef="txt_ape_paterno">
+                  <mat-header-cell *matHeaderCellDef mat-sort-header>Apellido Paterno</mat-header-cell>
+                  <mat-cell *matCellDef="let row"> {{row.txt_ape_paterno}}</mat-cell>
+                </ng-container>
+                <ng-container matColumnDef="txt_ape_materno">
+                  <mat-header-cell *matHeaderCellDef mat-sort-header>Apellido Materno</mat-header-cell>
+                  <mat-cell *matCellDef="let row"> {{row.txt_ape_materno}}</mat-cell>
+                </ng-container>
+                <ng-container matColumnDef="txt_sexo">
+                  <mat-header-cell *matHeaderCellDef mat-sort-header>Sexo</mat-header-cell>
+                  <mat-cell *matCellDef="let row"> {{row.txt_sexo}}</mat-cell>
+                </ng-container>
+                <ng-container matColumnDef="txt_correo">
+                  <mat-header-cell *matHeaderCellDef mat-sort-header>Correo</mat-header-cell>
+                  <mat-cell *matCellDef="let row"> {{row.txt_correo}}</mat-cell>
+                </ng-container>
+                <ng-container matColumnDef="fk_status">
+                  <mat-header-cell *matHeaderCellDef mat-sort-header>Estatus</mat-header-cell>
+                  <mat-cell *matCellDef="let row">
+                    <p *ngIf= "row.fk_status == 2; else estatus2">Activo</p>
+                    <ng-template #estatus2>
+                      <p>Inactivo</p>
+                    </ng-template>
+                  </mat-cell>
+                </ng-container>
+                <ng-container matColumnDef="txt_expediente">
+                  <mat-header-cell *matHeaderCellDef mat-sort-header>Expediente</mat-header-cell>
+                  <mat-cell *matCellDef="let row"> {{row.txt_expediente}}</mat-cell>
+                </ng-container>
+                <ng-container matColumnDef="pk_grupo">
+                  <mat-header-cell *matHeaderCellDef mat-sort-header>Grupo</mat-header-cell>
+                  <mat-cell *matCellDef="let row"> {{row.pk_grupo.txt_desc_grupo}}</mat-cell>
+                </ng-container>
+              
+                <!-- actions -->
+                <ng-container matColumnDef="actions">
+                  <mat-header-cell *matHeaderCellDef class="pr-0">Acciones</mat-header-cell>
+                  <mat-cell *matCellDef="let row" class="pr-0">
+                    <button type="button" class="btn btn-outline-success" (click)="editarAlumno(row, row.pk_alumno)">
+                      <mat-icon>create</mat-icon> 
+                    </button>
+                    <button type="button"class="btn btn-outline-danger" (click)="eliminarAlumno(i, row)">
+                      <mat-icon>delete_outline</mat-icon> 
+                    </button>
+                    <button mat-icon-button color="accent" [routerLink]="['./alumnoPerfil', row.pk_alumno]" 
                         class="tbl-action-btn">
-                        <app-feather-icons [icon]="'edit'" [class]="'tbl-fav-edit'"></app-feather-icons>
-                      </button>
-                      <button mat-icon-button color="accent" (click)="$event.stopPropagation()" (click)="eliminarAlumno(i, row)"
-                        class="tbl-action-btn">
-                        <app-feather-icons [icon]="'trash-2'" [class]="'tbl-fav-delete'"></app-feather-icons> 
-                      </button>
-
-                      <button mat-icon-button color="accent" [routerLink]="['./alumnoPerfil', row.pk_alumno]" 
-                        class="tbl-action-btn" >
                         <app-feather-icons [icon]="'users'" [class]="'tbl-fav-edit'"></app-feather-icons>
                       </button>
-                    
-                    </mat-cell>
-                  </ng-container>
-                  <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
-                  <!-- <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row> -->
-                  <mat-row *matRowDef="let row; columns: displayedColumns;"
-                    [style.cursor]="'pointer'" matRipple>
-                  </mat-row>
+                    <!--<a href="">Ver alumno</a>-->
+                    <!--<button mat-icon-button color="accent" (click)="$event.stopPropagation()" (click)="buscarAlumnoPorID(row, row.pk_alumno)"
+                      class="tbl-action-btn">
+                      <app-feather-icons [icon]="'edit'" [class]="'tbl-fav-edit'"></app-feather-icons>
+                    </button>-->
                   
-                </mat-table>
-                <!-- Loading spinner --> 
-                <!-- <div *ngIf="cicloService.isTblLoading" class="tbl-spinner">
-                  <mat-progress-spinner color="primary" [diameter]="40" mode="indeterminate">
-                  </mat-progress-spinner>
-                </div>
-                <div *ngIf="!cicloService.isTblLoading" class="no-results"
-                  [style.display]="dataSource.renderedData.length == 0 ? '' : 'none'">
-                  No results
-                </div> -->
-                 <mat-paginator #paginator [length]="dataArray.filteredData.length" [pageIndex]="0" [pageSize]="5"
-                  [pageSizeOptions]="[5, 10, 25, 100]">
-                </mat-paginator>  
-              </div> 
-            </div>
+                  </mat-cell>
+                  
+                </ng-container>
+                <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+                <mat-row *matRowDef="let row; columns: displayedColumns;" (click)="buscarAlumnoPorID(row, row.pk_alumno)" (click)="clickedRows.add(row)"
+                  [style.cursor]="'pointer'" matRipple>
+                </mat-row>
+                
+                
+                
+              </mat-table>
+              <!-- Loading spinner --> 
+              <!-- <div *ngIf="cicloService.isTblLoading" class="tbl-spinner">
+                <mat-progress-spinner color="primary" [diameter]="40" mode="indeterminate">
+                </mat-progress-spinner>
+              </div>
+              <div *ngIf="!cicloService.isTblLoading" class="no-results"
+                [style.display]="dataSource.renderedData.length == 0 ? '' : 'none'">
+                No results
+              </div> -->
+               <mat-paginator #paginator [length]="dataArray.filteredData.length" [pageIndex]="0" [pageSize]="5"
+                [pageSizeOptions]="[5, 10, 25, 100]">
+              </mat-paginator>  
+            </div> 
           </div>
         </div>
       </div>
     </div>
+  </div>
 
-  </section>
+</section>

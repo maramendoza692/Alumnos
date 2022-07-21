@@ -17,47 +17,53 @@
 </body> -->
  <section class="content">
   <div class="content-block">
-   
+    <div class="block-header">
+      <!-- breadcrumb -->
+      <app-breadcrumb [title]="'Perfil del alumno'" [items]="['Alumnos']" [active_item]="'Perfil del alumno'"></app-breadcrumb>
+    </div>
     
     <div class="row clearfix">
       <div class="col-xs-12 col-sm-12 col-md-8 col-lg-8">
         <div class="card">
           <div class="header">
-            <h2>Materias</h2>
+            <h2>Calificaciones</h2>
           </div>
-          <!-- <div class="tableBody">
+          <div class="tableBody">
             <div class="table-responsive">
-              <mat-table #table matTableExporter matSort class="mat-cell"
+              <mat-table #table matTableExporter [dataSource]="alumateria" matSort class="mat-cell"
               #exporter="matTableExporter">
               
-               ID Column 
-             
-              <ng-container matColumnDef="clave">
-                <mat-header-cell *matHeaderCellDef mat-sort-header >Clave</mat-header-cell>
-                <mat-cell *matCellDef="let row"> </mat-cell>
-              </ng-container>
+              <!-- ID Column -->
               <ng-container matColumnDef="nombre">
                 <mat-header-cell *matHeaderCellDef mat-sort-header>Materia</mat-header-cell>
-                <mat-cell *matCellDef="let row"></mat-cell>
+                <mat-cell *matCellDef="let row">{{row.txt_clave}}: {{row.des_materia}}</mat-cell>
               </ng-container>
               <ng-container matColumnDef="profesor">
                 <mat-header-cell *matHeaderCellDef mat-sort-header>Profesor</mat-header-cell>
-                <mat-cell *matCellDef="let row"></mat-cell>
+                <mat-cell *matCellDef="let row">{{row.txt_nombre}} {{row.txt_ape_paterno}} {{row.txt_ape_materno}}</mat-cell>
               </ng-container>
-              <ng-container matColumnDef="calificacion">
-                <mat-header-cell *matHeaderCellDef mat-sort-header>Calificación</mat-header-cell>
-                <mat-cell *matCellDef="let row"></mat-cell>
+              <ng-container matColumnDef="cal1">
+                <mat-header-cell *matHeaderCellDef mat-sort-header>Unidad 1 </mat-header-cell>
+                <mat-cell *matCellDef="let row">{{row.num_cal_1}} </mat-cell>
+              </ng-container>
+              <ng-container matColumnDef="cal2">
+                <mat-header-cell *matHeaderCellDef mat-sort-header>Unidad 2</mat-header-cell>
+                <mat-cell *matCellDef="let row">{{row.num_cal_2}}</mat-cell>
+              </ng-container>
+              <ng-container matColumnDef="cal3">
+                <mat-header-cell *matHeaderCellDef mat-sort-header>Unidad 3</mat-header-cell>
+                <mat-cell *matCellDef="let row">{{row.num_cal_3}}</mat-cell>
               </ng-container>
               
               
               <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
-              <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row> 
+              <!-- <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row> -->
               <mat-row *matRowDef="let row; columns: displayedColumns;" 
                 [style.cursor]="'pointer'" matRipple>
               </mat-row>
-      </mat-table>
+          </mat-table>
             </div>
-          </div> -->
+          </div>
         </div>
       </div> 
       
@@ -86,17 +92,16 @@
               </div>
               <div class="row">
                 <div class="col-4">
-                  <h5>{{alumno.txt_expediente}}</h5>
                   <small>Expediente</small>
-                  
+                  <h5>{{alumno.txt_expediente}}</h5>
                 </div>
                 <div class="col-4">
-                  <h5>{{alumno.pk_grupo.txt_desc_grupo}}</h5>
                   <small>Grupo</small>
+                  <h5>{{alumno.pk_grupo.txt_desc_grupo}}</h5>
                 </div>
                 <div class="col-4" >
-                  <h5>{{alumno.pk_grupo.fk_ciclo.txt_desc_ciclo}}</h5>
                   <small>Ciclo</small>
+                  <h5>{{alumno.pk_grupo.fk_ciclo.txt_desc_ciclo}}</h5> 
                 </div>
               </div>
             </div>
