@@ -4,6 +4,7 @@ import { Routes, RouterModule } from "@angular/router";
 import { AlumnoComponent } from "./alumno/alumno.component";
 
 import { AlumnosComponent } from "./alumnos/alumnos.component";
+import { PerfilAluComponent } from "./alumno/perfil-alu/perfil-alu.component";
 
 const routes: Routes = [
     {

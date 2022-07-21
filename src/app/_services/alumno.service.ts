@@ -35,10 +35,10 @@ export class AlumnoService extends UnsubscribeOnDestroyAdapter{
       {headers: new HttpHeaders().append("Content-Type","application/json")});
   }
 
-  consultarAlumnoPorID(pk_alumno): Observable<Alumno> {
+  consultarAlumnoPorID(pk_alumno): Observable<Response<Alumno>> {
     const url = "http://localhost:8081/alumno/consultarAlumnoPorID/" +  pk_alumno
 
-    return this.http.get<Alumno>(url);
+    return this.http.get<Response<Alumno>>(url);
   }
   
   guardarAlumno(alumno: AlumnoRequest): Observable<Response<Alumno>> {

@@ -13,10 +13,11 @@ const routes:Routes = [
     },
     {
         path: "agregar-alumno",
-        component: AgregarAlumnoComponent
+        component: AgregarAlumnoComponent,
+        children:[]
     },
     {
-        path: "alumnoPerfil/:pk_alumno",
+        path: "todos-alumnos/alumnoPerfil/:pk_alumno",
         component: PerfilAluComponent
     },
     {

@@ -31,7 +31,7 @@ import { Routes } from "@angular/router";
 
 const routes:Routes = [
     {
-        path: "alumno/alumnoPerfil/:pk_alumno",
+        path: "alumnoPerfil/:pk_alumno",
         component: TodoAlumnoComponent
     },
 ]

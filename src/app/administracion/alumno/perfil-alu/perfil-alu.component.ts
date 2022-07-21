@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, Validators } from '@angular/forms';
-import { ActivatedRoute, Params } from '@angular/router';
+import { ActivatedRoute} from '@angular/router';
 
 import { first } from 'rxjs';
 import { Alumno } from 'src/app/_model/alumno';
@@ -51,7 +51,15 @@ this.activatedRoute.params.subscribe( params =>{
   let pk_alumno = params['pk_alumno']
   if(pk_alumno){
     this.alumnoService.consultarAlumnoPorID(pk_alumno).subscribe(
-      (alumno) => this.alumno= alumno//console.log(alumno)
+      (response) => {
+          
+          
+          if(response.status === 'OK'){
+            this.alumno = response.data;
+            console.log(this.alumno);
+          }
+
+      }//this.alumno= alumno //console.log(alumno)
       
     )
   } 
