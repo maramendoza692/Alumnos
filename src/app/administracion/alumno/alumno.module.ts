@@ -26,8 +26,15 @@ import { EditarAlumnoComponent } from './editar-alumno/editar-alumno.component';
 import { FormularioMensajeComponent } from './todo-alumno/mensaje/formulario-mensaje/formulario-mensaje.component';
 import { TodoAlumnoComponent } from "./todo-alumno/todo-alumno.component";
 import { EliminarComponent } from "./todo-alumno/mensaje/eliminar-alumno/eliminar-alumno.component";
+import { PerfilAluComponent } from './perfil-alu/perfil-alu.component';
+import { Routes } from "@angular/router";
 
-
+const routes:Routes = [
+    {
+        path: "alumno/alumnoPerfil/:pk_alumno",
+        component: TodoAlumnoComponent
+    },
+]
 
 @NgModule({
     declarations:[
@@ -37,7 +44,8 @@ import { EliminarComponent } from "./todo-alumno/mensaje/eliminar-alumno/elimina
         AgregarAlumnoComponent,
         EditarAlumnoComponent,
         EliminarComponent,
-        FormularioMensajeComponent
+        FormularioMensajeComponent,
+        PerfilAluComponent
         
         
         

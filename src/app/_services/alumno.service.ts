@@ -13,6 +13,7 @@ import { AlumnoRequest } from '../_model/alumnoRequest';
   providedIn: 'root'
 })
 export class AlumnoService extends UnsubscribeOnDestroyAdapter{
+  [x: string]: any;
   private readonly API_URL = "assets/data/clients.json";
   dialogData: any;
   dataChange: BehaviorSubject<Alumno[]> = new BehaviorSubject<Alumno[]>([]);
@@ -34,8 +35,8 @@ export class AlumnoService extends UnsubscribeOnDestroyAdapter{
       {headers: new HttpHeaders().append("Content-Type","application/json")});
   }
 
-  consultarAlumnoPorId(idAlumno: number): Observable<Alumno> {
-    const url = "http://localhost:8081/alumno/consultarAlumnoPorId/" +  idAlumno
+  consultarAlumnoPorID(pk_alumno): Observable<Alumno> {
+    const url = "http://localhost:8081/alumno/consultarAlumnoPorID/" +  pk_alumno
 
     return this.http.get<Alumno>(url);
   }

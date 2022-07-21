@@ -158,17 +158,17 @@
                         class="tbl-action-btn">
                         <app-feather-icons [icon]="'trash-2'" [class]="'tbl-fav-delete'"></app-feather-icons> 
                       </button>
-                      <a href="">Ver alumno</a>
-                      <!--<button mat-icon-button color="accent" (click)="$event.stopPropagation()" (click)="buscarAlumnoPorID(row, row.pk_alumno)"
+
+                      <button mat-icon-button color="accent" [routerLink]="['/alumnoPerfil', alumno.pk_alumno]" 
                         class="tbl-action-btn">
-                        <app-feather-icons [icon]="'edit'" [class]="'tbl-fav-edit'"></app-feather-icons>
-                      </button>-->
+                        <app-feather-icons [icon]="'users'" [class]="'tbl-fav-edit'"></app-feather-icons>
+                      </button>
                     
                     </mat-cell>
                   </ng-container>
                   <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
                   <!-- <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row> -->
-                  <mat-row *matRowDef="let row; columns: displayedColumns;" (click)="buscarAlumnoPorID(row, row.pk_alumno)"
+                  <mat-row *matRowDef="let row; columns: displayedColumns;"
                     [style.cursor]="'pointer'" matRipple>
                   </mat-row>
                   

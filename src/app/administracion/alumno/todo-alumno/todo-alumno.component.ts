@@ -19,6 +19,7 @@ import { MatTableDataSource } from "@angular/material/table";
 import { EliminarComponent } from "./mensaje/eliminar-alumno/eliminar-alumno.component";
 import { AlumnoRequest } from '../../../_model/alumnoRequest';
 import { Grupo } from '../../../_model/grupo';
+import { PerfilAluComponent } from "../perfil-alu/perfil-alu.component";
 
 @Component({
   selector: "app-todo-alumno",
@@ -48,9 +49,10 @@ export class TodoAlumnoComponent
   selection = new SelectionModel<Alumno>(true, []);
   index: number;
   id: number;
-  alumno: Alumno | null;
+
   datos: MatTableDataSource<Alumno>;
   grupo = []
+  alumno : Alumno = new Alumno();
   //Traer los datos desde el modelo 
   dataArray= new MatTableDataSource<Alumno>();
   public form: FormGroup;
@@ -114,8 +116,16 @@ export class TodoAlumnoComponent
     });
     
   }
+  open(pk_alumno) {
 
-  buscarAlumnoPorID(){
+    const dialogRef=this.dialog.open(PerfilAluComponent, {
+      width:"700px",
+      data:{
+        id:pk_alumno,
+      }
+  })
+
+  
     
   }
   guardarAlumno(){

@@ -4,6 +4,7 @@ import { Page404Component } from '../../authentication/page404/page404.component
 import { TodoAlumnoComponent } from "./todo-alumno/todo-alumno.component";
 import { AgregarAlumnoComponent } from './agregar-alumno/agregar-alumno.component';
 import { EditarAlumnoComponent } from './editar-alumno/editar-alumno.component';
+import { PerfilAluComponent } from "./perfil-alu/perfil-alu.component";
 
 const routes:Routes = [
     {
@@ -15,8 +16,8 @@ const routes:Routes = [
         component: AgregarAlumnoComponent
     },
     {
-        path: "editar-alumno",
-        component: EditarAlumnoComponent
+        path: "alumnoPerfil/:pk_alumno",
+        component: PerfilAluComponent
     },
     {
         path: "**", component: Page404Component
