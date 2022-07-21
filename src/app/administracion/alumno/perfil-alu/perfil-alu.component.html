@@ -1,4 +1,4 @@
-<body class="bg-success row align-items-center justify-content-center vh-100 ">
+<!-- <body class="bg-success row align-items-center justify-content-center vh-100 ">
 
   <div class="col-sm-6 text-center">
 <div class="container">
@@ -14,14 +14,10 @@
  </div>
  
   </div>
-</body>
- <!-- <section class="content">
+</body> -->
+ <section class="content">
   <div class="content-block">
-    <div class="block-header">
-      
-      <app-breadcrumb [title]="'Alumno'" [items]="['Home']" [active_item]="'Alumnos'"></app-breadcrumb>
-    </div>
-    
+   
     
     <div class="row clearfix">
       <div class="col-xs-12 col-sm-12 col-md-8 col-lg-8">
@@ -29,7 +25,7 @@
           <div class="header">
             <h2>Materias</h2>
           </div>
-          <div class="tableBody">
+          <!-- <div class="tableBody">
             <div class="table-responsive">
               <mat-table #table matTableExporter matSort class="mat-cell"
               #exporter="matTableExporter">
@@ -38,19 +34,19 @@
              
               <ng-container matColumnDef="clave">
                 <mat-header-cell *matHeaderCellDef mat-sort-header >Clave</mat-header-cell>
-                <mat-cell *matCellDef="let row">{{row.clave.clave}} </mat-cell>
+                <mat-cell *matCellDef="let row"> </mat-cell>
               </ng-container>
               <ng-container matColumnDef="nombre">
                 <mat-header-cell *matHeaderCellDef mat-sort-header>Materia</mat-header-cell>
-                <mat-cell *matCellDef="let row">{{row.nombre.nombre}}</mat-cell>
+                <mat-cell *matCellDef="let row"></mat-cell>
               </ng-container>
               <ng-container matColumnDef="profesor">
                 <mat-header-cell *matHeaderCellDef mat-sort-header>Profesor</mat-header-cell>
-                <mat-cell *matCellDef="let row">{{row.profesor.nombre}}</mat-cell>
+                <mat-cell *matCellDef="let row"></mat-cell>
               </ng-container>
               <ng-container matColumnDef="calificacion">
                 <mat-header-cell *matHeaderCellDef mat-sort-header>Calificación</mat-header-cell>
-                <mat-cell *matCellDef="let row">{{row.calificacion.calififcacion}}</mat-cell>
+                <mat-cell *matCellDef="let row"></mat-cell>
               </ng-container>
               
               
@@ -61,7 +57,7 @@
               </mat-row>
       </mat-table>
             </div>
-          </div>
+          </div> -->
         </div>
       </div> 
       
@@ -71,31 +67,36 @@
             <div class="contact-grid">
               <div class="profile-header bg-dark">
                 <div class="user-name">
-                  <p> nombre {{alumno.txt_nombre}} </p>
+                  <p> <strong>{{alumno.txt_nombre}}</strong> </p>
                 </div>
-                <div class="name-center">Senior Employee</div>
+                <div class="name-center">{{alumno.txt_ape_paterno}} {{alumno.txt_ape_materno}}</div>
               </div>
               <img src="assets/images/user/usrbig3.jpg" class="user-img" alt="">
               <p>
-                456, Estern evenue, Courtage area,
-                <br />New York
+                
+                Sexo: {{alumno.txt_sexo}}
+                <br />
+                CURP: {{alumno.txt_curp}}
+                
+            
               </p>
               <div>
                 <span class="phone">
-                  <i class="material-icons">phone</i>264-625-2583</span>
+                  <i class="material-icons">email</i>{{alumno.txt_correo}}</span>
               </div>
               <div class="row">
                 <div class="col-4">
-                  <h5>564</h5>
-                  <small>Following</small>
+                  <h5>{{alumno.txt_expediente}}</h5>
+                  <small>Expediente</small>
+                  
                 </div>
                 <div class="col-4">
-                  <h5>18k</h5>
-                  <small>Followers</small>
+                  <h5>{{alumno.pk_grupo.txt_desc_grupo}}</h5>
+                  <small>Grupo</small>
                 </div>
-                <div class="col-4">
-                  <h5>565</h5>
-                  <small>Post</small>
+                <div class="col-4" >
+                  <h5>{{alumno.pk_grupo.fk_ciclo.txt_desc_ciclo}}</h5>
+                  <small>Ciclo</small>
                 </div>
               </div>
             </div>
@@ -105,4 +106,4 @@
       
      </div>
   </div>
-</section>  -->
+</section> 

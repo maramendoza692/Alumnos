@@ -27,7 +27,6 @@ alumno : Alumno = new Alumno();
     
   ];
 
-  
   form: FormGroup;
   formBuilder: any;
  
@@ -40,10 +39,12 @@ alumno : Alumno = new Alumno();
    
   
   }
-  
+  ngAfterContentInit(){
+
+  }
   ngOnInit() {
 this.consultarAlumnoPorID();
-     
+
     }
 
     consultarAlumnoPorID(){
@@ -67,6 +68,8 @@ this.activatedRoute.params.subscribe( params =>{
 })
 
     }
+
+
 
 }
   
