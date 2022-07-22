@@ -160,36 +160,22 @@
                     <button type="button"class="btn btn-outline-danger" (click)="eliminarAlumno(i, row)">
                       <mat-icon>delete_outline</mat-icon> 
                     </button>
-                    <button mat-icon-button color="accent" [routerLink]="['./alumnoPerfil', row.pk_alumno]" 
+                    <button type="button"class="btn btn-outline-primary" [routerLink]="['./alumnoPerfil', row.pk_alumno]">
+                      <mat-icon>person</mat-icon> 
+                    </button>
+                    <!--<button mat-icon-button color="accent" [routerLink]="['./alumnoPerfil', row.pk_alumno]" 
                         class="tbl-action-btn">
                         <app-feather-icons [icon]="'users'" [class]="'tbl-fav-edit'"></app-feather-icons>
-                      </button>
-                    <!--<a href="">Ver alumno</a>-->
-                    <!--<button mat-icon-button color="accent" (click)="$event.stopPropagation()" (click)="buscarAlumnoPorID(row, row.pk_alumno)"
-                      class="tbl-action-btn">
-                      <app-feather-icons [icon]="'edit'" [class]="'tbl-fav-edit'"></app-feather-icons>
-                    </button>-->
-                  
+                      </button>-->
                   </mat-cell>
                   
                 </ng-container>
                 <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
-                <mat-row *matRowDef="let row; columns: displayedColumns;" (click)="buscarAlumnoPorID(row, row.pk_alumno)" (click)="clickedRows.add(row)"
+                <mat-row *matRowDef="let row; columns: displayedColumns;" 
                   [style.cursor]="'pointer'" matRipple>
-                </mat-row>
-                
-                
-                
+                </mat-row> 
               </mat-table>
-              <!-- Loading spinner --> 
-              <!-- <div *ngIf="cicloService.isTblLoading" class="tbl-spinner">
-                <mat-progress-spinner color="primary" [diameter]="40" mode="indeterminate">
-                </mat-progress-spinner>
-              </div>
-              <div *ngIf="!cicloService.isTblLoading" class="no-results"
-                [style.display]="dataSource.renderedData.length == 0 ? '' : 'none'">
-                No results
-              </div> -->
+              
                <mat-paginator #paginator [length]="dataArray.filteredData.length" [pageIndex]="0" [pageSize]="5"
                 [pageSizeOptions]="[5, 10, 25, 100]">
               </mat-paginator>  

@@ -93,12 +93,12 @@ export class TodoAlumnoComponent
       txt_expediente: ["", Validators.required]
     });
     this.formBusqueda = this.formBuilder.group({
-      txt_curp: ["", Validators.required],
-      txt_nombre: ["", Validators.required],
-      fk_status: ["", Validators.required],
-      txt_correo: ["", Validators.required],
-      txt_expediente: ["", Validators.required],
-      txt_desc_grupo: ["", Validators.required]
+      txt_curp: [""],
+      txt_nombre: [""],
+      fk_status: [""],
+      txt_correo: [""],
+      txt_expediente: [""],
+      txt_desc_grupo: [""]
 
     });
     this.filtrarGrupo();
