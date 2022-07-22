@@ -36,23 +36,23 @@
               <!-- ID Column -->
               <ng-container matColumnDef="nombre">
                 <mat-header-cell *matHeaderCellDef mat-sort-header>Materia</mat-header-cell>
-                <mat-cell *matCellDef="let row">{{row.txt_clave}}: {{row.des_materia}}</mat-cell>
+                <mat-cell *matCellDef="let row">{{row[0]}}: {{row[1]}}</mat-cell>
               </ng-container>
               <ng-container matColumnDef="profesor">
                 <mat-header-cell *matHeaderCellDef mat-sort-header>Profesor</mat-header-cell>
-                <mat-cell *matCellDef="let row">{{row.txt_nombre}} {{row.txt_ape_paterno}} {{row.txt_ape_materno}}</mat-cell>
+                <mat-cell *matCellDef="let row">{{row[2]}} {{row[3]}} {{row[4]}}</mat-cell>
               </ng-container>
               <ng-container matColumnDef="cal1">
                 <mat-header-cell *matHeaderCellDef mat-sort-header>Unidad 1 </mat-header-cell>
-                <mat-cell *matCellDef="let row">{{row.num_cal_1}} </mat-cell>
+                <mat-cell *matCellDef="let row">{{row[5]}} </mat-cell>
               </ng-container>
               <ng-container matColumnDef="cal2">
                 <mat-header-cell *matHeaderCellDef mat-sort-header>Unidad 2</mat-header-cell>
-                <mat-cell *matCellDef="let row">{{row.num_cal_2}}</mat-cell>
+                <mat-cell *matCellDef="let row">{{row[6]}}</mat-cell>
               </ng-container>
               <ng-container matColumnDef="cal3">
                 <mat-header-cell *matHeaderCellDef mat-sort-header>Unidad 3</mat-header-cell>
-                <mat-cell *matCellDef="let row">{{row.num_cal_3}}</mat-cell>
+                <mat-cell *matCellDef="let row">{{row[7]}}</mat-cell>
               </ng-container>
               
               

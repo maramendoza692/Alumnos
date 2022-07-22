@@ -29,18 +29,25 @@
                 </div>
                 <div class="col-auto">
                   <mat-form-field class="example-full-width" appearance="fill">
-                    <mat-label>CURP</mat-label>
-                    <input matInput maxlength="12" id="txt_curp"  formControlName="txt_curp" class="form-control" type="text">
+                    <mat-label>Apellido paterno</mat-label>
+                    <input matInput id="txt_ape_paterno" maxlength ="30" formControlName="txt_ape_paterno" class="form-control" type="text">
                   </mat-form-field>
                 </div>
                 <div class="col-auto">
                   <mat-form-field class="example-full-width" appearance="fill">
-                    <mat-label>Correo</mat-label>
-                    <input matInput id="txt_correo" maxlength ="30" formControlName="txt_correo" class="form-control" type="text">
+                    <mat-label>CURP</mat-label>
+                    <input matInput maxlength="8" id="txt_curp"  formControlName="txt_curp" class="form-control" type="text">
                   </mat-form-field>
                 </div>
                 
+                
                 <div class="row">
+                  <div class="col-auto">
+                    <mat-form-field class="example-full-width" appearance="fill">
+                      <mat-label>Correo</mat-label>
+                      <input matInput id="txt_correo" maxlength ="30" formControlName="txt_correo" class="form-control" type="text">
+                    </mat-form-field>
+                  </div>
                   <div class="col-auto">
                     <mat-form-field class="example-full-width" appearance="fill">
                       <mat-label>Grupo</mat-label>
@@ -104,10 +111,6 @@
                 #exporter="matTableExporter">
                 
                 <!-- ID Column -->
-                <ng-container matColumnDef="pk_alumno">
-                  <mat-header-cell *matHeaderCellDef mat-sort-header >ID</mat-header-cell>
-                  <mat-cell *matCellDef="let row">{{row.pk_alumno}} </mat-cell>
-                </ng-container>
                 <ng-container matColumnDef="txt_curp">
                   <mat-header-cell *matHeaderCellDef mat-sort-header >CURP</mat-header-cell>
                   <mat-cell *matCellDef="let row">{{row.txt_curp}} </mat-cell>
@@ -123,10 +126,6 @@
                 <ng-container matColumnDef="txt_ape_materno">
                   <mat-header-cell *matHeaderCellDef mat-sort-header>Apellido Materno</mat-header-cell>
                   <mat-cell *matCellDef="let row"> {{row.txt_ape_materno}}</mat-cell>
-                </ng-container>
-                <ng-container matColumnDef="txt_sexo">
-                  <mat-header-cell *matHeaderCellDef mat-sort-header>Sexo</mat-header-cell>
-                  <mat-cell *matCellDef="let row"> {{row.txt_sexo}}</mat-cell>
                 </ng-container>
                 <ng-container matColumnDef="txt_correo">
                   <mat-header-cell *matHeaderCellDef mat-sort-header>Correo</mat-header-cell>

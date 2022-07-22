@@ -31,13 +31,11 @@ export class TodoAlumnoComponent
   implements OnInit
 {
   displayedColumns = [
-    "pk_alumno",
     "txt_expediente",
     "txt_nombre",
     "txt_ape_paterno",
     "txt_ape_materno",
     "txt_curp",
-    "txt_sexo",
     "txt_correo",
     "fk_status",
     "pk_grupo",
@@ -86,6 +84,7 @@ export class TodoAlumnoComponent
     this.form = this.formBuilder.group({
       txt_curp: ["", Validators.required],
       txt_nombre: ["", Validators.required],
+      txt_ape_paterno: ["", Validators.required],
       fk_status: ["", Validators.required],
       pk_grupo: ["", Validators.required],
       txt_sexo: ["", Validators.required],
@@ -95,6 +94,7 @@ export class TodoAlumnoComponent
     this.formBusqueda = this.formBuilder.group({
       txt_curp: [""],
       txt_nombre: [""],
+      txt_ape_paterno: [""],
       fk_status: [""],
       txt_correo: [""],
       txt_expediente: [""],
