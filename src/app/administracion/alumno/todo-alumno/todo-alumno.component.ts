@@ -31,13 +31,12 @@ export class TodoAlumnoComponent
   implements OnInit
 {
   displayedColumns = [
-    "pk_alumno",
+ 
     "txt_expediente",
     "txt_nombre",
     "txt_ape_paterno",
     "txt_ape_materno",
     "txt_curp",
-    "txt_sexo",
     "txt_correo",
     "fk_status",
     "pk_grupo",
