@@ -15,6 +15,7 @@ import { AlumnoRequest } from 'src/app/_model/alumnoRequest';
 import { AlumnoFiltroRequest } from 'src/app/_model/alumnoFiltroRequest';
 import { MatTableDataSource } from '@angular/material/table';
 import { Grupo } from '../../../../../_model/grupo';
+import { AdminModule } from '../../../../../admin/admin.module';
 
 @Component({
   selector: 'app-formulario-mensaje',
@@ -34,8 +35,8 @@ export class FormularioMensajeComponent {
   alumnoFiltroRequest!: AlumnoFiltroRequest;
   datos: MatTableDataSource<Grupo>;
   sort: any;
-  
-   
+  add
+  edit   
   constructor(
     public dialogRef: MatDialogRef<FormularioMensajeComponent>,
     @Inject(MAT_DIALOG_DATA) public data: any,
@@ -46,11 +47,16 @@ export class FormularioMensajeComponent {
     // Set the defaults
     this.action = data.action;
     if (this.action === "edit") {
+      this.action = "edit"
       this.dialogTitle = data.alumno.txt_expediente;
       this.alumno = data.alumno;
+      console.log(this.action)
+      this.edit = this.action
     } else {
       this.dialogTitle = "add";
       this.alumno = new AlumnoRequest();
+      console.log(this.action)
+      this.add = this.action
     }
     this.alumnoForm = this.createContactForm();
   }

@@ -33,8 +33,6 @@ export class TodoAlumnoComponent
   displayedColumns = [
     "txt_expediente",
     "txt_nombre",
-    "txt_ape_paterno",
-    "txt_ape_materno",
     "txt_curp",
     "txt_correo",
     "fk_status",
@@ -107,7 +105,7 @@ export class TodoAlumnoComponent
   }
   limpiar(){
     this.dataArray = null;
-    this.formBusqueda.reset();
+    this.formBusqueda.reset()
   }
   public consultarTodos(){
     this.alumnoService.consultarTodos().subscribe(({list})=>{
@@ -162,7 +160,7 @@ export class TodoAlumnoComponent
           console.log(this.formBusqueda.value);
           console.log(this.alumnoFiltroRequest.txt_desc_grupo);
         });
-      //this.formBusqueda.reset //resetea elformulario
+      //this.formBusqueda.reset() //resetea elformulario
     }
 
   }
@@ -176,6 +174,7 @@ export class TodoAlumnoComponent
         alumno: alu,
         action: "edit",
       },
+      
     });
     
     this.subs.sink = dialogRef.afterClosed().subscribe((result) => {

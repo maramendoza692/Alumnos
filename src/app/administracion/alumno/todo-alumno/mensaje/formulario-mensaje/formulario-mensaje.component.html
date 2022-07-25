@@ -38,7 +38,8 @@
           <div class="col-xl-6 col-lg-6 col-md-12 col-sm-12 mb-2">
             <mat-form-field class="example-full-width" appearance="fill">
               <mat-label>Apellido paterno</mat-label>
-              <input matInput formControlName="txt_ape_paterno" required type="text" onkeydown="return /[a-z, ]/i.test(event.key)">
+              <input matInput formControlName="txt_ape_paterno" required type="text" onkeydown="return /[a-z, ]/i.test(event.key)"
+               [readonly]="true">
               <mat-error *ngIf="alumnoForm.get('txt_ape_paterno').hasError('required')">
                 Campo requerido.
               </mat-error>
@@ -99,15 +100,6 @@
                   </mat-error>
                 </mat-select>
                 </mat-form-field>
-                
-                  <!--<select matNativeControl formControlName="fk_status">
-                    <option value = "2">Activo</option>
-                    <option value = "1">Inactivo</option>
-                    <mat-error *ngIf="alumnoForm.get('fk_estatus').hasError('required')">
-                      Seleccione un estatus.
-                    </mat-error>
-                  </select>-->
-                
               </div>
         </div>
         <div class="row">
