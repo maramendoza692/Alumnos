@@ -24,7 +24,7 @@ import { PerfilAluComponent } from "../perfil-alu/perfil-alu.component";
 @Component({
   selector: "app-todo-alumno",
   templateUrl: "./todo-alumno.component.html",
-  styleUrls: ["./todo-alumno.component.sass"],
+  styleUrls: ["./styles.css"],
 })
 export class TodoAlumnoComponent
   extends UnsubscribeOnDestroyAdapter

@@ -78,7 +78,7 @@ export class FormularioMensajeComponent {
       txt_correo: [this.alumno.txt_correo,[Validators.email]],//
       fk_status: [this.alumno.fk_status],
       txt_desc_grupo: [this.alumno.txt_desc_grupo],
-       
+      pk_grupo: [this.alumno.pk_grupo],
     });
   }
   submit() {

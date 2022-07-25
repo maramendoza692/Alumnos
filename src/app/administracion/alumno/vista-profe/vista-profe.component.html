@@ -1,0 +1,173 @@
+<p>vista-profe works!</p>
+<section class="content">
+    <div class="content-block">
+      <div class="block-header">
+        <!-- breadcrumb -->
+        <app-breadcrumb [title]="'Alumnos'" [items]="['Alumno']" [routerLink]="['./vista-profesor']" >
+        </app-breadcrumb>
+        <div class="card">
+          <div class="body">
+            <div class="form-row"> 
+              <form [formGroup]="formBusqueda">
+                <div class="row admiAlumno">
+                  <div class="col">
+                    <h4>Filtro de búsqueda</h4>
+                  </div>
+                </div>
+                <div class="row formBusqueda">
+                  <div class="col-auto">
+                    <mat-form-field class="example-full-width" appearance="fill">
+                      <mat-label>Expediente</mat-label>
+                      <input matInput maxlength="12" id="txt_expediente"  formControlName="txt_expediente" class="form-control" type="text">
+                    </mat-form-field>
+                  </div>
+  
+                  <div class="col-auto">
+                    <mat-form-field class="example-full-width" appearance="fill">
+                      <mat-label>Nombre</mat-label>
+                      <input matInput id="txt_nombre" maxlength ="30" formControlName="txt_nombre" class="form-control" type="text">
+                    </mat-form-field>
+                  </div>
+                  <div class="col-auto">
+                    <mat-form-field class="example-full-width" appearance="fill">
+                      <mat-label>Apellido paterno</mat-label>
+                      <input matInput id="txt_ape_paterno" maxlength ="30" formControlName="txt_ape_paterno" class="form-control" type="text">
+                    </mat-form-field>
+                  </div>
+                  <div class="col-auto">
+                    <mat-form-field class="example-full-width" appearance="fill">
+                      <mat-label>CURP</mat-label>
+                      <input matInput maxlength="8" id="txt_curp"  formControlName="txt_curp" class="form-control" type="text">
+                    </mat-form-field>
+                  </div>
+                  
+                  
+                  <div class="row">
+                    <div class="col-auto">
+                      <mat-form-field class="example-full-width" appearance="fill">
+                        <mat-label>Correo</mat-label>
+                        <input matInput id="txt_correo" maxlength ="30" formControlName="txt_correo" class="form-control" type="text">
+                      </mat-form-field>
+                    </div>
+
+                    
+                  <div class="col-auto">
+                    <button type="button" class="btn btn-primary" (click)="buscarAlumnoFiltro()" type="submit">
+                        <mat-icon class="col-white">search</mat-icon>
+                      </button>
+                  </div>
+                  <div class="col-auto">
+                    <button type="button" class="btn btn-outline-primary" (click)="consultarTodos()">
+                      Consultar todos
+                    </button>
+                  </div>
+                  <div class="col-auto">
+                    <button type="button" class="btn btn-outline-primary" (click)="limpiar()">
+                      Limpiar
+                    </button>
+                  </div>
+                  
+                  </div>
+            
+                  <div class="row">
+                    
+                  </div>
+  
+                </div>
+              </form> 
+          </div>
+          </div>
+      </div>
+  
+      </div>
+      <div class="row">
+        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+          <div class="card">
+            <div class="body">
+              <div class="table">
+                
+                <!--<div class="materialTableHeader">
+                  <div class="row">
+                    <div class="col-8">
+                      <ul class="header-buttons-left ms-0">
+                        <li class="dropdown" >
+                          <h4>Alumnos</h4> 
+                      </ul>
+                    </div>
+                  </div>
+                </div>-->
+                
+                <mat-table #table matTableExporter [dataSource]="dataArray" matSort class="mat-cell"
+                  #exporter="matTableExporter" >
+                  
+                  <!-- ID Column -->
+                  <ng-container matColumnDef="txt_curp">
+                    <mat-header-cell *matHeaderCellDef mat-sort-header >CURP</mat-header-cell>
+                    <mat-cell *matCellDef="let row">{{row.txt_curp}} </mat-cell>
+                  </ng-container>
+                  <ng-container matColumnDef="txt_nombre">
+                    <mat-header-cell *matHeaderCellDef mat-sort-header>Nombre</mat-header-cell>
+                    <mat-cell *matCellDef="let row"> {{row.txt_nombre}}</mat-cell>
+                  </ng-container>
+                  <ng-container matColumnDef="txt_ape_paterno">
+                    <mat-header-cell *matHeaderCellDef mat-sort-header>Apellido Paterno</mat-header-cell>
+                    <mat-cell *matCellDef="let row"> {{row.txt_ape_paterno}}</mat-cell>
+                  </ng-container>
+                  <ng-container matColumnDef="txt_ape_materno">
+                    <mat-header-cell *matHeaderCellDef mat-sort-header>Apellido Materno</mat-header-cell>
+                    <mat-cell *matCellDef="let row"> {{row.txt_ape_materno}}</mat-cell>
+                  </ng-container>
+                  <ng-container matColumnDef="txt_correo">
+                    <mat-header-cell *matHeaderCellDef mat-sort-header>Correo</mat-header-cell>
+                    <mat-cell *matCellDef="let row"> {{row.txt_correo}}</mat-cell>
+                  </ng-container>
+                  <ng-container matColumnDef="fk_status">
+                    <mat-header-cell *matHeaderCellDef mat-sort-header>Estatus</mat-header-cell>
+                    <mat-cell *matCellDef="let row">
+                      <p *ngIf= "row.fk_status == 2; else estatus2">Activo</p>
+                      <ng-template #estatus2>
+                        <p>Inactivo</p>
+                      </ng-template>
+                    </mat-cell>
+                  </ng-container>
+                  <ng-container matColumnDef="txt_expediente">
+                    <mat-header-cell *matHeaderCellDef mat-sort-header>Expediente</mat-header-cell>
+                    <mat-cell *matCellDef="let row"> {{row.txt_expediente}}</mat-cell>
+                  </ng-container>
+                  <ng-container matColumnDef="pk_grupo" >
+                    <mat-header-cell *matHeaderCellDef mat-sort-header>Grupo</mat-header-cell>
+                    <mat-cell *matCellDef="let row"> {{row.pk_grupo.txt_desc_grupo}}</mat-cell>
+                  </ng-container>
+                
+                  <!-- actions -->
+                  <ng-container matColumnDef="actions" >
+                    <mat-header-cell *matHeaderCellDef class="pr-0">Acciones</mat-header-cell>
+                    <mat-cell *matCellDef="let row" class="pr-0">
+
+                      <button type="button"class="btn btn-outline-primary" [routerLink]="['./alumnoPerfil', row.pk_alumno]">
+                        <mat-icon>person</mat-icon> 
+                      </button>
+                      <!--<button mat-icon-button color="accent" [routerLink]="['./alumnoPerfil', row.pk_alumno]" 
+                          class="tbl-action-btn">
+                          <app-feather-icons [icon]="'users'" [class]="'tbl-fav-edit'"></app-feather-icons>
+                        </button>-->
+                    </mat-cell>
+                    
+                  </ng-container>
+                  <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+                  <mat-row *matRowDef="let row; columns: displayedColumns;" 
+                    [style.cursor]="'pointer'" matRipple>
+                  </mat-row> 
+                </mat-table>
+                
+                 <mat-paginator #paginator [length]="dataArray.filteredData.length" [pageIndex]="0" [pageSize]="5"
+                  [pageSizeOptions]="[5, 10, 25, 100]">
+                </mat-paginator>  
+              </div> 
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  
+  </section>
