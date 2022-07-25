@@ -5,6 +5,8 @@ import { TodoAlumnoComponent } from "./todo-alumno/todo-alumno.component";
 import { AgregarAlumnoComponent } from './agregar-alumno/agregar-alumno.component';
 import { EditarAlumnoComponent } from './editar-alumno/editar-alumno.component';
 import { PerfilAluComponent } from "./perfil-alu/perfil-alu.component";
+import { VistaProfeComponent } from "./vista-profe/vista-profe.component";
+import { PerfilAluProfesorComponent } from "./perfil-alu-profesor/perfil-alu-profesor.component";
 
 const routes:Routes = [
     {
@@ -12,13 +14,17 @@ const routes:Routes = [
         component: TodoAlumnoComponent
     },
     {
-        path: "agregar-alumno",
-        component: AgregarAlumnoComponent,
-        children:[]
+        path: "vista-profesor",
+        component: VistaProfeComponent,
+       
     },
     {
         path: "todos-alumnos/alumnoPerfil/:pk_alumno",
         component: PerfilAluComponent
+    },
+    {
+        path: "vista-profesor/alumnoPerfil/:pk_alumno",
+        component: PerfilAluProfesorComponent
     },
     {
         path: "**", component: Page404Component

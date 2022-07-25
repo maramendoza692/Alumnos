@@ -28,6 +28,8 @@ import { TodoAlumnoComponent } from "./todo-alumno/todo-alumno.component";
 import { EliminarComponent } from "./todo-alumno/mensaje/eliminar-alumno/eliminar-alumno.component";
 import { PerfilAluComponent } from './perfil-alu/perfil-alu.component';
 import { Routes } from "@angular/router";
+import { VistaProfeComponent } from './vista-profe/vista-profe.component';
+import { PerfilAluProfesorComponent } from './perfil-alu-profesor/perfil-alu-profesor.component';
 
 const routes:Routes = [
     {
@@ -45,8 +47,10 @@ const routes:Routes = [
         EditarAlumnoComponent,
         EliminarComponent,
         FormularioMensajeComponent,
-        PerfilAluComponent
-        
+        PerfilAluComponent,
+        VistaProfeComponent,
+        PerfilAluProfesorComponent,
+          
         
         
     ],

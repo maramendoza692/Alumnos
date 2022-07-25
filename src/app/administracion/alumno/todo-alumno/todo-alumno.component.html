@@ -96,7 +96,8 @@
       <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
         <div class="card">
           <div class="body">
-            <div class="table-responsive">
+            <div class="table">
+              
               <!--<div class="materialTableHeader">
                 <div class="row">
                   <div class="col-8">
@@ -107,17 +108,11 @@
                   </div>
                 </div>
               </div>-->
+              
               <mat-table #table matTableExporter [dataSource]="dataArray" matSort class="mat-cell"
-                #exporter="matTableExporter">
+                #exporter="matTableExporter" >
                 
                 <!-- ID Column -->
-<<<<<<< HEAD
-=======
-                <!-- <ng-container matColumnDef="pk_alumno">
-                  <mat-header-cell *matHeaderCellDef mat-sort-header >ID</mat-header-cell>
-                  <mat-cell *matCellDef="let row">{{row.pk_alumno}} </mat-cell>
-                </ng-container> -->
->>>>>>> c01525d75a4b57e1b1a6a95baed3ec5761d4a48c
                 <ng-container matColumnDef="txt_curp">
                   <mat-header-cell *matHeaderCellDef mat-sort-header >CURP</mat-header-cell>
                   <mat-cell *matCellDef="let row">{{row.txt_curp}} </mat-cell>
@@ -134,13 +129,6 @@
                   <mat-header-cell *matHeaderCellDef mat-sort-header>Apellido Materno</mat-header-cell>
                   <mat-cell *matCellDef="let row"> {{row.txt_ape_materno}}</mat-cell>
                 </ng-container>
-<<<<<<< HEAD
-=======
-                <!-- <ng-container matColumnDef="txt_sexo">
-                  <mat-header-cell *matHeaderCellDef mat-sort-header>Sexo</mat-header-cell>
-                  <mat-cell *matCellDef="let row"> {{row.txt_sexo}}</mat-cell>
-                </ng-container> -->
->>>>>>> c01525d75a4b57e1b1a6a95baed3ec5761d4a48c
                 <ng-container matColumnDef="txt_correo">
                   <mat-header-cell *matHeaderCellDef mat-sort-header>Correo</mat-header-cell>
                   <mat-cell *matCellDef="let row"> {{row.txt_correo}}</mat-cell>
@@ -164,7 +152,7 @@
                 </ng-container>
               
                 <!-- actions -->
-                <ng-container matColumnDef="actions">
+                <ng-container matColumnDef="actions" >
                   <mat-header-cell *matHeaderCellDef class="pr-0">Acciones</mat-header-cell>
                   <mat-cell *matCellDef="let row" class="pr-0">
                     <button type="button" class="btn btn-outline-success" (click)="editarAlumno(row, row.pk_alumno)">

@@ -115,6 +115,19 @@ export const ROUTES: RouteInfo[] = [
             badgeClass: "",
             role: [""],
             submenu: []
+          },
+          {
+            path: "/administracion/alumno/vista-profesor",
+            title: "Vista profe",
+            moduleName: "Administracion",
+            iconType: "",
+            icon: "",
+            class: "ml-menu",
+            groupTitle: false,
+            badge: "",
+            badgeClass: "",
+            role: [""],
+            submenu: []
           }
         ]
       },
