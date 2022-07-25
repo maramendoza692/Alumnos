@@ -33,6 +33,12 @@
                     <input matInput id="txt_ape_paterno" maxlength ="30" formControlName="txt_ape_paterno" type="text" onkeydown="return /[a-z, ]/i.test(event.key)">
                   </mat-form-field>
                 </div>
+                <div class="col-auto">
+                  <mat-form-field class="example-full-width" appearance="fill">
+                    <mat-label>Apellido materno</mat-label>
+                    <input matInput id="txt_ape_materno" maxlength ="30" formControlName="txt_ape_materno" type="text" onkeydown="return /[a-z, ]/i.test(event.key)">
+                  </mat-form-field>
+                </div>
                 <div class="col-4">
                   <mat-form-field class="example-full-width" appearance="fill">
                     <mat-label>CURP</mat-label>
@@ -114,12 +120,16 @@
                 
                 <!-- ID Column -->
                 <ng-container  matColumnDef="txt_curp">
-                  <mat-header-cell *matHeaderCellDef mat-sort-header class="col-2">CURP</mat-header-cell>
-                  <mat-cell *matCellDef="let row" class="col-2">{{row.txt_curp}} </mat-cell>
+                  <mat-header-cell *matHeaderCellDef mat-sort-header class="col-3">CURP</mat-header-cell>
+                  <mat-cell *matCellDef="let row" class="col-3">{{row.txt_curp}} </mat-cell>
                 </ng-container>
                 <ng-container matColumnDef="txt_nombre">
-                  <mat-header-cell *matHeaderCellDef mat-sort-header class="col-3">Nombre</mat-header-cell>
-                  <mat-cell *matCellDef="let row" class="col-3"> {{row.txt_nombre}} {{row.txt_ape_paterno}} {{row.txt_ape_materno}}</mat-cell>
+                  <mat-header-cell *matHeaderCellDef mat-sort-header class="col-1">Nombre</mat-header-cell>
+                  <mat-cell *matCellDef="let row" class="col-1"> {{row.txt_nombre}} </mat-cell>
+                </ng-container>
+                <ng-container matColumnDef="txt_ape_paterno">
+                  <mat-header-cell *matHeaderCellDef mat-sort-header class="col-2">Apellidos</mat-header-cell>
+                  <mat-cell *matCellDef="let row" class="col-2"> {{row.txt_ape_paterno}} {{row.txt_ape_materno}} </mat-cell>
                 </ng-container>
                 <ng-container matColumnDef="txt_correo">
                   <mat-header-cell *matHeaderCellDef mat-sort-header class="col-2">Correo</mat-header-cell>
@@ -135,8 +145,8 @@
                   </mat-cell>
                 </ng-container>
                 <ng-container matColumnDef="txt_expediente">
-                  <mat-header-cell *matHeaderCellDef mat-sort-header >Expte</mat-header-cell>
-                  <mat-cell *matCellDef="let row"> {{row.txt_expediente}}</mat-cell>
+                  <mat-header-cell *matHeaderCellDef mat-sort-header class="col-1" >Expte</mat-header-cell>
+                  <mat-cell *matCellDef="let row" class="col-1"> {{row.txt_expediente}}</mat-cell>
                 </ng-container>
                 <ng-container matColumnDef="pk_grupo">
                   <mat-header-cell *matHeaderCellDef mat-sort-header class="col-1">Grupo</mat-header-cell>

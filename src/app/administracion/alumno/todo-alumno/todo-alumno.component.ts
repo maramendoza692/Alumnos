@@ -33,6 +33,7 @@ export class TodoAlumnoComponent
   displayedColumns = [
     "txt_expediente",
     "txt_nombre",
+    "txt_ape_paterno",
     "txt_curp",
     "txt_correo",
     "fk_status",
@@ -83,6 +84,7 @@ export class TodoAlumnoComponent
       txt_curp: ["", Validators.required, Validators.length[18]],
       txt_nombre: ["", Validators.required],
       txt_ape_paterno: ["", Validators.required],
+      txt_ape_materno: ["", Validators.required],
       fk_status: ["", Validators.required],
       pk_grupo: ["", Validators.required],
       txt_sexo: ["", Validators.required],
@@ -93,6 +95,7 @@ export class TodoAlumnoComponent
       txt_curp: [""],
       txt_nombre: [""],
       txt_ape_paterno: [""],
+      txt_ape_materno: [""],
       txt_correo: [""],
       txt_expediente: [""],
       txt_desc_grupo: [""]
