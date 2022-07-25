@@ -59,7 +59,7 @@
             <div class="col-xl-6 col-lg-6 col-md-12 col-sm-12 mb-2">
                 <mat-form-field class="example-full-width" appearance="fill">
                   <mat-label>CURP</mat-label>
-                  <input matInput formControlName="txt_curp" required>
+                  <input matInput formControlName="txt_curp" required style="text-transform: uppercase" >
                   <mat-error *ngIf="alumnoForm.get('txt_curp').hasError('required')">
                     La CURP es requerida.
                   </mat-error>
