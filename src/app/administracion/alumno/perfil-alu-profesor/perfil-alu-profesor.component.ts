@@ -1,11 +1,13 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, Validators } from '@angular/forms';
+import { MatDialog } from '@angular/material/dialog';
 import { ActivatedRoute} from '@angular/router';
 import { first } from 'rxjs';
 import { Alumno } from 'src/app/_model/alumno';
 import { AlumnoService } from 'src/app/_services/alumno.service';
-import { Calificacion } from '../../../_model/calificacion';
+import { Calificaciones } from '../../../_model/calificaciones';
+import { EditarCalificacionesComponent } from './editar-calificaciones/editar-calificaciones.component';
 
 @Component({
   selector: 'app-perfil-alu-profesor',
@@ -28,10 +30,12 @@ export class PerfilAluProfesorComponent implements OnInit {
     dataArray: Object[];
     form: FormGroup;
     formBuilder: any;
+  calificaciones: Calificaciones;
   
     constructor( private http: HttpClient,
                 private activatedRoute: ActivatedRoute,
-                private alumnoService: AlumnoService) {
+                private alumnoService: AlumnoService,
+                public dialog: MatDialog,) {
      
     }
     ngAfterContentInit(){
@@ -40,7 +44,7 @@ export class PerfilAluProfesorComponent implements OnInit {
     ngOnInit() {
     this.consultarAlumnoPorID();
     this.consultarMateriasAlumno();
-  
+    
     }
   
     consultarAlumnoPorID(){
@@ -64,7 +68,14 @@ export class PerfilAluProfesorComponent implements OnInit {
       })
   
     }
-  
+    editarCalificaciones(){
+      this.dialog.open(EditarCalificacionesComponent, {
+        data: {
+          calificaciones: this.calificaciones,
+           //action: "edit",
+        }
+    })
+}
     consultarMateriasAlumno(){
       this.activatedRoute.params.subscribe( params =>{
         let pk_alumno = params['pk_alumno']

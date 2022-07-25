@@ -6,7 +6,7 @@ import { ActivatedRoute} from '@angular/router';
 import { first } from 'rxjs';
 import { Alumno } from 'src/app/_model/alumno';
 import { AlumnoService } from 'src/app/_services/alumno.service';
-import { Calificacion } from '../../../_model/calificacion';
+import { Calificaciones } from '../../../_model/calificaciones';
 
 
 

@@ -30,6 +30,7 @@ import { PerfilAluComponent } from './perfil-alu/perfil-alu.component';
 import { Routes } from "@angular/router";
 import { VistaProfeComponent } from './vista-profe/vista-profe.component';
 import { PerfilAluProfesorComponent } from './perfil-alu-profesor/perfil-alu-profesor.component';
+import { EditarCalificacionesComponent } from './perfil-alu-profesor/editar-calificaciones/editar-calificaciones.component';
 
 const routes:Routes = [
     {
@@ -50,6 +51,7 @@ const routes:Routes = [
         PerfilAluComponent,
         VistaProfeComponent,
         PerfilAluProfesorComponent,
+        EditarCalificacionesComponent,
           
         
         

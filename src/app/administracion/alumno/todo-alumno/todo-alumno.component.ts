@@ -129,6 +129,8 @@ export class TodoAlumnoComponent
   })
 
   }
+  
+
   guardarAlumno(){
 
     const dialogRef = this.dialog.open(FormularioMensajeComponent, {
