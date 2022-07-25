@@ -69,13 +69,13 @@ export class FormularioMensajeComponent {
   createContactForm(): FormGroup {
       return this.alumnoForm = this.fb.group({
       pk_alumno:[this.alumno.pk_alumno],
-      txt_expediente: [this.alumno.txt_expediente,[Validators.minLength(4), Validators.maxLength(6),Validators.required]],//
+      txt_expediente: [this.alumno.txt_expediente,[Validators.minLength(6),Validators.maxLength(6), Validators.required]],//
       txt_nombre: [this.alumno.txt_nombre],
       txt_ape_paterno: [this.alumno.txt_ape_paterno],
       txt_ape_materno: [this.alumno.txt_ape_materno],
-      txt_curp: [this.alumno.txt_curp,[Validators.minLength(18),Validators.required]],//
+      txt_curp: [this.alumno.txt_curp,[Validators.minLength(18),Validators.required]],
       txt_sexo: [this.alumno.txt_sexo],
-      txt_correo: [this.alumno.txt_correo,[Validators.email]],//
+      txt_correo: [this.alumno.txt_correo,[Validators.email]],
       fk_status: [this.alumno.fk_status],
       txt_desc_grupo: [this.alumno.txt_desc_grupo],
        

@@ -13,42 +13,42 @@
                   <h4>Filtro de búsqueda</h4>
                 </div>
               </div>
-              <div class="row formBusqueda">
+              <div class="row" >
                 <div class="col-auto">
-                  <mat-form-field class="example-full-width" appearance="fill">
+                  <mat-form-field appearance="fill">
                     <mat-label>Expediente</mat-label>
-                    <input matInput maxlength="12" id="txt_expediente"  formControlName="txt_expediente" class="form-control" type="text">
+                    <input matInput maxlength="6" id="txt_expediente"  formControlName="txt_expediente">
                   </mat-form-field>
                 </div>
 
                 <div class="col-auto">
                   <mat-form-field class="example-full-width" appearance="fill">
                     <mat-label>Nombre</mat-label>
-                    <input matInput id="txt_nombre" maxlength ="30" formControlName="txt_nombre" class="form-control" type="text">
+                    <input matInput id="txt_nombre" maxlength ="30" formControlName="txt_nombre" type="text" onkeydown="return /[a-z, ]/i.test(event.key)">
                   </mat-form-field>
                 </div>
                 <div class="col-auto">
                   <mat-form-field class="example-full-width" appearance="fill">
                     <mat-label>Apellido paterno</mat-label>
-                    <input matInput id="txt_ape_paterno" maxlength ="30" formControlName="txt_ape_paterno" class="form-control" type="text">
+                    <input matInput id="txt_ape_paterno" maxlength ="30" formControlName="txt_ape_paterno" type="text" onkeydown="return /[a-z, ]/i.test(event.key)">
                   </mat-form-field>
                 </div>
-                <div class="col-auto">
+                <div class="col-4">
                   <mat-form-field class="example-full-width" appearance="fill">
                     <mat-label>CURP</mat-label>
-                    <input matInput maxlength="8" id="txt_curp"  formControlName="txt_curp" class="form-control" type="text">
+                    <input matInput maxlength="18" id="txt_curp"  formControlName="txt_curp" >
                   </mat-form-field>
                 </div>
                 
                 
                 <div class="row">
-                  <div class="col-auto">
+                  <div class="col-4">
                     <mat-form-field class="example-full-width" appearance="fill">
                       <mat-label>Correo</mat-label>
-                      <input matInput id="txt_correo" maxlength ="30" formControlName="txt_correo" class="form-control" type="text">
+                      <input matInput id="txt_correo" maxlength ="30" formControlName="txt_correo">
                     </mat-form-field>
                   </div>
-                  <div class="col-auto">
+                  <div class="col-3">
                     <mat-form-field class="example-full-width" appearance="fill">
                       <mat-label>Grupo</mat-label>
                       <mat-select formControlName="txt_desc_grupo" class="custom-select mr-sm-2" id="txt_desc_grupo">
@@ -188,10 +188,7 @@
                   [style.cursor]="'pointer'" matRipple>
                 </mat-row> 
               </mat-table>
-              
-               <mat-paginator #paginator [length]="dataArray.filteredData.length" [pageIndex]="0" [pageSize]="5"
-                [pageSizeOptions]="[5, 10, 25, 100]">
-              </mat-paginator>  
+ 
             </div> 
           </div>
         </div>
