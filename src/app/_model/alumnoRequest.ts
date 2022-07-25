@@ -11,6 +11,7 @@ export class AlumnoRequest{
 	txt_sexo: string;
     txt_correo: string;
 	fk_status: string;
+	txt_status: string;
 	pk_grupo: string;
 	txt_desc_grupo: string;
 

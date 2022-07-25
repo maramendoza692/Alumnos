@@ -15,6 +15,7 @@ import { AlumnoRequest } from 'src/app/_model/alumnoRequest';
 import { AlumnoFiltroRequest } from 'src/app/_model/alumnoFiltroRequest';
 import { MatTableDataSource } from '@angular/material/table';
 import { Grupo } from '../../../../../_model/grupo';
+import { AdminModule } from '../../../../../admin/admin.module';
 
 @Component({
   selector: 'app-formulario-mensaje',
@@ -34,8 +35,8 @@ export class FormularioMensajeComponent {
   alumnoFiltroRequest!: AlumnoFiltroRequest;
   datos: MatTableDataSource<Grupo>;
   sort: any;
-  
-   
+  add
+  edit   
   constructor(
     public dialogRef: MatDialogRef<FormularioMensajeComponent>,
     @Inject(MAT_DIALOG_DATA) public data: any,
@@ -46,11 +47,16 @@ export class FormularioMensajeComponent {
     // Set the defaults
     this.action = data.action;
     if (this.action === "edit") {
+      this.action = "edit"
       this.dialogTitle = data.alumno.txt_expediente;
       this.alumno = data.alumno;
+      console.log(this.action)
+      this.edit = this.action
     } else {
       this.dialogTitle = "add";
       this.alumno = new AlumnoRequest();
+      console.log(this.action)
+      this.add = this.action
     }
     this.alumnoForm = this.createContactForm();
   }
@@ -69,13 +75,13 @@ export class FormularioMensajeComponent {
   createContactForm(): FormGroup {
       return this.alumnoForm = this.fb.group({
       pk_alumno:[this.alumno.pk_alumno],
-      txt_expediente: [this.alumno.txt_expediente,[Validators.minLength(4), Validators.maxLength(6),Validators.required]],//
+      txt_expediente: [this.alumno.txt_expediente,[Validators.minLength(6),Validators.maxLength(6), Validators.required]],//
       txt_nombre: [this.alumno.txt_nombre],
       txt_ape_paterno: [this.alumno.txt_ape_paterno],
       txt_ape_materno: [this.alumno.txt_ape_materno],
-      txt_curp: [this.alumno.txt_curp,[Validators.minLength(18),Validators.required]],//
+      txt_curp: [this.alumno.txt_curp,[Validators.minLength(18),Validators.required]],
       txt_sexo: [this.alumno.txt_sexo],
-      txt_correo: [this.alumno.txt_correo,[Validators.email]],//
+      txt_correo: [this.alumno.txt_correo,[Validators.email]],
       fk_status: [this.alumno.fk_status],
       txt_desc_grupo: [this.alumno.txt_desc_grupo],
       pk_grupo: [this.alumno.pk_grupo],

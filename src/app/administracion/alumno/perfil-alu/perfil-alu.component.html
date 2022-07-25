@@ -19,9 +19,12 @@
   <div class="content-block">
     <div class="block-header">
       <!-- breadcrumb -->
-      <app-breadcrumb [title]="'Perfil del alumno'" [items]="['Alumnos']" [active_item]="'Perfil del alumno'"></app-breadcrumb>
+        <button type="button" class="btn btn-outline-primary" [routerLink]="['/administracion/alumno/todos-alumnos']">
+          <mat-icon>keyboard_arrow_left</mat-icon> 
+        </button>
+        <app-breadcrumb [title]="'Perfil del alumno'" [items]="['Alumnos']" [active_item]="'Perfil del alumno'">
+        </app-breadcrumb>
     </div>
-    
     <div class="row clearfix">
       <div class="col-xs-12 col-sm-12 col-md-8 col-lg-8">
         <div class="card">
