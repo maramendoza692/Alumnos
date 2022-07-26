@@ -2,8 +2,10 @@ import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, Validators } from '@angular/forms';
 import { MatDialog } from '@angular/material/dialog';
+import { MatSnackBar } from '@angular/material/snack-bar';
 import { ActivatedRoute} from '@angular/router';
 import { first } from 'rxjs';
+import { UnsubscribeOnDestroyAdapter } from 'src/app/shared/UnsubscribeOnDestroyAdapter';
 import { Alumno } from 'src/app/_model/alumno';
 import { AlumnoService } from 'src/app/_services/alumno.service';
 import { Calificaciones } from '../../../_model/calificaciones';
@@ -14,7 +16,7 @@ import { EditarCalificacionesComponent } from './editar-calificaciones/editar-ca
   templateUrl: './perfil-alu-profesor.component.html',
   styleUrls: ['./perfil-alu-profesor.component.sass']
 })
-export class PerfilAluProfesorComponent implements OnInit {
+export class PerfilAluProfesorComponent  extends UnsubscribeOnDestroyAdapter implements OnInit {
 
   alumno : Alumno = new Alumno();
   alumateria : Object = new Object();
@@ -23,20 +25,22 @@ export class PerfilAluProfesorComponent implements OnInit {
       "nombre",
       "cal1",
       "cal2",
-      "cal3"
+      "cal3",
+      "actions"
       
     ];
   
     dataArray: Object[];
     form: FormGroup;
     formBuilder: any;
-  calificaciones: Calificaciones;
-  
-    constructor( private http: HttpClient,
-                private activatedRoute: ActivatedRoute,
+
+  calificacionesService: any;
+  calificaciones: Calificaciones = new Calificaciones()
+    constructor( private activatedRoute: ActivatedRoute,
                 private alumnoService: AlumnoService,
-                public dialog: MatDialog,) {
-     
+                public dialog: MatDialog,
+                private snackbar: MatSnackBar,) {
+      super();
     }
     ngAfterContentInit(){
   
@@ -44,6 +48,7 @@ export class PerfilAluProfesorComponent implements OnInit {
     ngOnInit() {
     this.consultarAlumnoPorID();
     this.consultarMateriasAlumno();
+    this.consultarCalificacionesId();
     
     }
   
@@ -68,14 +73,42 @@ export class PerfilAluProfesorComponent implements OnInit {
       })
   
     }
-    editarCalificaciones(){
-      this.dialog.open(EditarCalificacionesComponent, {
+
+    traerIdCalificaciones(){
+
+      
+    }
+
+    editarAlumno(calificaciones?: Calificaciones, pk_calificacion?: number ) {
+       let mate = calificaciones != null ? calificaciones: new Calificaciones();
+      this.alumateria[8] = pk_calificacion
+  
+      const dialogRef = this.dialog.open(EditarCalificacionesComponent, {
         data: {
-          calificaciones: this.calificaciones,
-           //action: "edit",
+          calificaciones: mate,
+          action: "edit",
+        },
+        
+      });
+      
+      this.subs.sink = dialogRef.afterClosed().subscribe((result) => {
+  
+        if (result === 1) {
+          //this.alumnoService.editarAlumno(result).subscribe(resp =>{    
+            
+            this.showNotification(
+              "snackbar-success",
+              "Editado correctamente...!!!",
+              "bottom",
+              "center"
+            );
+            
+          
+          //})
+          
         }
-    })
-}
+      });
+    }
     consultarMateriasAlumno(){
       this.activatedRoute.params.subscribe( params =>{
         let pk_alumno = params['pk_alumno']
@@ -93,6 +126,40 @@ export class PerfilAluProfesorComponent implements OnInit {
       })
     
     }
+    showNotification(colorName, text, placementFrom, placementAlign) {
+      this.snackbar.open(text, "", {
+        duration: 2000,
+        verticalPosition: placementFrom,
+        horizontalPosition: placementAlign,
+        panelClass: colorName,
+      });
+    }
+    consultarCalificacionesId() {
+      
+      this.activatedRoute.params.subscribe((params) => {
+        let pk_calificacion = params["alumateria[8]"];
+        if (pk_calificacion) {
+          this.calificacionesService
+            .consultarCalificacionesId(pk_calificacion)
+            .subscribe((response) => {
+              if (response.status === "OK") {
+                this.alumno = response.data;
+                
+              }
+            });
+        }
+      });
+    }
+    editarCalificaciones(){
+      this.dialog.open(EditarCalificacionesComponent, {
+        data: {
+          calificaciones: this.consultarCalificacionesId(),
+          alumateria: this.consultarMateriasAlumno() ,
+          alumno :this.alumno,
+          action: "edit",
+        }
+    })
+}
   
   }
     

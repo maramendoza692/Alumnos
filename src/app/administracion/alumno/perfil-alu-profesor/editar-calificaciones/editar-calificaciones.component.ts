@@ -14,11 +14,11 @@ import { Alumno } from 'src/app/_model/alumno';
 import { AlumnoRequest } from 'src/app/_model/alumnoRequest';
 import { AlumnoFiltroRequest } from 'src/app/_model/alumnoFiltroRequest';
 import { MatTableDataSource } from '@angular/material/table';
-import { Grupo } from '../../../../_model/grupo';
-import { FormularioMensajeComponent } from '../../todo-alumno/mensaje/formulario-mensaje/formulario-mensaje.component';
+
 import { Calificaciones } from 'src/app/_model/calificaciones';
 import { CalificacionesService } from 'src/app/_services/calificaciones.service';
 import { CalificacionesRequest } from 'src/app/_model/calificacionesRequest';
+import { ActivatedRoute } from '@angular/router';
 
 
 @Component({
@@ -27,7 +27,7 @@ import { CalificacionesRequest } from 'src/app/_model/calificacionesRequest';
   styleUrls: ['./editar-calificaciones.component.sass']
 })
 export class EditarCalificacionesComponent implements OnInit {
-
+  calificacion : Calificaciones = new Calificaciones();
   action: string;
   dialogTitle: string;
   calificacionesForm: FormGroup;
@@ -40,8 +40,18 @@ export class EditarCalificacionesComponent implements OnInit {
   sort: any;
   calificaciones: CalificacionesRequest;
   alumateria : Object = new Object();
-   
+  alumnoService: AlumnoService;
+  displayedColumns = [
+    "nombre",
+    "cal1",
+    "cal2",
+    "cal3",
+    "actions"
+    
+  ];
+
   constructor(
+    private activatedRoute: ActivatedRoute,
     public dialogRef: MatDialogRef<EditarCalificacionesComponent>,
     @Inject(MAT_DIALOG_DATA) public data: any,
     public calificacionesService: CalificacionesService,
@@ -51,10 +61,10 @@ export class EditarCalificacionesComponent implements OnInit {
     // Set the defaults
     this.action = data.action;
     if (this.action === "edit") {
-      this.dialogTitle = this.alumateria[1]
-      this.alumateria = data.alumateria;
+      this.dialogTitle == this.calificaciones.fk_materia.des_materia
+      this.calificaciones= data.calificaciones
     } else {
-      this.dialogTitle = "add";
+      this.dialogTitle = "add"
       this.calificaciones = new CalificacionesRequest();
     }
     
@@ -74,7 +84,7 @@ export class EditarCalificacionesComponent implements OnInit {
 
   createContactForm(): FormGroup {
       return this.calificacionesForm = this.fb.group({
-      num_cal_unidad_uno:[this.calificaciones.num_cal_unidad_uno],
+      num_cal_unidad_uno:[this.alumateria[0]],
       num_cal_unidad_dos: [this.calificaciones.num_cal_unidad_dos],
       num_cal_unidad_tres: [this.calificaciones.num_cal_unidad_tres]
   
@@ -87,7 +97,8 @@ export class EditarCalificacionesComponent implements OnInit {
     this.dialogRef.close();
   }
   ngOnInit(){
-   console.log(this.calificaciones)
+
+   console.log(this.alumateria)
   }
 
   aceptar(){
@@ -111,7 +122,39 @@ export class EditarCalificacionesComponent implements OnInit {
     this.isClicked = true;
   }
 
+  consultarCalificacionesId() {
+      
+    this.activatedRoute.params.subscribe((params) => {
+      let pk_calificacion = params["pk_calificacion"];
+      if (pk_calificacion) {
+        this.calificacionesService
+          .consultarCalificacionesId(pk_calificacion)
+          .subscribe((response) => {
+            if (response.status === "OK") {
+              this.calificacion= response.data;
+              console.log(this.alumateria);
+            }
+          });
+      }
+    });
+  }
+  consultarMateriasAlumno(){
+    this.activatedRoute.params.subscribe( params =>{
+      let pk_alumno = params['pk_alumno']
+      if(pk_alumno){
 
+        this.alumnoService.consultarMateriasAlumno(pk_alumno).subscribe(response => {
+            if(response.status === 'OK'){
+              this.alumateria = response.list;
+              console.log(this.alumateria);
+            }
+  
+        })
+      } 
+  
+    })
+  
+  }
 
   public confirmAdd(): void {
 

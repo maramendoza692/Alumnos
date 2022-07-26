@@ -50,7 +50,7 @@ alumno : Alumno = new Alumno();
 dataArray= new MatTableDataSource<Alumno>();
 public form: FormGroup;
 formBusqueda: FormGroup;
-
+ alumateria : Object = new Object();
 claveFiltro = [];
 alumnoFiltroRequest: AlumnoFiltroRequest;
 constructor(

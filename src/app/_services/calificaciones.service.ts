@@ -44,6 +44,11 @@ export class CalificacionesService extends UnsubscribeOnDestroyAdapter{
 
     return this.http.put<Response<Calificaciones>>(url, calificaciones)
   }
+  consultarCalificacionesId(pk_calificaciones): Observable<Response<Calificaciones>> {
+    const url = "http://localhost:8081/calificaciones/consultarCalificacionesId/" +  pk_calificaciones
+
+    return this.http.get<Response<Calificaciones>>(url);
+  }
 
 
   get data(): Calificaciones[] {
