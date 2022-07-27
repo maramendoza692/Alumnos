@@ -54,9 +54,9 @@ export class PerfilAluProfesorComponent  extends UnsubscribeOnDestroyAdapter imp
   
     consultarAlumnoPorID(){
       this.activatedRoute.params.subscribe( params =>{
-        let pk_alumno = params['pk_alumno']
-        if(pk_alumno){
-          this.alumnoService.consultarAlumnoPorID(pk_alumno).subscribe(
+        let idAlumno = params['idAlumno']
+        if(idAlumno){
+          this.alumnoService.consultarAlumnoPorID(idAlumno).subscribe(
             (response) => {
                 
                 
@@ -79,9 +79,9 @@ export class PerfilAluProfesorComponent  extends UnsubscribeOnDestroyAdapter imp
       
     }
 
-    editarAlumno(calificaciones?: Calificaciones, pk_calificacion?: number ) {
+    editarAlumno(calificaciones?: Calificaciones, idCalificacion?: number ) {
        let mate = calificaciones != null ? calificaciones: new Calificaciones();
-      this.alumateria[8] = pk_calificacion
+      this.alumateria[8] = idCalificacion
   
       const dialogRef = this.dialog.open(EditarCalificacionesComponent, {
         data: {
@@ -111,10 +111,10 @@ export class PerfilAluProfesorComponent  extends UnsubscribeOnDestroyAdapter imp
     }
     consultarMateriasAlumno(){
       this.activatedRoute.params.subscribe( params =>{
-        let pk_alumno = params['pk_alumno']
-        if(pk_alumno){
+        let idAlumno = params['idAlumno']
+        if(idAlumno){
   
-          this.alumnoService.consultarMateriasAlumno(pk_alumno).subscribe(response => {
+          this.alumnoService.consultarMateriasAlumno(idAlumno).subscribe(response => {
               if(response.status === 'OK'){
                 this.alumateria = response.list;
                 console.log(this.alumateria);
@@ -137,10 +137,10 @@ export class PerfilAluProfesorComponent  extends UnsubscribeOnDestroyAdapter imp
     consultarCalificacionesId() {
       
       this.activatedRoute.params.subscribe((params) => {
-        let pk_calificacion = params["alumateria[8]"];
-        if (pk_calificacion) {
+        let idCalificacion = params["alumateria[8]"];
+        if (idCalificacion) {
           this.calificacionesService
-            .consultarCalificacionesId(pk_calificacion)
+            .consultarCalificacionesId(idCalificacion)
             .subscribe((response) => {
               if (response.status === "OK") {
                 this.alumno = response.data;

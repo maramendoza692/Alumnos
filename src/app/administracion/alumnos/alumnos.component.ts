@@ -54,11 +54,11 @@ export class AlumnosComponent implements OnInit {
   
     createContactForm(): FormGroup {
         return this.alumnoForm = this.fb.group({
-        txt_expediente: [this.alumno.txt_expediente],
-        txt_nombre: [this.alumno.txt_nombre],
-        txt_curp: [this.alumno.txt_curp],
-        txt_correo: [this.alumno.txt_correo],
-        //pk_grupo: [this.alumno.pk_grupo]
+        expediente: [this.alumno.expediente],
+        nombre: [this.alumno.nombre],
+        curp: [this.alumno.curp],
+        correo: [this.alumno.correo],
+        //idGrupo: [this.alumno.idGrupo]
       });
     }
     submit() {
@@ -75,7 +75,7 @@ export class AlumnosComponent implements OnInit {
         this.datos.sort = this.sort
         
           data.list.forEach((element) => {
-            let grupo:Grupo = (element.pk_grupo)
+            let grupo:Grupo = (element.idGrupo)
             this.grupo.push(grupo);
             
           }); 

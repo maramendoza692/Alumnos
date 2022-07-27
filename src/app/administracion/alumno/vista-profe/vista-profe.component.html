@@ -18,26 +18,26 @@
                   <div class="col-auto">
                     <mat-form-field class="example-full-width" appearance="fill">
                       <mat-label>Expediente</mat-label>
-                      <input matInput maxlength="12" id="txt_expediente"  formControlName="txt_expediente" class="form-control" type="text">
+                      <input matInput maxlength="12" id="expediente"  formControlName="expediente" class="form-control" type="text">
                     </mat-form-field>
                   </div>
   
                   <div class="col-auto">
                     <mat-form-field class="example-full-width" appearance="fill">
                       <mat-label>Nombre</mat-label>
-                      <input matInput id="txt_nombre" maxlength ="30" formControlName="txt_nombre" class="form-control" type="text">
+                      <input matInput id="nombre" maxlength ="30" formControlName="nombre" class="form-control" type="text">
                     </mat-form-field>
                   </div>
                   <div class="col-auto">
                     <mat-form-field class="example-full-width" appearance="fill">
                       <mat-label>Apellido paterno</mat-label>
-                      <input matInput id="txt_ape_paterno" maxlength ="30" formControlName="txt_ape_paterno" class="form-control" type="text">
+                      <input matInput id="apePaterno" maxlength ="30" formControlName="apePaterno" class="form-control" type="text">
                     </mat-form-field>
                   </div>
                   <div class="col-auto">
                     <mat-form-field class="example-full-width" appearance="fill">
                       <mat-label>CURP</mat-label>
-                      <input matInput maxlength="8" id="txt_curp"  formControlName="txt_curp" class="form-control" type="text">
+                      <input matInput maxlength="8" id="curp"  formControlName="curp" class="form-control" type="text">
                     </mat-form-field>
                   </div>
                   
@@ -46,7 +46,7 @@
                     <div class="col-auto">
                       <mat-form-field class="example-full-width" appearance="fill">
                         <mat-label>Correo</mat-label>
-                        <input matInput id="txt_correo" maxlength ="30" formControlName="txt_correo" class="form-control" type="text">
+                        <input matInput id="correo" maxlength ="30" formControlName="correo" class="form-control" type="text">
                       </mat-form-field>
                     </div>
 
@@ -101,27 +101,27 @@
                   #exporter="matTableExporter" >
                   
                   <!-- ID Column -->
-                  <ng-container matColumnDef="txt_curp">
+                  <ng-container matColumnDef="curp">
                     <mat-header-cell *matHeaderCellDef mat-sort-header >CURP</mat-header-cell>
-                    <mat-cell *matCellDef="let row">{{row.txt_curp}} </mat-cell>
+                    <mat-cell *matCellDef="let row">{{row.curp}} </mat-cell>
                   </ng-container>
-                  <ng-container matColumnDef="txt_nombre">
+                  <ng-container matColumnDef="nombre">
                     <mat-header-cell *matHeaderCellDef mat-sort-header>Nombre</mat-header-cell>
-                    <mat-cell *matCellDef="let row"> {{row.txt_nombre}}</mat-cell>
+                    <mat-cell *matCellDef="let row"> {{row.nombre}}</mat-cell>
                   </ng-container>
-                  <ng-container matColumnDef="txt_ape_paterno">
+                  <ng-container matColumnDef="apePaterno">
                     <mat-header-cell *matHeaderCellDef mat-sort-header>Apellido Paterno</mat-header-cell>
-                    <mat-cell *matCellDef="let row"> {{row.txt_ape_paterno}}</mat-cell>
+                    <mat-cell *matCellDef="let row"> {{row.apePaterno}}</mat-cell>
                   </ng-container>
-                  <ng-container matColumnDef="txt_ape_materno">
+                  <ng-container matColumnDef="apeMaterno">
                     <mat-header-cell *matHeaderCellDef mat-sort-header>Apellido Materno</mat-header-cell>
-                    <mat-cell *matCellDef="let row"> {{row.txt_ape_materno}}</mat-cell>
+                    <mat-cell *matCellDef="let row"> {{row.apeMaterno}}</mat-cell>
                   </ng-container>
-                  <ng-container matColumnDef="txt_correo">
+                  <ng-container matColumnDef="correo">
                     <mat-header-cell *matHeaderCellDef mat-sort-header>Correo</mat-header-cell>
-                    <mat-cell *matCellDef="let row"> {{row.txt_correo}}</mat-cell>
+                    <mat-cell *matCellDef="let row"> {{row.correo}}</mat-cell>
                   </ng-container>
-                  <ng-container matColumnDef="fk_status">
+                  <ng-container matColumnDef="status">
                     <mat-header-cell *matHeaderCellDef mat-sort-header>Estatus</mat-header-cell>
                     <mat-cell *matCellDef="let row">
                       <p *ngIf= "row.fk_status == 2; else estatus2">Activo</p>
@@ -130,13 +130,13 @@
                       </ng-template>
                     </mat-cell>
                   </ng-container>
-                  <ng-container matColumnDef="txt_expediente">
+                  <ng-container matColumnDef="expediente">
                     <mat-header-cell *matHeaderCellDef mat-sort-header>Expediente</mat-header-cell>
-                    <mat-cell *matCellDef="let row"> {{row.txt_expediente}}</mat-cell>
+                    <mat-cell *matCellDef="let row"> {{row.expediente}}</mat-cell>
                   </ng-container>
-                  <ng-container matColumnDef="pk_grupo" >
+                  <ng-container matColumnDef="idGrupo" >
                     <mat-header-cell *matHeaderCellDef mat-sort-header>Grupo</mat-header-cell>
-                    <mat-cell *matCellDef="let row"> {{row.pk_grupo.txt_desc_grupo}}</mat-cell>
+                    <mat-cell *matCellDef="let row"> {{row.idGrupo.descGrupo}}</mat-cell>
                   </ng-container>
                 
                   <!-- actions -->
@@ -146,7 +146,7 @@
                       <!-- <button type="button"class="btn btn-outline-primary"[dataSource]="alumateria" [routerLink]="['./editarCalif', row[8]]" >
                         <mat-icon>create</mat-icon> 
                       </button> -->
-                      <button type="button"class="btn btn-outline-primary" [routerLink]="['./alumnoPerfil', row.pk_alumno]">
+                      <button type="button"class="btn btn-outline-primary" [routerLink]="['./alumnoPerfil', row.idAlumno]">
                         <mat-icon>person</mat-icon> 
                       </button>
                       <!--<button mat-icon-button color="accent" [routerLink]="['./alumnoPerfil', row.pk_alumno]" 

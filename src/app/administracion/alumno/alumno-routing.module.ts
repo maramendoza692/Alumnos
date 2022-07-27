@@ -19,7 +19,7 @@ const routes: Routes = [
     component: VistaProfeComponent,
   },
   {
-    path: "todos-alumnos/alumnoPerfil/:pk_alumno",
+    path: "todos-alumnos/alumnoPerfil/:idAlumno",
     component: PerfilAluComponent,
   },
   {
@@ -27,13 +27,13 @@ const routes: Routes = [
 
     children: [
       {
-        path: "alumnoPerfil/:pk_alumno",
+        path: "alumnoPerfil/:idAlumno",
         component: PerfilAluProfesorComponent,
       },
     ],
   },
   {
-    path: "vista-profesor/editarCalif/:pk_calificacion",
+    path: "vista-profesor/editarCalif/:idCalificacion",
     component: EditarCalificacionesComponent,
   },
   {

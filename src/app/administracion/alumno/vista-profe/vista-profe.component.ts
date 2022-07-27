@@ -26,14 +26,13 @@ export class VistaProfeComponent  extends UnsubscribeOnDestroyAdapter
 implements OnInit
 {
 displayedColumns = [
-  "txt_expediente",
-  "txt_nombre",
-  "txt_ape_paterno",
-  "txt_ape_materno",
-  "txt_curp",
-  "txt_correo",
-  "fk_status",
-  "pk_grupo",
+  "expediente",
+  "nombre",
+  "apePaterno",
+  "curp",
+  "correo",
+  "status",
+  "idGrupo",
   "actions",
 ];
 
@@ -77,23 +76,21 @@ ngOnInit() {
   
   
   this.form = this.formBuilder.group({
-    txt_curp: ["", Validators.required],
-    txt_nombre: ["", Validators.required],
-    txt_ape_paterno: ["", Validators.required],
-    fk_status: ["", Validators.required],
-    pk_grupo: ["", Validators.required],
-    txt_sexo: ["", Validators.required],
-    txt_correo: ["", Validators.required],
-    txt_expediente: ["", Validators.required]
+    curp: ["", Validators.required],
+    nombre: ["", Validators.required],
+    apePaterno: ["", Validators.required],
+    status: ["", Validators.required],
+    idGrupo: ["", Validators.required],
+    sexo: ["", Validators.required],
+    correo: ["", Validators.required],expediente: ["", Validators.required]
   });
   this.formBusqueda = this.formBuilder.group({
-    txt_curp: [""],
-    txt_nombre: [""],
-    txt_ape_paterno: [""],
-    fk_status: [""],
-    txt_correo: [""],
-    txt_expediente: [""],
-    txt_desc_grupo: [""]
+    curp: [""],
+    nombre: [""],
+    apePaterno: [""],
+    status: [""],
+    correo: [""],expediente: [""],
+    descGrupo: [""]
 
   });
  
@@ -114,12 +111,12 @@ public consultarTodos(){
   });
   
 }
-open(pk_alumno) {
+open(idAlumno) {
 
   const dialogRef=this.dialog.open(PerfilAluComponent, {
     width:"700px",
     data:{
-      id:pk_alumno,
+      id:idAlumno,
     }
 })
 
@@ -132,7 +129,7 @@ buscarAlumnoFiltro() {
 
         this.dataArray.data = data.list;
         console.log(this.formBusqueda.value);
-        console.log(this.alumnoFiltroRequest.txt_desc_grupo);
+        console.log(this.alumnoFiltroRequest.descGrupo);
       });
     this.formBusqueda.reset(); //resetea elformulario
   }

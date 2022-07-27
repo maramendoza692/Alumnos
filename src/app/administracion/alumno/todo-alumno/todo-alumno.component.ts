@@ -31,13 +31,13 @@ export class TodoAlumnoComponent
   implements OnInit
 {
   displayedColumns = [
-    "txt_expediente",
-    "txt_nombre",
-    "txt_ape_paterno",
-    "txt_curp",
-    "txt_correo",
-    "fk_status",
-    "pk_grupo",
+    "expediente",
+    "nombre",
+    "apePaterno",
+    "curp",
+    "correo",
+    "status",
+    "grupo",
     "actions",
   ];
 
@@ -81,24 +81,24 @@ export class TodoAlumnoComponent
     
     
     this.form = this.formBuilder.group({
-      txt_curp: ["", Validators.required, Validators.length[18]],
-      txt_nombre: ["", Validators.required],
-      txt_ape_paterno: ["", Validators.required],
-      txt_ape_materno: ["", Validators.required],
-      fk_status: ["", Validators.required],
-      pk_grupo: ["", Validators.required],
-      txt_sexo: ["", Validators.required],
-      txt_correo: ["", Validators.required],
-      txt_expediente: ["", Validators.required]
+      curp: ["", Validators.required, Validators.length[18]],
+      nombre: ["", Validators.required],
+      apePaterno: ["", Validators.required],
+      apeMaterno: ["", Validators.required],
+      status: ["", Validators.required],
+      grupo: ["", Validators.required],
+      sexo: ["", Validators.required],
+      correo: ["", Validators.required],
+      expediente: ["", Validators.required]
     });
     this.formBusqueda = this.formBuilder.group({
-      txt_curp: [""],
-      txt_nombre: [""],
-      txt_ape_paterno: [""],
-      txt_ape_materno: [""],
-      txt_correo: [""],
-      txt_expediente: [""],
-      txt_desc_grupo: [""]
+      curp: [""],
+      nombre: [""],
+      apePaterno: [""],
+      apeMaterno: [""],
+      correo: [""],
+      expediente: [""],
+      descGrupo: [""]
 
     });
     this.filtrarGrupo();
@@ -119,12 +119,12 @@ export class TodoAlumnoComponent
     });
     
   }
-  open(pk_alumno) {
+  open(idAlumno) {
 
     const dialogRef=this.dialog.open(PerfilAluComponent, {
       width:"700px",
       data:{
-        id:pk_alumno,
+        id:idAlumno,
       }
   })
 
@@ -163,16 +163,16 @@ export class TodoAlumnoComponent
 
           this.dataArray.data = data.list;
           console.log(this.formBusqueda.value);
-          console.log(this.alumnoFiltroRequest.txt_desc_grupo);
+          console.log(this.alumnoFiltroRequest.descGrupo);
         });
       //this.formBusqueda.reset() //resetea elformulario
     }
 
   }
 
-  editarAlumno(alumno?: Alumno, fk_grupo?: number ) {
+  editarAlumno(alumno?: Alumno, idGrupo?: number ) {
     let alu = alumno != null ? alumno: new Alumno();
-    alu.pk_grupo.pk_grupo =fk_grupo;
+    alu.idGrupo.idGrupo =idGrupo;
 
     const dialogRef = this.dialog.open(FormularioMensajeComponent, {
       data: {
@@ -203,7 +203,7 @@ export class TodoAlumnoComponent
 
   eliminarAlumno(i: number, alumno) {
     this.index = i
-    this.id = alumno.pk_alumno
+    this.id = alumno.idAlumno
 
     const dialogRef = this.dialog.open(EliminarComponent, {
       height: "270px",
@@ -230,7 +230,7 @@ export class TodoAlumnoComponent
       this.datos.sort = this.sort
       
         data.list.forEach((element) => {
-          let grupo: string = (element.pk_grupo.txt_desc_grupo)
+          let grupo: string = (element.idGrupo.descGrupo)
           this.grupo.push(grupo);
           
         }); 

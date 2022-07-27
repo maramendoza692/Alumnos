@@ -34,7 +34,7 @@ import { EditarCalificacionesComponent } from './perfil-alu-profesor/editar-cali
 
 const routes:Routes = [
     {
-        path: "alumnoPerfil/:pk_alumno",
+        path: "alumnoPerfil/:idAlumno",
         component: TodoAlumnoComponent
     },
 ]

@@ -61,7 +61,7 @@ export class EditarCalificacionesComponent implements OnInit {
     // Set the defaults
     this.action = data.action;
     if (this.action === "edit") {
-      this.dialogTitle == this.calificaciones.fk_materia.des_materia
+      this.dialogTitle == this.calificaciones.idMateria.descMateria
       this.calificaciones= data.calificaciones
     } else {
       this.dialogTitle = "add"
@@ -84,9 +84,9 @@ export class EditarCalificacionesComponent implements OnInit {
 
   createContactForm(): FormGroup {
       return this.calificacionesForm = this.fb.group({
-      num_cal_unidad_uno:[this.alumateria[0]],
-      num_cal_unidad_dos: [this.calificaciones.num_cal_unidad_dos],
-      num_cal_unidad_tres: [this.calificaciones.num_cal_unidad_tres]
+      calUnidadUno:[this.calificaciones.calUnidadUno],
+      calUnidadDos: [this.calificaciones.calUnidadDos],
+      calUnidadTres: [this.calificaciones.calUnidadTres]
   
     });
   }
@@ -103,7 +103,7 @@ export class EditarCalificacionesComponent implements OnInit {
 
   aceptar(){
     console.log(this.calificacionesForm)
-    if(this.calificaciones!=null && this.calificaciones.pk_calificacion! >0){
+    if(this.calificaciones!=null && this.calificaciones.idCalificacion! >0){
       this.calificacionesService.editarCalificaciones(this.calificacionesForm.value).subscribe(data=>{
           console.log(data); 
           /*Swal.fire({
@@ -125,10 +125,10 @@ export class EditarCalificacionesComponent implements OnInit {
   consultarCalificacionesId() {
       
     this.activatedRoute.params.subscribe((params) => {
-      let pk_calificacion = params["pk_calificacion"];
-      if (pk_calificacion) {
+      let idCalificacion = params["idCalificacion"];
+      if (idCalificacion) {
         this.calificacionesService
-          .consultarCalificacionesId(pk_calificacion)
+          .consultarCalificacionesId(idCalificacion)
           .subscribe((response) => {
             if (response.status === "OK") {
               this.calificacion= response.data;
@@ -140,10 +140,10 @@ export class EditarCalificacionesComponent implements OnInit {
   }
   consultarMateriasAlumno(){
     this.activatedRoute.params.subscribe( params =>{
-      let pk_alumno = params['pk_alumno']
-      if(pk_alumno){
+      let idAlumno = params['idAlumno']
+      if(idAlumno){
 
-        this.alumnoService.consultarMateriasAlumno(pk_alumno).subscribe(response => {
+        this.alumnoService.consultarMateriasAlumno(idAlumno).subscribe(response => {
             if(response.status === 'OK'){
               this.alumateria = response.list;
               console.log(this.alumateria);

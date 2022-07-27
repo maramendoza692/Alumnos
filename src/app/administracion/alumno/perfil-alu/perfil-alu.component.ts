@@ -49,9 +49,9 @@ alumateria : Object = new Object();
 
   consultarAlumnoPorID(){
     this.activatedRoute.params.subscribe( params =>{
-      let pk_alumno = params['pk_alumno']
-      if(pk_alumno){
-        this.alumnoService.consultarAlumnoPorID(pk_alumno).subscribe(
+      let idAlumno = params['idAlumno']
+      if(idAlumno){
+        this.alumnoService.consultarAlumnoPorID(idAlumno).subscribe(
           (response) => {
               
               
@@ -71,10 +71,10 @@ alumateria : Object = new Object();
 
   consultarMateriasAlumno(){
     this.activatedRoute.params.subscribe( params =>{
-      let pk_alumno = params['pk_alumno']
-      if(pk_alumno){
+      let idAlumno = params['idAlumno']
+      if(idAlumno){
 
-        this.alumnoService.consultarMateriasAlumno(pk_alumno).subscribe(response => {
+        this.alumnoService.consultarMateriasAlumno(idAlumno).subscribe(response => {
             if(response.status === 'OK'){
               this.alumateria = response.list;
               console.log(this.alumateria);

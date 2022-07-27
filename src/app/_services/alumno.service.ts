@@ -35,14 +35,14 @@ export class AlumnoService extends UnsubscribeOnDestroyAdapter{
       {headers: new HttpHeaders().append("Content-Type","application/json")});
   }
 
-  consultarAlumnoPorID(pk_alumno): Observable<Response<Alumno>> {
-    const url = "http://localhost:8081/alumno/consultarAlumnoPorID/" +  pk_alumno
+  consultarAlumnoPorID(idAlumno): Observable<Response<Alumno>> {
+    const url = "http://localhost:8081/alumno/consultarAlumnoPorID/" +  idAlumno
 
     return this.http.get<Response<Alumno>>(url);
   }
 
-  consultarMateriasAlumno(pk_alumno): Observable<Response<Object[]>> {
-    const url = "http://localhost:8081/alumno/consultarMateriasAlumno/" +  pk_alumno
+  consultarMateriasAlumno(idAlumno): Observable<Response<Object[]>> {
+    const url = "http://localhost:8081/alumno/consultarMateriasAlumno/" +  idAlumno
 
     return this.http.get<Response<Object[]>>(url);
   }
@@ -61,8 +61,8 @@ export class AlumnoService extends UnsubscribeOnDestroyAdapter{
     return this.http.put<Response<Alumno>>(url,alumno)
   }
   
-  eliminarAlumno(pk_alumno: number): Observable<number> {
-    const url = "http://localhost:8081/alumno/borrarAlumnoPorId/" +  pk_alumno
+  eliminarAlumno(idAlumno: number): Observable<number> {
+    const url = "http://localhost:8081/alumno/borrarAlumnoPorId/" +  idAlumno
 
     return this.http.delete<number>(url);
   }

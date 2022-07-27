@@ -48,7 +48,7 @@ export class FormularioMensajeComponent {
     this.action = data.action;
     if (this.action === "edit") {
       this.action = "edit"
-      this.dialogTitle = data.alumno.txt_expediente;
+      this.dialogTitle = data.alumno.expediente;
       this.alumno = data.alumno;
       console.log(this.action)
       this.edit = this.action
@@ -74,17 +74,17 @@ export class FormularioMensajeComponent {
 
   createContactForm(): FormGroup {
       return this.alumnoForm = this.fb.group({
-      pk_alumno:[this.alumno.pk_alumno],
-      txt_expediente: [this.alumno.txt_expediente,[Validators.minLength(6),Validators.maxLength(6), Validators.required]],//
-      txt_nombre: [this.alumno.txt_nombre],
-      txt_ape_paterno: [this.alumno.txt_ape_paterno],
-      txt_ape_materno: [this.alumno.txt_ape_materno],
-      txt_curp: [this.alumno.txt_curp,[Validators.minLength(18),Validators.required]],
-      txt_sexo: [this.alumno.txt_sexo],
-      txt_correo: [this.alumno.txt_correo,[Validators.email]],
-      fk_status: [this.alumno.fk_status],
-      txt_desc_grupo: [this.alumno.txt_desc_grupo],
-      pk_grupo: [this.alumno.pk_grupo],
+      idAlumno:[this.alumno.idAlumno],
+      expediente: [this.alumno.expediente,[Validators.minLength(6),Validators.maxLength(6), Validators.required]],//
+      nombre: [this.alumno.nombre],
+      apePaterno: [this.alumno.apePaterno],
+      apeMaterno: [this.alumno.apeMaterno],
+      curp: [this.alumno.curp,[Validators.minLength(18),Validators.required]],
+      sexo: [this.alumno.sexo],
+      correo: [this.alumno.correo,[Validators.email]],
+      status: [this.alumno.status],
+      descGrupo: [this.alumno.descGrupo],
+      idGrupo: [this.alumno.idGrupo],
     });
   }
   submit() {
@@ -99,7 +99,7 @@ export class FormularioMensajeComponent {
 
   aceptar(){
     console.log(this.alumnoForm)
-    if(this.alumno!=null && this.alumno.pk_alumno! >0){
+    if(this.alumno!=null && this.alumno.idAlumno! >0){
       this.alumnoService.editarAlumno(this.alumnoForm.value).subscribe(data=>{
           console.log(data); 
           /*Swal.fire({
@@ -124,7 +124,7 @@ export class FormularioMensajeComponent {
       this.datos.sort = this.sort
       
         data.list.forEach((element) => {
-          let grupo = (element.txt_desc_grupo)
+          let grupo = (element.descGrupo)
           this.grupo.push(grupo);
           
         });  

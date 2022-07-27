@@ -20,8 +20,8 @@
           <div class="col-xl-6 col-lg-6 col-md-12 col-sm-12 mb-2">
             <mat-form-field class="example-full-width" appearance="fill">
               <mat-label>Expediente</mat-label>
-              <input matInput formControlName="txt_expediente" required>
-              <mat-error *ngIf="alumnoForm.get('txt_expediente').hasError('required')">
+              <input matInput formControlName="expediente" required>
+              <mat-error *ngIf="alumnoForm.get('expediente').hasError('required')">
                 El expediente es requerido.
               </mat-error>
             </mat-form-field>
@@ -29,8 +29,8 @@
           <div class="col-xl-6 col-lg-6 col-md-12 col-sm-12 mb-2">
             <mat-form-field class="example-full-width" appearance="fill">
               <mat-label>Nombre</mat-label>
-              <input matInput formControlName="txt_nombre" required type="text" onkeydown="return /[a-z, ]/i.test(event.key)">
-              <mat-error *ngIf="alumnoForm.get('txt_nombre').hasError('required')">
+              <input matInput formControlName="nombre" required type="text" onkeydown="return /[a-z, ]/i.test(event.key)">
+              <mat-error *ngIf="alumnoForm.get('nombre').hasError('required')">
                 El nombre es requerido.
               </mat-error>
             </mat-form-field>
@@ -38,9 +38,9 @@
           <div class="col-xl-6 col-lg-6 col-md-12 col-sm-12 mb-2">
             <mat-form-field class="example-full-width" appearance="fill">
               <mat-label>Apellido paterno</mat-label>
-              <input matInput formControlName="txt_ape_paterno" required type="text" onkeydown="return /[a-z, ]/i.test(event.key)"
+              <input matInput formControlName="apePaterno" required type="text" onkeydown="return /[a-z, ]/i.test(event.key)"
                [readonly]="true">
-              <mat-error *ngIf="alumnoForm.get('txt_ape_paterno').hasError('required')">
+              <mat-error *ngIf="alumnoForm.get('apePaterno').hasError('required')">
                 Campo requerido.
               </mat-error>
             </mat-form-field>
@@ -48,8 +48,8 @@
           <div class="col-xl-6 col-lg-6 col-md-12 col-sm-12 mb-2">
             <mat-form-field class="example-full-width" appearance="fill">
               <mat-label>Apellido materno</mat-label>
-              <input matInput formControlName="txt_ape_materno" required type="text" onkeydown="return /[a-z, ]/i.test(event.key)">
-              <mat-error *ngIf="alumnoForm.get('txt_ape_materno').hasError('required')">
+              <input matInput formControlName="apeMaterno" required type="text" onkeydown="return /[a-z, ]/i.test(event.key)">
+              <mat-error *ngIf="alumnoForm.get('apeMaterno').hasError('required')">
                 Campo requerido.
               </mat-error>
             </mat-form-field>
@@ -59,8 +59,8 @@
             <div class="col-xl-6 col-lg-6 col-md-12 col-sm-12 mb-2">
                 <mat-form-field class="example-full-width" appearance="fill">
                   <mat-label>CURP</mat-label>
-                  <input matInput formControlName="txt_curp" required style="text-transform: uppercase" >
-                  <mat-error *ngIf="alumnoForm.get('txt_curp').hasError('required')">
+                  <input matInput formControlName="curp" required style="text-transform: uppercase" >
+                  <mat-error *ngIf="alumnoForm.get('curp').hasError('required')">
                     La CURP es requerida.
                   </mat-error>
                 </mat-form-field>
@@ -68,10 +68,10 @@
               <div class="col-xl-6 col-lg-6 col-md-12 col-sm-12 mb-2">
                 <mat-form-field class="example-full-width" appearance="fill">
                   <mat-label>Sexo</mat-label>
-                  <mat-select matNativeControl formControlName="txt_sexo">
+                  <mat-select matNativeControl formControlName="sexo">
                     <mat-option value = "Masculino">Masculino</mat-option>
                     <mat-option value = "Femenino">Femenino</mat-option>
-                    <mat-error *ngIf="alumnoForm.get('txt_sexo').hasError('required')">
+                    <mat-error *ngIf="alumnoForm.get('sexo').hasError('required')">
                       Seleccione una opción.
                     </mat-error>
                   </mat-select>
@@ -82,8 +82,8 @@
             <div class="col-xl-6 col-lg-6 col-md-12 col-sm-12 mb-2">
                 <mat-form-field class="example-full-width" appearance="fill">
                   <mat-label>Correo</mat-label>
-                  <input matInput formControlName="txt_correo" required pattern="[a-zA-Z0-9_]+([.][a-zA-Z0-9_]+)*@[a-zA-Z0-9_]+([.][a-zA-Z0-9_]+)*[.][a-zA-Z]{1,5}">
-                  <mat-error *ngIf="alumnoForm.get('txt_correo').hasError('required')">
+                  <input matInput formControlName="correo" required pattern="[a-zA-Z0-9_]+([.][a-zA-Z0-9_]+)*@[a-zA-Z0-9_]+([.][a-zA-Z0-9_]+)*[.][a-zA-Z]{1,5}">
+                  <mat-error *ngIf="alumnoForm.get('correo').hasError('required')">
                     El correo es requerido.
                   </mat-error>
                 </mat-form-field>
@@ -91,11 +91,11 @@
               <div class="col-xl-6 col-lg-6 col-md-12 col-sm-12 mb-2">
                 <mat-form-field class="example-full-width" appearance="fill">
                   <mat-label>Estatus</mat-label>
-                  <mat-select matNativeControl formControlName="fk_status">
+                  <mat-select matNativeControl formControlName="status">
                     <mat-option value = "1">Inactivo</mat-option>
                     <mat-option value = "2">Activo</mat-option>
                     
-                  <mat-error *ngIf="alumnoForm.get('fk_status').hasError('required')">
+                  <mat-error *ngIf="alumnoForm.get('status').hasError('required')">
                     Seleccione una opción.
                   </mat-error>
                 </mat-select>
@@ -106,12 +106,12 @@
             <div class="col-xl-6 col-lg-6 col-md-12 col-sm-12 mb-2">
                 <mat-form-field class="example-full-width" appearance="fill">
                   <mat-label>Grupo</mat-label>
-                  <mat-select matNativeControl formControlName="txt_desc_grupo">
+                  <mat-select matNativeControl formControlName="descGrupo">
                       <mat-option></mat-option>
-                      <mat-option *ngFor="let pkgrupo of grupo" [value] = "pkgrupo">{{pkgrupo}}</mat-option>
+                      <mat-option *ngFor="let grupo of grupo" [value] = "grupo">{{grupo}}</mat-option>
              
                   <mat-error
-                *ngIf="alumnoForm.get('txt_desc_grupo').hasError('required')">
+                *ngIf="alumnoForm.get('descGrupo').hasError('required')">
                 Ingresa el grupo.
               </mat-error>
             </mat-select>

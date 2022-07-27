@@ -6,8 +6,8 @@
  <div class="card">
   <div class="card-header">Detalles Alumno</div>
   <div class="card-body">
-    <p>Nombre {{alumno.txt_nombre}} {{alumno.txt_ape_paterno}}</p>
-    <p> {{alumno.pk_grupo.txt_desc_grupo}}</p>
+    <p>Nombre {{alumno.nombre}} {{alumno.apePaterno}}</p>
+    <p> {{alumno.idGrupo.desc_grupo}}</p>
   </div>
  </div>
  </div>
@@ -85,35 +85,35 @@
                         <div class="contact-grid">
                             <div class="profile-header bg-dark">
                                 <div class="user-name">
-                                    <p> <strong>{{alumno.txt_nombre}}</strong> </p>
+                                    <p> <strong>{{alumno.nombre}}</strong> </p>
                                 </div>
-                                <div class="name-center">{{alumno.txt_ape_paterno}} {{alumno.txt_ape_materno}}</div>
+                                <div class="name-center">{{alumno.apePaterno}} {{alumno.apeMaterno}}</div>
                             </div>
                             <img src="assets/images/user/usrbig3.jpg" class="user-img" alt="">
                             <p>
 
-                                Sexo: {{alumno.txt_sexo}}
+                                Sexo: {{alumno.sexo}}
                                 <br />
-                                CURP: {{alumno.txt_curp}}
+                                CURP: {{alumno.curp}}
 
 
                             </p>
                             <div>
                                 <span class="phone">
-                                    <i class="material-icons">email</i>{{alumno.txt_correo}}</span>
+                                    <i class="material-icons">email</i>{{alumno.correo}}</span>
                             </div>
                             <div class="row">
                                 <div class="col-4">
                                     <small>Expediente</small>
-                                    <h5>{{alumno.txt_expediente}}</h5>
+                                    <h5>{{alumno.expediente}}</h5>
                                 </div>
                                 <div class="col-4">
                                     <small>Grupo</small>
-                                    <h5>{{alumno.pk_grupo.txt_desc_grupo}}</h5>
+                                    <h5>{{alumno.idGrupo.descGrupo}}</h5>
                                 </div>
                                 <div class="col-4">
                                     <small>Ciclo</small>
-                                    <h5>{{alumno.pk_grupo.fk_ciclo.txt_desc_ciclo}}</h5>
+                                    <h5>{{alumno.idGrupo.idCiclo.descCiclo}}</h5>
                                 </div>
                             </div>
                         </div>
