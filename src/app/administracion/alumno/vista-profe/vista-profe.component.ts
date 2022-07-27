@@ -32,7 +32,6 @@ displayedColumns = [
   "curp",
   "correo",
   "status",
-  "idGrupo",
   "actions",
 ];
 
