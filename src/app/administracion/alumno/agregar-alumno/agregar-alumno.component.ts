@@ -16,13 +16,13 @@ export class AgregarAlumnoComponent {
  
   constructor(private form: FormBuilder, private http:HttpClient ,private alumnoService:AlumnoService ) {
     this.alumnoForm = this.form.group({  
-      txt_expediente:['', Validators.required],
-      txt_nombre:['',Validators.required ],
-      txt_ape_paterno:['',Validators.required ],
-      txt_ape_materno:['',Validators.required ],
-      txt_curp:['',Validators.required],
+      expediente:['', Validators.required],
+      nombre:['',Validators.required ],
+      apePaterno:['',Validators.required ],
+      apeMaterno:['',Validators.required ],
+      curp:['',Validators.required],
       txt_sexo:['',Validators.required],
-      txt_correo: ['',Validators.required],
+      correo: ['',Validators.required],
       fk_status:['',Validators.required],
       fk_grupo:['',Validators.required]
       });

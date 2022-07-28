@@ -14,47 +14,47 @@
                 </div>
               </div>
               <div class="row" >
-                <div class="col-auto">
-                  <mat-form-field appearance="fill">
-                    <mat-label>Expediente</mat-label>
-                    <input matInput maxlength="6" id="expediente"  formControlName="expediente">
-                  </mat-form-field>
-                </div>
 
                 <div class="col-auto">
                   <mat-form-field class="example-full-width" appearance="fill">
                     <mat-label>Nombre</mat-label>
-                    <input matInput id="nombre" maxlength ="30" formControlName="nombre" type="text" onkeydown="return /[a-z, ]/i.test(event.key)">
+                    <input matInput id="nombre" maxlength ="30" formControlName="nombre" type="text" onkeydown="return /[a-záéíóúñ]/i.test(event.key)">
                   </mat-form-field>
                 </div>
                 <div class="col-auto">
                   <mat-form-field class="example-full-width" appearance="fill">
                     <mat-label>Apellido paterno</mat-label>
-                    <input matInput id="apePaterno" maxlength ="30" formControlName="apePaterno" type="text" onkeydown="return /[a-z, ]/i.test(event.key)">
+                    <input matInput id="apePaterno" maxlength ="30" formControlName="apePaterno" type="text" onkeydown="return /[a-záéíóúñ]/i.test(event.key)">
                   </mat-form-field>
                 </div>
                 <div class="col-auto">
                   <mat-form-field class="example-full-width" appearance="fill">
                     <mat-label>Apellido materno</mat-label>
-                    <input matInput id="apeMaterno" maxlength ="30" formControlName="apeMaterno" type="text" onkeydown="return /[a-z, ]/i.test(event.key)">
+                    <input matInput id="apeMaterno" maxlength ="30" formControlName="apeMaterno" type="text" onkeydown="return /[a-záéíóúñ]/i.test(event.key)">
                   </mat-form-field>
                 </div>
                 <div class="col-4">
                   <mat-form-field class="example-full-width" appearance="fill">
                     <mat-label>CURP</mat-label>
-                    <input matInput maxlength="18" id="curp"  formControlName="curp"  style="text-transform: uppercase" >
+                    <input matInput maxlength="18" id="curp"  formControlName="curp"  onkeydown="return /[a-zA-Z0-9]/i.test(event.key)" >
                   </mat-form-field>
                 </div>
                 
                 
                 <div class="row">
-                  <div class="col-4">
-                    <mat-form-field class="example-full-width" appearance="fill">
-                      <mat-label>Correo</mat-label>
-                      <input matInput id="correo" maxlength ="30" formControlName="correo" type="email" pattern=".+@globex\.com">
+                  <div class="col-2">
+                    <mat-form-field appearance="fill">
+                      <mat-label>Expediente</mat-label>
+                      <input matInput maxlength="6" id="expediente"  formControlName="expediente" onkeydown="return /[a-zA-Z0-9]/i.test(event.key)">
                     </mat-form-field>
                   </div>
                   <div class="col-3">
+                    <mat-form-field class="example-full-width" appearance="fill">
+                      <mat-label>Correo</mat-label>
+                      <input matInput id="correo" maxlength ="21" formControlName="correo" type="email" pattern=".+@globex\.com">
+                    </mat-form-field>
+                  </div>
+                  <div class="col-2">
                     <mat-form-field class="example-full-width" appearance="fill">
                       <mat-label>Grupo</mat-label>
                       <mat-select formControlName="descGrupo" class="custom-select mr-sm-2" id="descGrupo">
@@ -80,7 +80,7 @@
                   </button>
                 </div>
                 <div class="col-auto">
-                  <button type="button" class="btn btn-outline-primary" (click)="limpiar()">
+                  <button type="button" class="btn btn-outline-primary" (click)="limpiar()" style="margin-left: 30px;">
                     Limpiar
                   </button>
                 </div>
@@ -103,33 +103,22 @@
         <div class="card">
           <div class="body">
             <div class="table">
-              
-              <!--<div class="materialTableHeader">
-                <div class="row">
-                  <div class="col-8">
-                    <ul class="header-buttons-left ms-0">
-                      <li class="dropdown" >
-                        <h4>Alumnos</h4> 
-                    </ul>
-                  </div>
-                </div>
-              </div>-->
-              
+          
               <mat-table #table matTableExporter [dataSource]="dataArray" matSort class="mat-cell"
                 #exporter="matTableExporter" >
                 
                 <!-- ID Column -->
-                <ng-container  matColumnDef="curp">
-                  <mat-header-cell *matHeaderCellDef mat-sort-header class="col-3">CURP</mat-header-cell>
-                  <mat-cell *matCellDef="let row" class="col-3">{{row.curp}} </mat-cell>
+                <ng-container matColumnDef="expediente">
+                  <mat-header-cell *matHeaderCellDef mat-sort-header class="col-1" >Expte</mat-header-cell>
+                  <mat-cell *matCellDef="let row" class="col-1"> {{row.expediente}}</mat-cell>
                 </ng-container>
                 <ng-container matColumnDef="nombre">
-                  <mat-header-cell *matHeaderCellDef mat-sort-header class="col-1">Nombre</mat-header-cell>
-                  <mat-cell *matCellDef="let row" class="col-1"> {{row.nombre}} </mat-cell>
+                  <mat-header-cell *matHeaderCellDef mat-sort-header class="col-3">Nombre</mat-header-cell>
+                  <mat-cell *matCellDef="let row" class="col-3"> {{row.nombre}} {{row.apePaterno}} {{row.apeMaterno}} </mat-cell>
                 </ng-container>
-                <ng-container matColumnDef="apePaterno">
-                  <mat-header-cell *matHeaderCellDef mat-sort-header class="col-2">Apellidos</mat-header-cell>
-                  <mat-cell *matCellDef="let row" class="col-2"> {{row.apePaterno}} {{row.apeMaterno}} </mat-cell>
+                <ng-container  matColumnDef="curp">
+                  <mat-header-cell *matHeaderCellDef mat-sort-header class="col-2">CURP</mat-header-cell>
+                  <mat-cell *matCellDef="let row" class="col-2">{{row.curp}} </mat-cell>
                 </ng-container>
                 <ng-container matColumnDef="correo">
                   <mat-header-cell *matHeaderCellDef mat-sort-header class="col-2">Correo</mat-header-cell>
@@ -144,13 +133,9 @@
                     </ng-template>
                   </mat-cell>
                 </ng-container>
-                <ng-container matColumnDef="expediente">
-                  <mat-header-cell *matHeaderCellDef mat-sort-header class="col-1" >Expte</mat-header-cell>
-                  <mat-cell *matCellDef="let row" class="col-1"> {{row.expediente}}</mat-cell>
-                </ng-container>
                 <ng-container matColumnDef="grupo">
                   <mat-header-cell *matHeaderCellDef mat-sort-header class="col-1">Grupo</mat-header-cell>
-                  <mat-cell *matCellDef="let row" class="col-1"> {{row.idGrupo.descGrupo}}</mat-cell>
+                  <mat-cell *matCellDef="let row" class="col-1"> {{row.grupo.descGrupo}}</mat-cell>
                 </ng-container>
               
                 <!-- actions -->
@@ -189,3 +174,6 @@
   </div>
 
 </section>
+
+
+

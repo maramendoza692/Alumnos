@@ -11,13 +11,13 @@ export class EditarAlumnoComponent {
 
   alumnoForm: FormGroup;
   formdata = {
-    txt_expediente: "Expendiente",
-    txt_nombre: "Nombre Alumno",
-    txt_ape_paterno: "Apellido Paterno",
+    expediente: "Expendiente",
+    nombre: "Nombre Alumno",
+    apePaterno: "Apellido Paterno",
     txt_apematerno_: "Apellido Mateno",
-    txt_curp: "CURP",
+    curp: "CURP",
     txt_sexo: "Sexo",
-    txt_correo:"Correo",
+    correo:"Correo",
     fk_status: "Estatus",
     fk_grupo: "Grupo id"
   };
@@ -28,11 +28,11 @@ export class EditarAlumnoComponent {
 
   createContactForm():FormGroup{
     return this.fb.group({
-      txt_expediente: [this.formdata.txt_expediente, [Validators.required]],
-      txt_nombre: [this.formdata.txt_nombre,[Validators.required]],
-      txt_curp: [this.formdata.txt_curp,[Validators.required]],
+      expediente: [this.formdata.expediente, [Validators.required]],
+      nombre: [this.formdata.nombre,[Validators.required]],
+      curp: [this.formdata.curp,[Validators.required]],
       txt_sexo: [this.formdata.txt_sexo,[Validators.required]],
-      txt_correo: [this.formdata.txt_correo,[Validators.required]],
+      correo: [this.formdata.correo,[Validators.required]],
       fk_status: [this.formdata.fk_status,[Validators.required]],
       fk_grupo: [this.formdata.fk_grupo,[Validators.required]]
     });

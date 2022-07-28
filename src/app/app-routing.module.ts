@@ -39,7 +39,7 @@ const routes: Routes = [
         loadChildren: () =>
           import("./employee/employee.module").then((m) => m.EmployeeModule),
       },
-      {
+      /*{
         path: "alumno",
         canActivate: [AuthGuard],
         data: {
@@ -47,7 +47,7 @@ const routes: Routes = [
         },
         loadChildren: () =>
           import("./alumnos/alumnos.module").then((m) => m.AlumnoModule),
-      },
+      },*/
       {
         path: "extra-pages",
         loadChildren: () =>

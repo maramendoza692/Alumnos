@@ -33,11 +33,10 @@ export class TodoAlumnoComponent
   displayedColumns = [
     "expediente",
     "nombre",
-    "apePaterno",
     "curp",
     "correo",
-    "status",
     "grupo",
+    "status",
     "actions",
   ];
 

@@ -36,7 +36,8 @@ export class FormularioMensajeComponent {
   datos: MatTableDataSource<Grupo>;
   sort: any;
   add
-  edit   
+  edit  
+  disableSelect: boolean;  
   constructor(
     public dialogRef: MatDialogRef<FormularioMensajeComponent>,
     @Inject(MAT_DIALOG_DATA) public data: any,
@@ -94,7 +95,17 @@ export class FormularioMensajeComponent {
     this.dialogRef.close();
   }
   ngOnInit(){
+    this.verificarEdiatrAgregar() 
+  }
+  ngAfterContentInit(){
     this.seleccionarGrupo();
+  }
+  verificarEdiatrAgregar(){
+    if(this.action == "edit"){
+      this.disableSelect = true;  
+    }else{
+      this.disableSelect = false;
+    }
   }
 
   aceptar(){
