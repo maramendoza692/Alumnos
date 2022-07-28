@@ -15,25 +15,25 @@
               </div>
               <div class="row" >
 
-                <div class="col-auto">
+                <div class="col-3">
                   <mat-form-field class="example-full-width" appearance="fill">
                     <mat-label>Nombre</mat-label>
                     <input matInput id="nombre" maxlength ="30" formControlName="nombre" type="text" onkeydown="return /[a-záéíóúñ]/i.test(event.key)">
                   </mat-form-field>
                 </div>
-                <div class="col-auto">
+                <div class="col-3">
                   <mat-form-field class="example-full-width" appearance="fill">
                     <mat-label>Apellido paterno</mat-label>
                     <input matInput id="apePaterno" maxlength ="30" formControlName="apePaterno" type="text" onkeydown="return /[a-záéíóúñ]/i.test(event.key)">
                   </mat-form-field>
                 </div>
-                <div class="col-auto">
+                <div class="col-3">
                   <mat-form-field class="example-full-width" appearance="fill">
                     <mat-label>Apellido materno</mat-label>
                     <input matInput id="apeMaterno" maxlength ="30" formControlName="apeMaterno" type="text" onkeydown="return /[a-záéíóúñ]/i.test(event.key)">
                   </mat-form-field>
                 </div>
-                <div class="col-4">
+                <div class="col-3">
                   <mat-form-field class="example-full-width" appearance="fill">
                     <mat-label>CURP</mat-label>
                     <input matInput maxlength="18" id="curp"  formControlName="curp"  onkeydown="return /[a-zA-Z0-9]/i.test(event.key)" >
@@ -64,24 +64,24 @@
                     </mat-form-field>
                   </div>
                   
-                <div class="col-auto">
+                <div class="col-1">
                   <button type="button" class="btn btn-primary" (click)="buscarAlumnoFiltro()" type="submit">
                       <mat-icon class="col-white">search</mat-icon>
                     </button>
                 </div>
-                <div class="col-auto">
+                <div class="col-1">
                   <button type="button" class="btn btn-primary" (click)="guardarAlumno()">
                     <mat-icon class="col-white">add</mat-icon>
                   </button>
                 </div>
-                <div class="col-auto">
+                <div class="col-2">
                   <button type="button" class="btn btn-outline-primary" (click)="consultarTodos()">
-                    Consultar todos
+                    Mostrar todos
                   </button>
                 </div>
-                <div class="col-auto">
-                  <button type="button" class="btn btn-outline-primary" (click)="limpiar()" style="margin-left: 30px;">
-                    Limpiar
+                <div class="col-1">
+                  <button type="button" class="btn btn-outline-primary" (click)="limpiar()" >
+                   Limpiar 
                   </button>
                 </div>
                 
@@ -102,14 +102,14 @@
       <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
         <div class="card">
           <div class="body">
-            <div class="table">
+            <div class="mat-elevation-z8">
           
               <mat-table #table matTableExporter [dataSource]="dataArray" matSort class="mat-cell"
                 #exporter="matTableExporter" >
                 
                 <!-- ID Column -->
                 <ng-container matColumnDef="expediente">
-                  <mat-header-cell *matHeaderCellDef mat-sort-header class="col-1" >Expte</mat-header-cell>
+                  <mat-header-cell *matHeaderCellDef mat-sort-header class="col-1" >Expte.</mat-header-cell>
                   <mat-cell *matCellDef="let row" class="col-1"> {{row.expediente}}</mat-cell>
                 </ng-container>
                 <ng-container matColumnDef="nombre">
@@ -163,9 +163,10 @@
                   [style.cursor]="'pointer'" matRipple>
                 </mat-row> 
               </mat-table>
-              <mat-paginator #paginator [pageIndex]="0" [pageSize]="5"
-                [pageSizeOptions]="[5, 10, 25, 100]">
-              </mat-paginator>
+              <mat-paginator [pageSizeOptions]="[5, 10, 20]"
+                 showFirstLastButtons 
+                 aria-label="Select page of periodic elements">
+             </mat-paginator>
             </div> 
           </div>
         </div>

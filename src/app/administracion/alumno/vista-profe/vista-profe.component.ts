@@ -28,7 +28,6 @@ implements OnInit
 displayedColumns = [
   "expediente",
   "nombre",
-  "apePaterno",
   "curp",
   "correo",
   "status",
@@ -60,7 +59,7 @@ constructor(
 ) {
   super();
 }
-@ViewChild(MatPaginator) paginator: MatPaginator;
+@ViewChild(MatPaginator) paginator!: MatPaginator;
 @ViewChild(MatSort)sort: MatSort;
 // @ViewChild(MatPaginator, { static: true }) paginator: MatPaginator;
 // @ViewChild(MatSort, { static: true }) sort: MatSort;
@@ -78,6 +77,7 @@ ngOnInit() {
     curp: ["", Validators.required],
     nombre: ["", Validators.required],
     apePaterno: ["", Validators.required],
+    apeMaterno: ["", Validators.required],
     status: ["", Validators.required],
     idGrupo: ["", Validators.required],
     sexo: ["", Validators.required],
