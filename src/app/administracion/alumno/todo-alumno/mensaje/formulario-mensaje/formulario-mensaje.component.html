@@ -20,7 +20,7 @@
           <div class="col-xl-6 col-lg-6 col-md-12 col-sm-12 mb-2">
             <mat-form-field class="example-full-width" appearance="fill">
               <mat-label>Expediente</mat-label>
-              <input matInput formControlName="expediente" minlength="6" maxlength="6" required type="text" onkeydown="return /[a-zA-Z0-9]/i.test(event.key)"
+              <input matInput formControlName="expediente" minlength="6" maxlength="6" required type="text" onkeydown="return /[a-zA-Z0-9 ]/i.test(event.key)"
               [readonly]="disableSelect">
               <mat-error *ngIf="alumnoForm.get('expediente').hasError('required')">
                 El expediente es requerido.
@@ -30,7 +30,7 @@
           <div class="col-xl-6 col-lg-6 col-md-12 col-sm-12 mb-2">
             <mat-form-field class="example-full-width" appearance="fill">
               <mat-label>Nombre</mat-label>
-              <input matInput formControlName="nombre" required maxlength="30" type="text" onkeydown="return /[a-záéíóúñ]/i.test(event.key)"
+              <input matInput formControlName="nombre" required maxlength="30" type="text" onkeydown="return /[a-záéíóúñ ]/i.test(event.key)"
               [readonly]="disableSelect">
               <mat-error *ngIf="alumnoForm.get('nombre').hasError('required')">
                 El nombre es requerido.
