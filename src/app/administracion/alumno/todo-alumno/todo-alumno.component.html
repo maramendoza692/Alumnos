@@ -127,7 +127,7 @@
                 <ng-container matColumnDef="status">
                   <mat-header-cell *matHeaderCellDef mat-sort-header class="col-1">Estatus</mat-header-cell>
                   <mat-cell *matCellDef="let row" class="col-1">
-                    <p *ngIf= "row.status == 2; else estatus2">Activo</p>
+                    <p *ngIf= "row.idStatus == 2; else estatus2">Activo</p>
                     <ng-template #estatus2>
                       <p>Inactivo</p>
                     </ng-template>
