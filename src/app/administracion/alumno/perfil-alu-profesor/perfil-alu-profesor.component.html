@@ -1,24 +1,10 @@
-<!-- <body class="bg-success row align-items-center justify-content-center vh-100 ">
-
-  <div class="col-sm-6 text-center">
-<div class="container">
- <div class="jusrify-content-center">
- <div class="card">
-  <div class="card-header">Detalles Alumno</div>
-  <div class="card-body">
-    <p>Nombre {{alumno.nombre}} {{alumno.apePaterno}}</p>
-    <p> {{alumno.idGrupo.desc_grupo}}</p>
-  </div>
- </div>
- </div>
- </div>
- 
-  </div>
-</body> -->
 <section class="content">
     <div class="content-block">
         <div class="block-header">
             <!-- breadcrumb -->
+            <button type="button" class="btn btn-outline-primary" [routerLink]="['/administracion/alumno/vista-profesor']">
+                <mat-icon>keyboard_arrow_left</mat-icon> 
+              </button>
             <app-breadcrumb [title]="'Perfil del alumno'" [items]="['Alumnos']" [active_item]="'alumno'">
             </app-breadcrumb>
         </div>
@@ -86,10 +72,10 @@
                             <div class="profile-header bg-dark">
                                 <div class="user-name">
                                    
-                                </div>
-                                 <p> <strong>{{alumno.nombre}}</strong> </p>
+                                </div><div class="name-center">
+                                 <h1  style="font-size:230%; font-family: monospace;">{{alumno.nombre}}</h1>
                                  
-                                <div class="name-center">{{alumno.apePaterno}} {{alumno.apeMaterno}}</div>
+                                <p  style="font-size:130%; font-family: monospace;">{{alumno.apePaterno}} {{alumno.apeMaterno}}</p></div>
                             </div>
                            
                             <p>
@@ -106,14 +92,20 @@
                             </div>
                             <div class="row">
                                 <div class="col-4">
+                                    <span class="material-icons md-12">person_pin</span>
+                                    <br />
                                     <small>Expediente</small>
                                     <h5>{{alumno.expediente}}</h5>
                                 </div>
                                 <div class="col-4">
+                                    <span class="material-icons md-18">groups</span>
+                                    <br />
                                     <small>Grupo</small>
                                     <h5>{{alumno.idGrupo.descGrupo}}</h5>
                                 </div>
                                 <div class="col-4">
+                                    <span class="material-icons md-18">content_paste</span>
+                                    <br />
                                     <small>Ciclo</small>
                                     <h5>{{alumno.idGrupo.idCiclo.descCiclo}}</h5>
                                 </div>

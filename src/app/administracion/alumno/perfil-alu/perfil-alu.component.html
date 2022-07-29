@@ -22,24 +22,24 @@
               
               <!-- ID Column -->
               <ng-container matColumnDef="nombre">
-                <mat-header-cell *matHeaderCellDef mat-sort-header>Materia</mat-header-cell>
-                <mat-cell *matCellDef="let row">{{row[0]}}: {{row[1]}}</mat-cell>
+                <mat-header-cell *matHeaderCellDef class="col-3">Materia</mat-header-cell>
+                <mat-cell *matCellDef="let row" class="col-3">{{row[0]}}:  {{row[1]}}</mat-cell>
               </ng-container>
               <ng-container matColumnDef="profesor">
-                <mat-header-cell *matHeaderCellDef mat-sort-header>Profesor</mat-header-cell>
-                <mat-cell *matCellDef="let row">{{row[2]}} {{row[3]}} {{row[4]}}</mat-cell>
+                <mat-header-cell *matHeaderCellDef class="col-3">Profesor</mat-header-cell>
+                <mat-cell *matCellDef="let row" class="col-3">{{row[2]}} {{row[3]}} {{row[4]}}</mat-cell>
               </ng-container>
               <ng-container matColumnDef="cal1">
-                <mat-header-cell *matHeaderCellDef mat-sort-header>Unidad 1 </mat-header-cell>
-                <mat-cell *matCellDef="let row">{{row[5]}} </mat-cell>
+                <mat-header-cell *matHeaderCellDef class="col-2">Unidad 1 </mat-header-cell>
+                <mat-cell *matCellDef="let row" class="col-2">{{row[5]}} </mat-cell>
               </ng-container>
               <ng-container matColumnDef="cal2">
-                <mat-header-cell *matHeaderCellDef mat-sort-header>Unidad 2</mat-header-cell>
-                <mat-cell *matCellDef="let row">{{row[6]}}</mat-cell>
+                <mat-header-cell *matHeaderCellDef class="col-2">Unidad 2</mat-header-cell>
+                <mat-cell *matCellDef="let row" class="col-2">{{row[6]}}</mat-cell>
               </ng-container>
               <ng-container matColumnDef="cal3">
-                <mat-header-cell *matHeaderCellDef mat-sort-header>Unidad 3</mat-header-cell>
-                <mat-cell *matCellDef="let row">{{row[7]}}</mat-cell>
+                <mat-header-cell *matHeaderCellDef class="col-2">Unidad 3</mat-header-cell>
+                <mat-cell *matCellDef="let row" class="col-3">{{row[7]}}</mat-cell>
               </ng-container>
               
               
@@ -79,6 +79,7 @@
               </div>
               <div class="row">
                 <div class="col-4">
+                  <i class="fab fa-twitter"></i>
                   <small>Expediente</small>
                   <h5>{{alumno.expediente}}</h5>
                 </div>

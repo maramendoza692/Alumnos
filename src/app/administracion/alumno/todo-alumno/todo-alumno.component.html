@@ -109,23 +109,23 @@
                 
                 <!-- ID Column -->
                 <ng-container matColumnDef="expediente">
-                  <mat-header-cell *matHeaderCellDef mat-sort-header class="col-1" >Expte.</mat-header-cell>
+                  <mat-header-cell *matHeaderCellDef class="col-1" >Expte.</mat-header-cell>
                   <mat-cell *matCellDef="let row" class="col-1"> {{row.expediente}}</mat-cell>
                 </ng-container>
                 <ng-container matColumnDef="nombre">
-                  <mat-header-cell *matHeaderCellDef mat-sort-header class="col-3">Nombre</mat-header-cell>
+                  <mat-header-cell *matHeaderCellDef  class="col-3">Nombre</mat-header-cell>
                   <mat-cell *matCellDef="let row" class="col-3"> {{row.nombre}} {{row.apePaterno}} {{row.apeMaterno}} </mat-cell>
                 </ng-container>
                 <ng-container  matColumnDef="curp">
-                  <mat-header-cell *matHeaderCellDef mat-sort-header class="col-2">CURP</mat-header-cell>
+                  <mat-header-cell *matHeaderCellDef  class="col-2">CURP</mat-header-cell>
                   <mat-cell *matCellDef="let row" class="col-2">{{row.curp}} </mat-cell>
                 </ng-container>
                 <ng-container matColumnDef="correo">
-                  <mat-header-cell *matHeaderCellDef mat-sort-header class="col-2">Correo</mat-header-cell>
+                  <mat-header-cell *matHeaderCellDef  class="col-2">Correo</mat-header-cell>
                   <mat-cell *matCellDef="let row" class="col-2"> {{row.correo}}</mat-cell>
                 </ng-container>
                 <ng-container matColumnDef="status">
-                  <mat-header-cell *matHeaderCellDef mat-sort-header class="col-1">Estatus</mat-header-cell>
+                  <mat-header-cell *matHeaderCellDef  class="col-1">Estatus</mat-header-cell>
                   <mat-cell *matCellDef="let row" class="col-1">
                     <p *ngIf= "row.idStatus == 2; else estatus2">Activo</p>
                     <ng-template #estatus2>
@@ -134,7 +134,7 @@
                   </mat-cell>
                 </ng-container>
                 <ng-container matColumnDef="grupo">
-                  <mat-header-cell *matHeaderCellDef mat-sort-header class="col-1">Grupo</mat-header-cell>
+                  <mat-header-cell *matHeaderCellDef  class="col-1">Grupo</mat-header-cell>
                   <mat-cell *matCellDef="let row" class="col-1"> {{row.idGrupo.descGrupo}}</mat-cell>
                 </ng-container>
               
@@ -142,13 +142,13 @@
                 <ng-container matColumnDef="actions" >
                   <mat-header-cell *matHeaderCellDef class="col-2">Acciones</mat-header-cell>
                   <mat-cell *matCellDef="let row" class="col-2">
-                    <button type="button" class="btn btn-outline-success" (click)="editarAlumno(row, row.idAlumno)">
+                    <button title="Editar" type="button" class="btn btn-outline-success" (click)="editarAlumno(row, row.idAlumno)">
                       <mat-icon>create</mat-icon> 
                     </button>
-                    <button type="button"class="btn btn-outline-danger" (click)="eliminarAlumno(i, row)">
+                    <button title="Eliminar" type="button"class="btn btn-outline-danger" (click)="eliminarAlumno(i, row)">
                       <mat-icon>delete_outline</mat-icon> 
                     </button>
-                    <button type="button"class="btn btn-outline-primary" [routerLink]="['./alumnoPerfil', row.idAlumno]">
+                    <button title="Perfil alumno" type="button"class="btn btn-outline-primary" [routerLink]="['./alumnoPerfil', row.idAlumno]">
                       <mat-icon>person</mat-icon> 
                     </button>
                     <!--<button mat-icon-button color="accent" [routerLink]="['./alumnoPerfil', row.idAlumno]" 
