@@ -2,9 +2,9 @@ import { Periodo } from "./periodo";
 import { Status } from "./Status";
 
 export class Ciclo {
-    idCiclo:number;
+    ciclo:number;
     clave:string;
-    descCiclo:string;
+    nombre:string;
     status:Status;
     idPeriodo:Periodo;
     fechaInicio: Date;

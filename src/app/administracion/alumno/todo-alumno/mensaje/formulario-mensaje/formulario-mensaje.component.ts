@@ -84,7 +84,7 @@ export class FormularioMensajeComponent {
       sexo: [this.alumno.sexo],
       correo: [this.alumno.correo,[Validators.email]],
       status: [this.alumno.status],
-      descGrupo: [this.alumno.descGrupo],
+      grupo: [this.alumno.grupo],
       idGrupo: [this.alumno.idGrupo],
     });
   }
@@ -135,7 +135,7 @@ export class FormularioMensajeComponent {
       this.datos.sort = this.sort
       
         data.list.forEach((element) => {
-          let grupo = (element.descGrupo)
+          let grupo = (element.grupo)
           this.grupo.push(grupo);
           
         });  

@@ -57,7 +57,7 @@
                   <div class="col-2">
                     <mat-form-field class="example-full-width" appearance="fill">
                       <mat-label>Grupo</mat-label>
-                      <mat-select formControlName="descGrupo" class="custom-select mr-sm-2" id="descGrupo">
+                      <mat-select formControlName="grupo" class="custom-select mr-sm-2" id="grupo">
                         <mat-option></mat-option>
                         <mat-option *ngFor="let grupos of grupo" [value]="grupos">{{grupos}}</mat-option>
                          </mat-select>
@@ -135,7 +135,7 @@
                 </ng-container>
                 <ng-container matColumnDef="grupo">
                   <mat-header-cell *matHeaderCellDef  class="col-1">Grupo</mat-header-cell>
-                  <mat-cell *matCellDef="let row" class="col-1"> {{row.idGrupo.descGrupo}}</mat-cell>
+                  <mat-cell *matCellDef="let row" class="col-1"> {{row.idGrupo.grupo}}</mat-cell>
                 </ng-container>
               
                 <!-- actions -->

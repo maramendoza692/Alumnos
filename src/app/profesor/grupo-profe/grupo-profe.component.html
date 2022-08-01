@@ -1,0 +1,42 @@
+<section class="content">
+    <div class="content-block">
+      <br>
+      <div class="block-header">
+        <H1 style="text-align: center"> Selecciona el Grupo que desea consultar </H1>
+        </div>
+        
+        <br />
+                  <div class="card" style="width: 250px; margin-left: auto; margin-right:auto; text-align: center; padding: 20px 10px 20px;">
+                      <div class="table-responsive" >
+                        <mat-table
+                          #table
+                          matTableExporter
+                          [dataSource]="dataArray"
+                          matSort
+                          class="mat-cell"
+                          #exporter="matTableExporter"
+                        >
+                          <!-- ID Column -->
+                          <ng-container matColumnDef="grupo">
+                            <mat-header-cell *matHeaderCellDef mat-sort-header
+                            style=" text-align: center; font-size:30px; background-color: #9CA8C4;" >Grupo</mat-header-cell
+                            >
+                            <mat-cell style=" font-size:30px" *matCellDef="let row" class="nav-link" [routerLink]="['./profesor/vista-profesor', row.idGrupo]">{{ row.grupo }}</mat-cell>
+  
+                          </ng-container>
+                          <mat-header-row
+                            *matHeaderRowDef="displayedColumns"
+                          ></mat-header-row>
+                          <!-- <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row> -->
+                          <!--<mat-row
+                            *matRowDef="let row; columns: displayedColumns"
+                            (click)="entrarAlumnos(row)"
+                            [style.cursor]="'pointer'"
+                            matRipple
+                          >
+                          </mat-row>-->
+                        </mat-table>
+                      </div>
+                  </div>  
+    </div>
+  </section>

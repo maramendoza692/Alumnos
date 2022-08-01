@@ -1,0 +1,72 @@
+<div class="addContainer">
+  <div class="modalHeader">
+    <div class="editRowModal">
+      <div class="modalHeader clearfix">
+        <mat-icon matSuffix>editar</mat-icon>
+        <div class="modal-about">
+          <div class="font-weight-bold p-t-5 ms-2 me-2 font-17">
+            {{dialogTitle}}</div>
+        </div>
+      </div>
+    </div>
+    <button mat-icon-button (click)="dialogRef.close()" aria-label="Close dialog">
+      <mat-icon>cerrar</mat-icon>
+    </button>
+  </div>
+  <div mat-dialog-content>
+    <form class="register-form m-4" [formGroup]="calificaciones" (ngSubmit)="submit">
+      <div class="row">
+         
+        <div class="col-xl-6 col-lg-6 col-md-12 col-sm-12 mb-2">
+          <mat-form-field class="example-full-width" appearance="fill">
+            <mat-label>Materia</mat-label>
+            <input matInput formControlName="descMateria" required>
+            <mat-error *ngIf="calificacionesForm.get('descMateria').hasError('required')">
+              El expediente es requerido.
+            </mat-error>
+          </mat-form-field>
+        </div>
+        <div class="col-xl-6 col-lg-6 col-md-12 col-sm-12 mb-2">
+          <mat-form-field class="example-full-width" appearance="fill">
+            <mat-label>C  alificacion 1</mat-label>
+            <input matInput formControlName="calUnidadUno" required type="text" onkeydown="return /[a-z, ]/i.test(event.key)">
+            <mat-error *ngIf="calificacionesForm.get('calUnidadUno').hasError('required')">
+              El nombre es requerido.
+            </mat-error>
+          </mat-form-field>
+        </div>
+        <div class="col-xl-6 col-lg-6 col-md-12 col-sm-12 mb-2">
+          <mat-form-field class="example-full-width" appearance="fill">
+            <mat-label>Calificacion2</mat-label>
+            <input matInput formControlName="calUnidadDos" required type="text" onkeydown="return /[a-z, ]/i.test(event.key)"
+             [readonly]="true">
+            <mat-error *ngIf="calificacionesForm.get('calUnidadDos').hasError('required')">
+              Campo requerido.
+            </mat-error>
+          </mat-form-field>
+        </div>
+        <div class="col-xl-6 col-lg-6 col-md-12 col-sm-12 mb-2">
+          <mat-form-field class="example-full-width" appearance="fill">
+            <mat-label>Calificacion 3</mat-label>
+            <input matInput formControlName="calUnidadTres" required type="text" onkeydown="return /[a-z, ]/i.test(event.key)">
+            <mat-error *ngIf="calificacionesForm.get('calUnidadTres').hasError('required')">
+              Campo requerido.
+            </mat-error>
+          </mat-form-field>
+        </div>
+      </div>
+ 
+   
+   
+      <div class="row">
+        <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 mb-2">
+          <div class="example-button-row" align="end">
+            <button type="button" class="btn btn-outline-primary" [type]="submit" [disabled]="!calificacionesForm.valid"
+              [mat-dialog-close]="1" (click)="aceptar()">Guardar</button>
+            <button type="button" class="btn btn-outline-danger" (click)="onNoClick()" tabindex="-1">Cancelar</button>
+          </div>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>

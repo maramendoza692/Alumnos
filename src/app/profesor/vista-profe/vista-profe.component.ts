@@ -14,9 +14,8 @@ import { AlumnoService } from "src/app/_services/alumno.service";
 import { Alumno } from "src/app/_model/alumno";
 import { AlumnoFiltroRequest } from "src/app/_model/alumnoFiltroRequest";
 import { MatTableDataSource } from "@angular/material/table";
-import { AlumnoRequest } from '../../../_model/alumnoRequest';
-import { Grupo } from '../../../_model/grupo';
-import { PerfilAluComponent } from "../perfil-alu/perfil-alu.component";
+import { PerfilAluComponent } from "src/app/administracion/alumno/perfil-alu/perfil-alu.component";
+
 @Component({
   selector: 'app-vista-profe',
   templateUrl: './vista-profe.component.html',
@@ -28,6 +27,7 @@ implements OnInit
 displayedColumns = [
   "expediente",
   "nombre",
+  "apePaterno",
   "curp",
   "correo",
   "status",
@@ -59,7 +59,7 @@ constructor(
 ) {
   super();
 }
-@ViewChild(MatPaginator) paginator!: MatPaginator;
+@ViewChild(MatPaginator) paginator: MatPaginator;
 @ViewChild(MatSort)sort: MatSort;
 // @ViewChild(MatPaginator, { static: true }) paginator: MatPaginator;
 // @ViewChild(MatSort, { static: true }) sort: MatSort;
@@ -77,7 +77,6 @@ ngOnInit() {
     curp: ["", Validators.required],
     nombre: ["", Validators.required],
     apePaterno: ["", Validators.required],
-    apeMaterno: ["", Validators.required],
     status: ["", Validators.required],
     idGrupo: ["", Validators.required],
     sexo: ["", Validators.required],

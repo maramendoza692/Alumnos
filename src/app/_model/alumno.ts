@@ -10,8 +10,7 @@ export class Alumno{
 	apeMaterno: string;
 	curp: string;
 	sexo: string;
-	foto: Blob;
     correo: string;
-	status: string;
+	idStatus: Status;
 	idGrupo: Grupo;
 }

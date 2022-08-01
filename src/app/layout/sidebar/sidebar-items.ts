@@ -128,9 +128,39 @@ export const ROUTES: RouteInfo[] = [
             badgeClass: "",
             role: [""],
             submenu: []
-          }
+          },
+          
+          
         ]
       },
+      {
+        path: "/administracion/profesor",
+        title: "Materias",
+        moduleName: "administracion",
+        iconType: "",
+        icon: "",
+        class: "ml-menu",
+        groupTitle: false,
+        badge: "",
+        badgeClass: "",
+        role: [""],
+        submenu: [
+          {
+        
+            path: "/administracion/profesor/materia",
+            title: "Materias",
+            moduleName: "Profesor",
+            iconType: "",
+            icon: "",
+            class: "ml-menu",
+            groupTitle: false,
+            badge: "",
+            badgeClass: "",
+            role: [""],
+            submenu: []
+          }
+        ]},
+      
       /*{
         path: "/administracion/ciclo",
         title: "Ciclos",
@@ -187,7 +217,34 @@ export const ROUTES: RouteInfo[] = [
 
     ]
   },
-  
+{
+  path: "",
+    title: "Profesor",
+    moduleName: "profesor",
+    iconType: "feather",
+    icon: "monitor",
+    class: "menu-toggle",
+    groupTitle: false,
+    badge: "",
+    badgeClass: "",
+    role: ["Admin"],
+    submenu: [
+      {
+        
+              path: "/profesor/materia",
+              title: "Materias",
+              moduleName: "Profesor",
+              iconType: "",
+              icon: "",
+              class: "ml-menu",
+              groupTitle: false,
+              badge: "",
+              badgeClass: "",
+              role: [""],
+              submenu: []
+            }
+    ]
+  },
   // Admin Modules
   /*{
     path: "",
@@ -245,9 +302,9 @@ export const ROUTES: RouteInfo[] = [
 
   // Employee Modules
   /*{
-    path: "/employee/dashboard",
+    path: "/profesor/materia",
     title: "MENUITEMS.EMPLOYEE.DASHBOARD",
-    moduleName: "dashboard",
+    moduleName: "",
     iconType: "feather",
     icon: "airplay",
     class: "",

@@ -10,5 +10,5 @@ export class Materia{
     descMateria: string;
     status: Status;
     idPromedio:Promedio;
-    idCiclo: Ciclo;
+    ciclo: Ciclo;
 }

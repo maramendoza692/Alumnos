@@ -3,11 +3,11 @@
   <div class="content-block">
     <div class="block-header">
       <!-- breadcrumb -->
+        <app-breadcrumb [title]="'Perfil del alumno'" [items]="['Alumnos']" [active_item]="'Perfil del alumno'">
+        </app-breadcrumb>
         <button type="button" class="btn btn-outline-primary" [routerLink]="['/administracion/alumno/todos-alumnos']">
           <mat-icon>keyboard_arrow_left</mat-icon> 
         </button>
-        <app-breadcrumb [title]="'Perfil del alumno'" [items]="['Alumnos']" [active_item]="'Perfil del alumno'">
-        </app-breadcrumb>
     </div>
     <div class="row clearfix">
       <div class="col-xs-12 col-sm-12 col-md-8 col-lg-8">
@@ -22,24 +22,28 @@
               
               <!-- ID Column -->
               <ng-container matColumnDef="nombre">
-                <mat-header-cell *matHeaderCellDef class="col-3">Materia</mat-header-cell>
-                <mat-cell *matCellDef="let row" class="col-3">{{row[0]}}:  {{row[1]}}</mat-cell>
+                <mat-header-cell *matHeaderCellDef class="col-4">Materia</mat-header-cell>
+                <mat-cell *matCellDef="let row" class="col-4">{{row[0]}}:  {{row[1]}}</mat-cell>
               </ng-container>
               <ng-container matColumnDef="profesor">
                 <mat-header-cell *matHeaderCellDef class="col-3">Profesor</mat-header-cell>
                 <mat-cell *matCellDef="let row" class="col-3">{{row[2]}} {{row[3]}} {{row[4]}}</mat-cell>
               </ng-container>
               <ng-container matColumnDef="cal1">
-                <mat-header-cell *matHeaderCellDef class="col-2">Unidad 1 </mat-header-cell>
-                <mat-cell *matCellDef="let row" class="col-2">{{row[5]}} </mat-cell>
+                <mat-header-cell *matHeaderCellDef class="col-1">U1 </mat-header-cell>
+                <mat-cell *matCellDef="let row" class="col-1">{{row[5]}} </mat-cell>
               </ng-container>
               <ng-container matColumnDef="cal2">
-                <mat-header-cell *matHeaderCellDef class="col-2">Unidad 2</mat-header-cell>
-                <mat-cell *matCellDef="let row" class="col-2">{{row[6]}}</mat-cell>
+                <mat-header-cell *matHeaderCellDef class="col-1">U2</mat-header-cell>
+                <mat-cell *matCellDef="let row" class="col-1">{{row[6]}}</mat-cell>
               </ng-container>
               <ng-container matColumnDef="cal3">
-                <mat-header-cell *matHeaderCellDef class="col-2">Unidad 3</mat-header-cell>
-                <mat-cell *matCellDef="let row" class="col-3">{{row[7]}}</mat-cell>
+                <mat-header-cell *matHeaderCellDef class="col-1">U3</mat-header-cell>
+                <mat-cell *matCellDef="let row" class="col-1">{{row[7]}}</mat-cell>
+              </ng-container>
+              <ng-container matColumnDef="promedio">
+                <mat-header-cell *matHeaderCellDef class="col-2">Promedio</mat-header-cell>
+                <mat-cell *matCellDef="let row" class="col-2"></mat-cell>
               </ng-container>
               
               
@@ -56,46 +60,53 @@
       
       <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4">
         <div class="card">
-          <div class="m-b-20">
-            <div class="contact-grid">
-              <div class="profile-header bg-dark">
-                <div class="user-name">
-                  <p> <strong>{{alumno.nombre}}</strong> </p>
+            <div class="m-b-20">
+                <div class="contact-grid">
+                    <div class="profile-header bg-dark">
+                        <div class="user-name">
+                           
+                        </div><div class="name-center">
+                         <h1  style="font-size:230%; font-family: monospace;">{{alumno.nombre}}</h1>
+                         
+                        <p  style="font-size:130%; font-family: monospace;">{{alumno.apePaterno}} {{alumno.apeMaterno}}</p></div>
+                    </div>
+                   
+                    <p>
+
+                        Sexo: {{alumno.sexo}}
+                        <br />
+                        CURP: {{alumno.curp}}
+
+
+                    </p>
+                    <div>
+                        <span class="phone">
+                            <i class="material-icons">email</i>{{alumno.correo}}</span>
+                    </div>
+                    <div class="row">
+                        <div class="col-4">
+                            <span class="material-icons md-12">person_pin</span>
+                            <br />
+                            <small>Expediente</small>
+                            <h5>{{alumno.expediente}}</h5>
+                        </div>
+                        <div class="col-4">
+                            <span class="material-icons md-18">groups</span>
+                            <br />
+                            <small>Grupo</small>
+                            <h5>{{alumno.idGrupo.grupo}}</h5>
+                        </div>
+                        <div class="col-4">
+                            <span class="material-icons md-18">content_paste</span>
+                            <br />
+                            <small>Ciclo</small>
+                            <h5>{{alumno.idGrupo.ciclo.nombre}}</h5>
+                        </div>
+                    </div>
                 </div>
-                <div class="name-center">{{alumno.apePaterno}} {{alumno.apeMaterno}}</div>
-              </div>
-              
-              <p>
-                
-                Sexo: {{alumno.sexo}}
-                <br />
-                CURP: {{alumno.curp}}
-                
-            
-              </p>
-              <div>
-                <span class="phone">
-                  <i class="material-icons">email</i>{{alumno.correo}}</span>
-              </div>
-              <div class="row">
-                <div class="col-4">
-                  <i class="fab fa-twitter"></i>
-                  <small>Expediente</small>
-                  <h5>{{alumno.expediente}}</h5>
-                </div>
-                <div class="col-4">
-                  <small>Grupo</small>
-                  <h5>{{alumno.idGrupo.descGrupo}}</h5>
-                </div>
-                <div class="col-4" >
-                  <small>Ciclo</small>
-                  <h5>{{alumno.idGrupo.idCiclo.descCiclo}}</h5> 
-                </div>
-              </div>
             </div>
-          </div>
         </div>
-      </div>
+    </div>
       
      </div>
   </div>

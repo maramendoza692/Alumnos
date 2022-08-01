@@ -21,10 +21,6 @@ const routes: Routes = [
       path: "filtrobusqueda",
       component: AlumnosComponent,
     },
-    
- 
-  
-
     { path: "**", component: Page404Component },
   ];
   @NgModule({

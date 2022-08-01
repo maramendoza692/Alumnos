@@ -13,6 +13,6 @@ export class AlumnoRequest{
 	idStatus: string;
 	status: string;
 	idGrupo: string;
-	descGrupo: string;
+	grupo: string;
 
 }

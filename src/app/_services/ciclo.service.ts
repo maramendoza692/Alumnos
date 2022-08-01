@@ -54,8 +54,8 @@ export class CicloService extends UnsubscribeOnDestroyAdapter{
     return this.http.put<Response<Ciclo>>(url, ciclo)
   }
   
-  eliminarCiclo(idCiclo: number): Observable<number> {
-    const url = "http://localhost:8081/ciclo/borrarCicloPorId/" +  idCiclo
+  eliminarCiclo(ciclo: number): Observable<number> {
+    const url = "http://localhost:8081/ciclo/borrarCicloPorId/" +  ciclo
 
     return this.http.delete<number>(url);
   }

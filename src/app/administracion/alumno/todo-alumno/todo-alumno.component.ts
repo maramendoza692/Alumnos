@@ -97,7 +97,7 @@ export class TodoAlumnoComponent
       apeMaterno: [""],
       correo: [""],
       expediente: [""],
-      descGrupo: [""]
+      grupo: [""]
 
     });
     this.filtrarGrupo();
@@ -162,7 +162,7 @@ export class TodoAlumnoComponent
 
           this.dataArray.data = data.list;
           console.log(this.formBusqueda.value);
-          console.log(this.alumnoFiltroRequest.descGrupo);
+          console.log(this.alumnoFiltroRequest.grupo);
         });
       //this.formBusqueda.reset() //resetea elformulario
     }
@@ -229,7 +229,7 @@ export class TodoAlumnoComponent
       this.datos.sort = this.sort
       
         data.list.forEach((element) => {
-          let grupo: string = (element.idGrupo.descGrupo)
+          let grupo: string = (element.idGrupo.grupo)
           this.grupo.push(grupo);
           
         }); 

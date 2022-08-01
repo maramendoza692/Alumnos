@@ -25,7 +25,8 @@ alumateria : Object = new Object();
     "profesor",
     "cal1",
     "cal2",
-    "cal3"
+    "cal3",
+    "promedio"
     
   ];
 

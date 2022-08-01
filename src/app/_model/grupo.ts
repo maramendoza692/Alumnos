@@ -3,7 +3,7 @@ import { Status } from "./Status";
 //Mapeando tiene que ser igual al spring
 export class Grupo{
     idGrupo:number;
-    descGrupo:string;
+    grupo:string;
     status:Status;
-    idCiclo: Ciclo;
+    ciclo: Ciclo;
 }

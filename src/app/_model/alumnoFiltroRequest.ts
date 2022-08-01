@@ -7,6 +7,6 @@ export class AlumnoFiltroRequest {
     apeMaterno:string;
     curp:string;
     correo: string;
-    descGrupo: string;
-    //fk_grupo: Grupo;
+    idGrupo: Grupo;
+    grupo: string;
 }
