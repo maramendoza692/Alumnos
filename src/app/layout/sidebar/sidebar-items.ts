@@ -13,7 +13,31 @@ export const ROUTES: RouteInfo[] = [
     role: ["All"],
     submenu: [],
   },
-
+  {
+    path: "",
+    title: "Profesor",
+    moduleName: "profesor",
+    iconType: "feather",
+    icon: "monitor",
+    class: "menu-toggle",
+    groupTitle: false,
+    badge: "",
+    badgeClass: "",
+    role: ["Admin"],
+    submenu: [
+      {
+        path: "/profesor/materia",
+        title: "materia",
+        moduleName: "administracion",
+        iconType: "",
+        icon: "",
+        class: "ml-menu",
+        groupTitle: false,
+        badge: "",
+        badgeClass: "",
+        role: [""],
+        submenu: []}
+    ]},
   {
     path: "",
     title: "Administración",

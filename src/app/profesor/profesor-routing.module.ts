@@ -21,6 +21,11 @@ const routes: Routes = [
     component: GrupoProfeComponent,
   },
   {
+    path: "",
+    redirectTo: "materia",
+    pathMatch: "full",
+  },
+  {
     path: "alumnos",
     component: VistaProfeComponent,
   },

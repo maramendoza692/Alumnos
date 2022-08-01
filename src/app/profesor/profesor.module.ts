@@ -34,9 +34,17 @@ import { GrupoProfeComponent } from './grupo-profe/grupo-profe.component';
 import { MatTableExporterModule } from 'mat-table-exporter';
 import { VistaProfeComponent } from '../profesor/vista-profe/vista-profe.component';
 import { PerfilAluProfesorComponent } from "./perfil-alu-profesor/perfil-alu-profesor.component";
+import { EditarCalificacionesComponent } from "./perfil-alu-profesor/editar-calificaciones/editar-calificaciones.component";
 
 @NgModule({
-  declarations: [ MateriasProfeComponent, GrupoProfeComponent, VistaProfeComponent, PerfilAluProfesorComponent],
+  declarations: [ 
+    MateriasProfeComponent, 
+    GrupoProfeComponent, 
+    VistaProfeComponent, 
+    PerfilAluProfesorComponent,
+    EditarCalificacionesComponent,
+    DashboardComponent
+  ],
   imports: [
     CommonModule,
     ProfesorRoutingModule,
@@ -70,6 +78,7 @@ import { PerfilAluProfesorComponent } from "./perfil-alu-profesor/perfil-alu-pro
     ComponentsModule,
     SharedModule,
     MatTableExporterModule
+  
   ],
   providers: [],
 })
