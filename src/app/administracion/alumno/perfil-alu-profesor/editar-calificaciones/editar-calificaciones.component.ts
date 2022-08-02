@@ -61,7 +61,7 @@ export class EditarCalificacionesComponent implements OnInit {
     // Set the defaults
     this.action = data.action;
     if (this.action === "edit") {
-      this.dialogTitle == this.calificaciones.idMateria.descMateria
+      this.dialogTitle == this.calificaciones.idMateria.nombre
       this.calificaciones= data.calificaciones
     } else {
       this.dialogTitle = "add"

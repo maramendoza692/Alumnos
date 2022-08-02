@@ -7,7 +7,7 @@ import { Promedio } from "./promedio";
 export class Materia{
     idMateria: number;
     clave: string;
-    descMateria: string;
+    nombre: string;
     status: Status;
     idPromedio:Promedio;
     ciclo: Ciclo;

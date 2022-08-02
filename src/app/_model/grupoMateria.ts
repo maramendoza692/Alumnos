@@ -1,8 +1,12 @@
-import { Grupo } from "./grupo";
-import { Materia } from "./materia";
-
-export class GrupoMateria {
-    pk_gr_mt: number;
-    fk_grupo:Grupo;
-    fk_materia:Materia;
+import { Materia } from './materia';
+import { Grupo } from './grupo';
+export class GrupoMateria{
+    
+    nombre: string;
+    idMateria: number;
+    grupo: string;
+    idGrupo: number
+    idGrMt: number;
+    idMat: Materia;
+    idGr: Grupo;
 }

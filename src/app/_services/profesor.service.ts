@@ -7,6 +7,8 @@ import { UnsubscribeOnDestroyAdapter } from '../shared/UnsubscribeOnDestroyAdapt
 import { Response } from "../_model/response";
 import { Profesor } from '../_model/profesor';
 import { ProfesorMateria } from '../_model/profesorMateria';
+import { Grupo } from '../_model/grupo';
+import { GrupoMateria } from 'src/app/_model/grupoMateria';
 
 @Injectable({
   providedIn: 'root'
@@ -46,16 +48,16 @@ export class ProfesorService extends UnsubscribeOnDestroyAdapter{
     return this.http.get<Response<ProfesorMateria>>(url);
   }
 
-  consultarGrupoMateria(idMateria): Observable<Response<Profesor>> {
+  consultarGrupoMateria(idMateria): Observable<Response<GrupoMateria>> {
     const url = "http://localhost:8081/profesor/consultarGrupoMateria/" +  idMateria
 
-    return this.http.get<Response<Profesor>>(url);
+    return this.http.get<Response<GrupoMateria>>(url);
   }
 
-  consultarGrupoAlumno(idGrupo): Observable<Response<Profesor>> {
+  consultarGrupoAlumno(idGrupo): Observable<Response<Object[]>> {
     const url = "http://localhost:8081/profesor/consultarGrupoAlumno/" +  idGrupo
 
-    return this.http.get<Response<Profesor>>(url);
+    return this.http.get<Response<Object[]>>(url);
   }
 
   

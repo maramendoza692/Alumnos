@@ -22,6 +22,12 @@ export class MateriaService {
 
   }
 
+  consultarMateriaPorID(idMateria): Observable<Response<Materia>> {
+    const url = "http://localhost:8081/alumno/consultarMateriaPorID/" +  idMateria
+
+    return this.http.get<Response<Materia>>(url);
+  }
+
 
 
 }

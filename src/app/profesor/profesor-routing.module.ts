@@ -17,7 +17,7 @@ const routes: Routes = [
     component: MateriasProfeComponent,
   },
   {
-    path: "grupo/:idGrupo",
+    path: "materia/grupo/:idMateria",
     component: GrupoProfeComponent,
   },
   {
@@ -26,8 +26,16 @@ const routes: Routes = [
     pathMatch: "full",
   },
   {
-    path: "alumnos",
+    path: "alumnos/:idGrupo",
     component: VistaProfeComponent,
+  },
+  {
+    path: "alumnoPerfil/:idAlumno",
+    component: PerfilAluProfesorComponent
+  },
+  {
+    path: "editarCalif/:idCalificacion",
+    component: EditarCalificacionesComponent 
   },
   /*{
     path: "materia",component: MateriasProfeComponent,
