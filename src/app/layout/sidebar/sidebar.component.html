@@ -1,7 +1,7 @@
-<div>
-  <!-- Left Sidebar -->
+<!--<div>
+    
   <aside id="leftsidebar" class="sidebar" (mouseenter)="mouseHover($event)" (mouseleave)="mouseOut($event)">
-    <!-- Menu -->
+    
     <div class="menu">
       <ul class="list"
         [ngStyle]="{'position' : 'relative', 'max-height' : listMaxHeight+'px', 'max-width' : listMaxWidth+'px'}"
@@ -17,7 +17,7 @@
             <div class="profile-usertitle-job ">{{userType}} </div>
           </div>
         </li>
-        <!-- Top Most level menu -->
+        
         <li [class.active]="level1Menu === sidebarItem.moduleName && sidebarItem.submenu.length != 0"
           *ngFor="let sidebarItem of sidebarItems" [routerLinkActive]="sidebarItem.submenu.length != 0 ? '' : 'active'">
           <div class="header" *ngIf="sidebarItem.groupTitle === true">{{sidebarItem.title | translate}}</div>
@@ -28,7 +28,6 @@
             </span>
             <span *ngIf="sidebarItem.badge != '' " [ngClass]="[sidebarItem.badgeClass]">{{sidebarItem.badge}}</span>
           </a>
-          <!-- First level menu -->
           <ul class="ml-menu" *ngIf="sidebarItem.submenu.length > 0">
             <li [ngClass]="level2Menu === sidebarSubItem.moduleName? 'activeSub':''"
               *ngFor="let sidebarSubItem of sidebarItem.submenu"
@@ -37,7 +36,6 @@
                 (click)="callLevel2Toggle($event,sidebarSubItem.moduleName)" [ngClass]="[sidebarSubItem.class]">
                 {{sidebarSubItem.title | translate}}
               </a>
-              <!-- Second level menu -->
               <ul class="ml-menu-2" *ngIf="sidebarSubItem.submenu.length > 0">
                 <li *ngFor="let sidebarSubsubItem of sidebarSubItem.submenu"
                   [ngClass]="level3Menu === sidebarSubsubItem.moduleName? 'activeSubSub':''"
@@ -61,7 +59,5 @@
         </li>
       </ul>
     </div>
-    <!-- #Menu -->
   </aside>
-  <!-- #END# Left Sidebar -->
-</div>
+</div>-->

@@ -1,0 +1,67 @@
+<section class="content">
+    <div class="content-block">
+      <div class="block-header">
+        <br>
+        <h3>Expediente {{expediente.idExpediente}}</h3>
+        <div class="card">
+          <div class="body">
+            <table>       
+                   
+                        <tr>
+                            <td class="col-3">
+                                <h5>Nombre: </h5> <p>{{expediente.nombre}} {{expediente.apePat}} {{expediente.apeMat}}  </p>
+                            </td>
+                            <td class="col-2">
+                                <h5>CURP: </h5> <p>{{expediente.curp}} </p>
+                            </td>
+                            <td class="col-2">
+                                <h5>Sexo: </h5> <p>{{expediente.sexo}} </p>
+                            </td>
+                            <td class="col-3">
+                                <h5>Lugar de nacimiento: </h5> <p>{{expediente.lugarNacimiento}} </p>
+                            </td>
+                            <td class="col-2">
+                                <h5>No. de Seguro Médico: </h5> <p>{{expediente.noSeguroMedico}} </p>
+                            </td>  
+                        </tr>
+                    
+                        <tr>
+                            <td class="col-3">
+                                <h5>Fecha de nacimiento: </h5> <p>{{expediente.fechaNacimiento}} </p>
+                            </td>
+                            <td class="col-2">
+                                <h5>Tipo de sangre: </h5> <p>{{expediente.tipoSangre}} </p>
+                            </td>
+                            <td class="col-2">
+                                <h5>Alergias: </h5> <p>{{expediente.alergias}} </p>
+                            </td>
+                            <td class="col-3">
+                                <h5>Enfermedades crónicas </h5> <p>{{expediente.enfermedadesCronicas}} </p>
+                            </td>
+                            
+                        </tr>  
+            </table>
+          </div>
+        </div>
+        <div class="row">
+            <div class="col-8">
+                <h3>Historial de eventos</h3>
+            </div>
+            <mat-form-field style="width:120px;" appearance="outline">
+                <mat-label>Año</mat-label>
+                <mat-select placeholder="Año" formControlName="year">
+                  <mat-option></mat-option>
+                  <mat-option *ngFor="let fecha of fechaInicio" [value]="fecha">{{fecha}}</mat-option>
+                </mat-select>
+              </mat-form-field>
+            <div class="col-2">
+                <button type="button" class="btn btn-primary" style="width:120px;height:50px;" type="submit">
+                    Agregar Evento
+                  </button>
+            </div>
+        </div>
+        <br>
+        
+      </div>
+    </div>
+  </section>

@@ -3,6 +3,7 @@ import { NgModule } from "@angular/core";
 import { Routes, RouterModule } from "@angular/router";
 import { MainComponent } from "./main/main.component";
 import { Dashboard2Component } from "./dashboard2/dashboard2.component";
+import { ExpedienteComponent } from "../expediente/expediente.component";
 const routes: Routes = [
   {
     path: "",
@@ -12,6 +13,10 @@ const routes: Routes = [
   {
     path: "main",
     component: MainComponent,
+  },
+  {
+    path: "main/expediente/:idExpediente",
+    component: ExpedienteComponent,
   },
   {
     path: "dashboard2",

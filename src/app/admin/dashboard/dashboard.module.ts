@@ -13,6 +13,8 @@ import { MatTooltipModule } from "@angular/material/tooltip";
 import { NgApexchartsModule } from "ng-apexcharts";
 import { ComponentsModule } from "src/app/shared/components/components.module";
 import { SharedModule } from "./../../shared/shared.module";
+import { MatTableModule } from "@angular/material/table";
+import { MatTableExporterModule } from "mat-table-exporter";
 
 @NgModule({
   declarations: [MainComponent, Dashboard2Component],
@@ -29,6 +31,8 @@ import { SharedModule } from "./../../shared/shared.module";
     MatProgressBarModule,
     ComponentsModule,
     SharedModule,
+    MatTableModule,
+    MatTableExporterModule,
   ],
 })
 export class DashboardModule {}

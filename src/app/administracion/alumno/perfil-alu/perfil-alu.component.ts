@@ -17,7 +17,7 @@ import { Calificaciones } from '../../../_model/calificaciones';
 })
 export class PerfilAluComponent implements OnInit {
 
-alumno : Alumno = new Alumno();
+alumno : Alumno = new Alumno(); 
 alumateria : Object = new Object();
 
   displayedColumns = [

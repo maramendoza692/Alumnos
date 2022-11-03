@@ -30,15 +30,7 @@ const routes: Routes = [
         loadChildren: () =>
           import("./administracion/administracion.module").then((m) => m.AdministracionModule),
       },
-      {
-        path: "profesor",
-        canActivate: [AuthGuard],
-        data: {
-          role: Role.Admin,
-        },
-        loadChildren: () =>
-          import("./profesor/profesor.module").then((m) => m.ProfesorModule),
-      },
+      
       {
         path: "employee",
         canActivate: [AuthGuard],

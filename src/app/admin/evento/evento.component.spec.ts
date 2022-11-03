@@ -1,20 +1,20 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { VistaProfeComponent } from './vista-profe.component';
+import { EventoComponent } from './evento.component';
 
-describe('VistaProfeComponent', () => {
-  let component: VistaProfeComponent;
-  let fixture: ComponentFixture<VistaProfeComponent>;
+describe('EventoComponent', () => {
+  let component: EventoComponent;
+  let fixture: ComponentFixture<EventoComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ VistaProfeComponent ]
+      declarations: [ EventoComponent ]
     })
     .compileComponents();
   });
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(VistaProfeComponent);
+    fixture = TestBed.createComponent(EventoComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
